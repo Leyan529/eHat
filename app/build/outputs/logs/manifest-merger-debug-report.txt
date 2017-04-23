@@ -1,0 +1,540 @@
+-- Merging decision tree log ---
+manifest
+ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:2:1-81:12
+	package
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:3:5-33
+		INJECTED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml
+		INJECTED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml
+	android:versionName
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:6:5-46
+		INJECTED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml
+		INJECTED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml
+	android:versionCode
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:5:5-28
+		INJECTED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml
+		INJECTED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:2:11-69
+	android:installLocation
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:4:5-35
+uses-sdk
+ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:8:5-74
+MERGED from [com.google.android.gms:play-services:10.2.0] C:\Users\Leyan\.android\build-cache\4a3c79b681860b660c327c8d66535843a25449b5\output\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-ads:10.2.0] C:\Users\Leyan\.android\build-cache\b95b112b205a5deae3004610329b8ea079420045\output\AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-ads-lite:10.2.0] C:\Users\Leyan\.android\build-cache\47c3afe7965228977ebb3896827269b7f24495ea\output\AndroidManifest.xml:22:5-43
+MERGED from [com.google.android.gms:play-services-analytics:10.2.0] C:\Users\Leyan\.android\build-cache\aa112b9a3ada0cfe095b341574424d18124e155b\output\AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-appinvite:10.2.0] C:\Users\Leyan\.android\build-cache\c8a57c4e399be13521ba3adbfcff533a23b53875\output\AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-auth:10.2.0] C:\Users\Leyan\.android\build-cache\f08d17a7e25769977db876543065e2dcd5cd6119\output\AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-auth-base:10.2.0] C:\Users\Leyan\.android\build-cache\6082ae86297d1ad43bd693047c3b55ef252896f8\output\AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-cast-framework:10.2.0] C:\Users\Leyan\.android\build-cache\4b2c458fbf01da8a9d6814a7925a1ed33d3d1cab\output\AndroidManifest.xml:3:5-43
+MERGED from [com.google.android.gms:play-services-cast:10.2.0] C:\Users\Leyan\.android\build-cache\e9654070f97f55f9f55a11e821f7b8054b47b31d\output\AndroidManifest.xml:17:5-43
+MERGED from [com.android.support:mediarouter-v7:24.0.0] C:\Users\Leyan\.android\build-cache\1c6d6ad3b3fd955a3a623bbde38b64d4ab67630b\output\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:palette-v7:24.0.0] C:\Users\Leyan\.android\build-cache\12a036020f8afce5a1357c568b89472dc199ff92\output\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:appcompat-v7:24.0.0] C:\Users\Leyan\.android\build-cache\43a6ba4858b4dc85b5181557afd9c48bc993a548\output\AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:animated-vector-drawable:24.0.0] C:\Users\Leyan\.android\build-cache\ff3847896cc67a62e36b1ae6af1aa15b4bbaa6fe\output\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:24.0.0] C:\Users\Leyan\.android\build-cache\9365949cedcebffe1ecb4148a74cd632b75e508c\output\AndroidManifest.xml:21:5-43
+MERGED from [com.google.android.gms:play-services-clearcut:10.2.0] C:\Users\Leyan\.android\build-cache\2913785018c9de8a8ad0d6509a3c80e9592d67b9\output\AndroidManifest.xml:17:5-43
+MERGED from [com.google.firebase:firebase-config:10.2.0] C:\Users\Leyan\.android\build-cache\32e041612d3343cba911ef564b4395f84d9b7c7f\output\AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-awareness:10.2.0] C:\Users\Leyan\.android\build-cache\6d07fa317450b5c4a19000fcde49cd23c02ed1af\output\AndroidManifest.xml:17:5-43
+MERGED from [com.google.firebase:firebase-crash:10.2.0] C:\Users\Leyan\.android\build-cache\e20476877783fd970b695ce702bb47dc4ddef170\output\AndroidManifest.xml:20:5-43
+MERGED from [com.google.firebase:firebase-auth:10.2.0] C:\Users\Leyan\.android\build-cache\e726133411fb6d92413243c02854e396bb2756ec\output\AndroidManifest.xml:17:5-43
+MERGED from [com.google.firebase:firebase-database:10.2.0] C:\Users\Leyan\.android\build-cache\de4044272ef487e315151a4fa7c7a90cf0e5b647\output\AndroidManifest.xml:3:5-43
+MERGED from [com.google.firebase:firebase-database-connection:10.2.0] C:\Users\Leyan\.android\build-cache\63935392d1da611aa52738b6fb2828149801a5d3\output\AndroidManifest.xml:3:5-43
+MERGED from [com.google.firebase:firebase-messaging:10.2.0] C:\Users\Leyan\.android\build-cache\d3526b0903b18fae50ef5eba86d3cbd76d17b21a\output\AndroidManifest.xml:17:5-43
+MERGED from [com.google.firebase:firebase-storage:10.2.0] C:\Users\Leyan\.android\build-cache\f0130dd444a169dc5deedf82be0617363c229f91\output\AndroidManifest.xml:3:5-43
+MERGED from [com.google.firebase:firebase-storage-common:10.2.0] C:\Users\Leyan\.android\build-cache\e684921db1a3191cf18e25e6392514fdd82437b6\output\AndroidManifest.xml:3:5-43
+MERGED from [com.google.android.gms:play-services-fitness:10.2.0] C:\Users\Leyan\.android\build-cache\4105ea036e3dbf4e37785732232026c43898e83e\output\AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-games:10.2.0] C:\Users\Leyan\.android\build-cache\4f2b7c7da67f583a6bf1781525bc6c78c48b07d2\output\AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-drive:10.2.0] C:\Users\Leyan\.android\build-cache\98b637f2d1fda0af9ee9464d1b08306f4bacb6b9\output\AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-gass:10.2.0] C:\Users\Leyan\.android\build-cache\2114af225038af6ae72c9b589b9d6dc1e8feabff\output\AndroidManifest.xml:3:5-43
+MERGED from [com.google.android.gms:play-services-gcm:10.2.0] C:\Users\Leyan\.android\build-cache\591c1ad0a0d23f336809ea0a9d060ad58a6a646a\output\AndroidManifest.xml:17:5-43
+MERGED from [com.google.firebase:firebase-appindexing:10.2.0] C:\Users\Leyan\.android\build-cache\271d5d372971140a1cf4100b860918564ff8d673\output\AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-iid:10.2.0] C:\Users\Leyan\.android\build-cache\04b6120b9e88a0487c066ca02af5e3a078013b62\output\AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-instantapps:10.2.0] C:\Users\Leyan\.android\build-cache\5b0de25a027f03247b2ba87dfda2b06081f695b9\output\AndroidManifest.xml:3:5-43
+MERGED from [com.google.android.gms:play-services-location:10.2.0] C:\Users\Leyan\.android\build-cache\08bb58de2b4a400875ec761cec05895d86ea055c\output\AndroidManifest.xml:3:5-43
+MERGED from [com.google.android.gms:play-services-nearby:10.2.0] C:\Users\Leyan\.android\build-cache\aa433022be14f4f4b3efed515c1a342763c109c5\output\AndroidManifest.xml:3:5-43
+MERGED from [com.google.android.gms:play-services-panorama:10.2.0] C:\Users\Leyan\.android\build-cache\be0617df4d2e8983006e2c91c5f5c2ab5d8e57ce\output\AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-places:10.2.0] C:\Users\Leyan\.android\build-cache\20f54e41b97625126f372d26d38e6a7394250542\output\AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-plus:10.2.0] C:\Users\Leyan\.android\build-cache\9a1c93939db653db0414ed68cf4d207a2403a834\output\AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-safetynet:10.2.0] C:\Users\Leyan\.android\build-cache\2149979a5f96913280380254e9b9fb25fe745c65\output\AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-tagmanager:10.2.0] C:\Users\Leyan\.android\build-cache\fae17a46e5e7e1d770e77568a9d8821eeb01c763\output\AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-tagmanager-api:10.2.0] C:\Users\Leyan\.android\build-cache\5e5d7987b7fa4967aef98c1cda0c1c91f082c6d2\output\AndroidManifest.xml:17:5-43
+MERGED from [com.google.firebase:firebase-analytics:10.2.0] C:\Users\Leyan\.android\build-cache\092d1b84d4f95d781e924a6108fe70a44b2bb697\output\AndroidManifest.xml:17:5-43
+MERGED from [com.google.firebase:firebase-analytics-impl:10.2.0] C:\Users\Leyan\.android\build-cache\6e7a48e68a0ddd840d6be2810c830bbd6d1fce24\output\AndroidManifest.xml:17:5-43
+MERGED from [com.google.firebase:firebase-iid:10.2.0] C:\Users\Leyan\.android\build-cache\9715aa679f473f00bb337c8f2071ac2433d293ac\output\AndroidManifest.xml:17:5-43
+MERGED from [com.google.firebase:firebase-common:10.2.0] C:\Users\Leyan\.android\build-cache\b48cc43c9cefb34dbe643675c232725bfab6646d\output\AndroidManifest.xml:3:5-43
+MERGED from [com.google.android.gms:play-services-tagmanager-v4-impl:10.2.0] C:\Users\Leyan\.android\build-cache\bed17f08f558fabe5221dcb7b6ae2cd3979c4609\output\AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-analytics-impl:10.2.0] C:\Users\Leyan\.android\build-cache\cd455d3ced2821f55b97719ab29e7593059ac119\output\AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-vision:10.2.0] C:\Users\Leyan\.android\build-cache\3ba85ef0b391edf12521b34c152acd7678b5a089\output\AndroidManifest.xml:3:5-43
+MERGED from [com.google.android.gms:play-services-wallet:10.2.0] C:\Users\Leyan\.android\build-cache\334990b78b1893d193edc92740987bbbc5ec26df\output\AndroidManifest.xml:18:5-43
+MERGED from [com.google.android.gms:play-services-identity:10.2.0] C:\Users\Leyan\.android\build-cache\876945c594c4bfa30b2b332ac80f32823ce3685e\output\AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-maps:10.2.0] C:\Users\Leyan\.android\build-cache\5891613f4a032ce50d91d32b2ed87d4ba554e0d4\output\AndroidManifest.xml:23:5-43
+MERGED from [com.google.android.gms:play-services-wearable:10.2.0] C:\Users\Leyan\.android\build-cache\03167f902beb0e5e48ea3e9c369d220ad57a9fcd\output\AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-base:10.2.0] C:\Users\Leyan\.android\build-cache\c5f03dfd84869f157e56983e8327663d21d03e79\output\AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-tasks:10.2.0] C:\Users\Leyan\.android\build-cache\0ffb3719dd63474161ab8a89bf477d81719fedba\output\AndroidManifest.xml:3:5-43
+MERGED from [com.google.android.gms:play-services-basement:10.2.0] C:\Users\Leyan\.android\build-cache\6886be48981cda7c3528e74595b03fac9a719ffc\output\AndroidManifest.xml:17:5-43
+MERGED from [com.android.support:support-v4:24.0.0] C:\Users\Leyan\.android\build-cache\feb1c688417b2f7a6e08714b0978d424ccae1374\output\AndroidManifest.xml:21:5-23:54
+	tools:overrideLibrary
+		ADDED from [com.android.support:appcompat-v7:24.0.0] C:\Users\Leyan\.android\build-cache\43a6ba4858b4dc85b5181557afd9c48bc993a548\output\AndroidManifest.xml:23:9-75
+	android:targetSdkVersion
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:8:42-71
+		INJECTED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml
+		INJECTED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:8:15-41
+		INJECTED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml
+		INJECTED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml
+uses-feature#android.hardware.bluetooth
+ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:10:5-87
+	android:required
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:10:61-84
+	android:name
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:10:19-60
+uses-feature#android.hardware.bluetooth_le
+ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:11:5-90
+	android:required
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:11:64-87
+	android:name
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:11:19-63
+uses-feature#android.hardware.location
+ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:12:5-86
+	android:required
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:12:60-83
+	android:name
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:12:19-59
+uses-feature#android.hardware.location.gps
+ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:13:5-90
+	android:required
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:13:64-87
+	android:name
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:13:19-63
+uses-feature#android.hardware.location.network
+ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:14:5-94
+	android:required
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:14:68-91
+	android:name
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:14:19-67
+uses-feature#android.hardware.wifi
+ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:15:5-82
+	android:required
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:15:56-79
+	android:name
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:15:19-55
+uses-feature#0x00020000
+ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:16:5-78
+MERGED from [com.google.android.gms:play-services-maps:10.2.0] C:\Users\Leyan\.android\build-cache\5891613f4a032ce50d91d32b2ed87d4ba554e0d4\output\AndroidManifest.xml:21:5-77
+	android:glEsVersion
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:16:19-51
+	android:required
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:16:52-75
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:18:2-76
+	android:name
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:18:19-73
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:19:5-79
+MERGED from [com.google.android.gms:play-services-ads-lite:10.2.0] C:\Users\Leyan\.android\build-cache\47c3afe7965228977ebb3896827269b7f24495ea\output\AndroidManifest.xml:20:5-78
+MERGED from [com.google.android.gms:play-services-analytics:10.2.0] C:\Users\Leyan\.android\build-cache\aa112b9a3ada0cfe095b341574424d18124e155b\output\AndroidManifest.xml:21:5-78
+MERGED from [com.google.android.gms:play-services-nearby:10.2.0] C:\Users\Leyan\.android\build-cache\aa433022be14f4f4b3efed515c1a342763c109c5\output\AndroidManifest.xml:4:5-78
+MERGED from [com.google.android.gms:play-services-tagmanager-api:10.2.0] C:\Users\Leyan\.android\build-cache\5e5d7987b7fa4967aef98c1cda0c1c91f082c6d2\output\AndroidManifest.xml:21:5-78
+MERGED from [com.google.firebase:firebase-analytics:10.2.0] C:\Users\Leyan\.android\build-cache\092d1b84d4f95d781e924a6108fe70a44b2bb697\output\AndroidManifest.xml:21:5-78
+MERGED from [com.google.firebase:firebase-analytics-impl:10.2.0] C:\Users\Leyan\.android\build-cache\6e7a48e68a0ddd840d6be2810c830bbd6d1fce24\output\AndroidManifest.xml:21:5-78
+MERGED from [com.google.firebase:firebase-iid:10.2.0] C:\Users\Leyan\.android\build-cache\9715aa679f473f00bb337c8f2071ac2433d293ac\output\AndroidManifest.xml:19:5-78
+MERGED from [com.google.android.gms:play-services-analytics-impl:10.2.0] C:\Users\Leyan\.android\build-cache\cd455d3ced2821f55b97719ab29e7593059ac119\output\AndroidManifest.xml:21:5-78
+MERGED from [com.google.android.gms:play-services-maps:10.2.0] C:\Users\Leyan\.android\build-cache\5891613f4a032ce50d91d32b2ed87d4ba554e0d4\output\AndroidManifest.xml:19:5-78
+	android:name
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:19:22-76
+uses-permission#android.permission.BLUETOOTH
+ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:20:5-68
+	android:name
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:20:22-65
+uses-permission#android.permission.BLUETOOTH_ADMIN
+ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:21:5-74
+	android:name
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:21:22-71
+uses-permission#android.permission.CALL_PHONE
+ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:22:5-69
+	android:name
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:22:22-66
+uses-permission#android.permission.INTERNET
+ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:23:5-67
+MERGED from [com.google.android.gms:play-services-ads-lite:10.2.0] C:\Users\Leyan\.android\build-cache\47c3afe7965228977ebb3896827269b7f24495ea\output\AndroidManifest.xml:19:5-66
+MERGED from [com.google.android.gms:play-services-analytics:10.2.0] C:\Users\Leyan\.android\build-cache\aa112b9a3ada0cfe095b341574424d18124e155b\output\AndroidManifest.xml:20:5-66
+MERGED from [com.google.android.gms:play-services-appinvite:10.2.0] C:\Users\Leyan\.android\build-cache\c8a57c4e399be13521ba3adbfcff533a23b53875\output\AndroidManifest.xml:18:5-66
+MERGED from [com.google.firebase:firebase-crash:10.2.0] C:\Users\Leyan\.android\build-cache\e20476877783fd970b695ce702bb47dc4ddef170\output\AndroidManifest.xml:18:5-66
+MERGED from [com.google.android.gms:play-services-gcm:10.2.0] C:\Users\Leyan\.android\build-cache\591c1ad0a0d23f336809ea0a9d060ad58a6a646a\output\AndroidManifest.xml:21:5-66
+MERGED from [com.google.android.gms:play-services-iid:10.2.0] C:\Users\Leyan\.android\build-cache\04b6120b9e88a0487c066ca02af5e3a078013b62\output\AndroidManifest.xml:21:5-66
+MERGED from [com.google.android.gms:play-services-tagmanager-api:10.2.0] C:\Users\Leyan\.android\build-cache\5e5d7987b7fa4967aef98c1cda0c1c91f082c6d2\output\AndroidManifest.xml:20:5-66
+MERGED from [com.google.firebase:firebase-analytics:10.2.0] C:\Users\Leyan\.android\build-cache\092d1b84d4f95d781e924a6108fe70a44b2bb697\output\AndroidManifest.xml:20:5-66
+MERGED from [com.google.firebase:firebase-analytics-impl:10.2.0] C:\Users\Leyan\.android\build-cache\6e7a48e68a0ddd840d6be2810c830bbd6d1fce24\output\AndroidManifest.xml:20:5-66
+MERGED from [com.google.firebase:firebase-iid:10.2.0] C:\Users\Leyan\.android\build-cache\9715aa679f473f00bb337c8f2071ac2433d293ac\output\AndroidManifest.xml:20:5-66
+MERGED from [com.google.android.gms:play-services-analytics-impl:10.2.0] C:\Users\Leyan\.android\build-cache\cd455d3ced2821f55b97719ab29e7593059ac119\output\AndroidManifest.xml:20:5-66
+MERGED from [com.google.android.gms:play-services-maps:10.2.0] C:\Users\Leyan\.android\build-cache\5891613f4a032ce50d91d32b2ed87d4ba554e0d4\output\AndroidManifest.xml:20:5-66
+	android:name
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:23:22-64
+uses-permission#android.permission.READ_PHONE_STATE
+ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:24:5-75
+	android:name
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:24:22-72
+uses-permission#android.permission.STORAGE
+ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:25:5-66
+	android:name
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:25:22-63
+uses-permission#android.permission.WAKE_LOCK
+ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:26:5-68
+MERGED from [com.google.android.gms:play-services-analytics:10.2.0] C:\Users\Leyan\.android\build-cache\aa112b9a3ada0cfe095b341574424d18124e155b\output\AndroidManifest.xml:24:5-67
+MERGED from [com.google.firebase:firebase-analytics:10.2.0] C:\Users\Leyan\.android\build-cache\092d1b84d4f95d781e924a6108fe70a44b2bb697\output\AndroidManifest.xml:22:5-67
+MERGED from [com.google.firebase:firebase-analytics-impl:10.2.0] C:\Users\Leyan\.android\build-cache\6e7a48e68a0ddd840d6be2810c830bbd6d1fce24\output\AndroidManifest.xml:22:5-67
+MERGED from [com.google.firebase:firebase-iid:10.2.0] C:\Users\Leyan\.android\build-cache\9715aa679f473f00bb337c8f2071ac2433d293ac\output\AndroidManifest.xml:21:5-67
+MERGED from [com.google.android.gms:play-services-analytics-impl:10.2.0] C:\Users\Leyan\.android\build-cache\cd455d3ced2821f55b97719ab29e7593059ac119\output\AndroidManifest.xml:24:5-67
+	android:name
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:26:22-65
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:27:5-81
+	android:name
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:27:22-78
+uses-permission#com.google.android.providers.gsf.permission.READ_GSERVICES
+ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:28:5-98
+	android:name
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:28:22-95
+application
+ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:32:5-79:19
+MERGED from [com.google.android.gms:play-services:10.2.0] C:\Users\Leyan\.android\build-cache\4a3c79b681860b660c327c8d66535843a25449b5\output\AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-ads-lite:10.2.0] C:\Users\Leyan\.android\build-cache\47c3afe7965228977ebb3896827269b7f24495ea\output\AndroidManifest.xml:23:5-27:19
+MERGED from [com.google.android.gms:play-services-analytics:10.2.0] C:\Users\Leyan\.android\build-cache\aa112b9a3ada0cfe095b341574424d18124e155b\output\AndroidManifest.xml:26:5-19
+MERGED from [com.google.android.gms:play-services-appinvite:10.2.0] C:\Users\Leyan\.android\build-cache\c8a57c4e399be13521ba3adbfcff533a23b53875\output\AndroidManifest.xml:19:5-26:19
+MERGED from [com.google.android.gms:play-services-auth:10.2.0] C:\Users\Leyan\.android\build-cache\f08d17a7e25769977db876543065e2dcd5cd6119\output\AndroidManifest.xml:19:5-25:19
+MERGED from [com.google.android.gms:play-services-cast-framework:10.2.0] C:\Users\Leyan\.android\build-cache\4b2c458fbf01da8a9d6814a7925a1ed33d3d1cab\output\AndroidManifest.xml:4:5-8:19
+MERGED from [com.google.android.gms:play-services-cast:10.2.0] C:\Users\Leyan\.android\build-cache\e9654070f97f55f9f55a11e821f7b8054b47b31d\output\AndroidManifest.xml:18:5-19
+MERGED from [com.android.support:mediarouter-v7:24.0.0] C:\Users\Leyan\.android\build-cache\1c6d6ad3b3fd955a3a623bbde38b64d4ab67630b\output\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:palette-v7:24.0.0] C:\Users\Leyan\.android\build-cache\12a036020f8afce5a1357c568b89472dc199ff92\output\AndroidManifest.xml:22:5-23:19
+MERGED from [com.android.support:appcompat-v7:24.0.0] C:\Users\Leyan\.android\build-cache\43a6ba4858b4dc85b5181557afd9c48bc993a548\output\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:animated-vector-drawable:24.0.0] C:\Users\Leyan\.android\build-cache\ff3847896cc67a62e36b1ae6af1aa15b4bbaa6fe\output\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-vector-drawable:24.0.0] C:\Users\Leyan\.android\build-cache\9365949cedcebffe1ecb4148a74cd632b75e508c\output\AndroidManifest.xml:23:5-20
+MERGED from [com.google.android.gms:play-services-clearcut:10.2.0] C:\Users\Leyan\.android\build-cache\2913785018c9de8a8ad0d6509a3c80e9592d67b9\output\AndroidManifest.xml:18:5-19
+MERGED from [com.google.firebase:firebase-config:10.2.0] C:\Users\Leyan\.android\build-cache\32e041612d3343cba911ef564b4395f84d9b7c7f\output\AndroidManifest.xml:18:5-19
+MERGED from [com.google.android.gms:play-services-awareness:10.2.0] C:\Users\Leyan\.android\build-cache\6d07fa317450b5c4a19000fcde49cd23c02ed1af\output\AndroidManifest.xml:18:5-19
+MERGED from [com.google.firebase:firebase-crash:10.2.0] C:\Users\Leyan\.android\build-cache\e20476877783fd970b695ce702bb47dc4ddef170\output\AndroidManifest.xml:22:5-23:19
+MERGED from [com.google.firebase:firebase-auth:10.2.0] C:\Users\Leyan\.android\build-cache\e726133411fb6d92413243c02854e396bb2756ec\output\AndroidManifest.xml:19:5-20:19
+MERGED from [com.google.firebase:firebase-messaging:10.2.0] C:\Users\Leyan\.android\build-cache\d3526b0903b18fae50ef5eba86d3cbd76d17b21a\output\AndroidManifest.xml:19:5-29:19
+MERGED from [com.google.android.gms:play-services-fitness:10.2.0] C:\Users\Leyan\.android\build-cache\4105ea036e3dbf4e37785732232026c43898e83e\output\AndroidManifest.xml:18:5-19
+MERGED from [com.google.android.gms:play-services-games:10.2.0] C:\Users\Leyan\.android\build-cache\4f2b7c7da67f583a6bf1781525bc6c78c48b07d2\output\AndroidManifest.xml:18:5-19
+MERGED from [com.google.android.gms:play-services-drive:10.2.0] C:\Users\Leyan\.android\build-cache\98b637f2d1fda0af9ee9464d1b08306f4bacb6b9\output\AndroidManifest.xml:18:5-19
+MERGED from [com.google.android.gms:play-services-gass:10.2.0] C:\Users\Leyan\.android\build-cache\2114af225038af6ae72c9b589b9d6dc1e8feabff\output\AndroidManifest.xml:4:5-19
+MERGED from [com.google.android.gms:play-services-gcm:10.2.0] C:\Users\Leyan\.android\build-cache\591c1ad0a0d23f336809ea0a9d060ad58a6a646a\output\AndroidManifest.xml:23:5-19
+MERGED from [com.google.firebase:firebase-appindexing:10.2.0] C:\Users\Leyan\.android\build-cache\271d5d372971140a1cf4100b860918564ff8d673\output\AndroidManifest.xml:18:5-19
+MERGED from [com.google.android.gms:play-services-iid:10.2.0] C:\Users\Leyan\.android\build-cache\04b6120b9e88a0487c066ca02af5e3a078013b62\output\AndroidManifest.xml:23:5-19
+MERGED from [com.google.android.gms:play-services-location:10.2.0] C:\Users\Leyan\.android\build-cache\08bb58de2b4a400875ec761cec05895d86ea055c\output\AndroidManifest.xml:4:5-19
+MERGED from [com.google.android.gms:play-services-nearby:10.2.0] C:\Users\Leyan\.android\build-cache\aa433022be14f4f4b3efed515c1a342763c109c5\output\AndroidManifest.xml:5:5-19
+MERGED from [com.google.android.gms:play-services-panorama:10.2.0] C:\Users\Leyan\.android\build-cache\be0617df4d2e8983006e2c91c5f5c2ab5d8e57ce\output\AndroidManifest.xml:18:5-19
+MERGED from [com.google.android.gms:play-services-places:10.2.0] C:\Users\Leyan\.android\build-cache\20f54e41b97625126f372d26d38e6a7394250542\output\AndroidManifest.xml:18:5-19
+MERGED from [com.google.android.gms:play-services-plus:10.2.0] C:\Users\Leyan\.android\build-cache\9a1c93939db653db0414ed68cf4d207a2403a834\output\AndroidManifest.xml:18:5-19
+MERGED from [com.google.android.gms:play-services-safetynet:10.2.0] C:\Users\Leyan\.android\build-cache\2149979a5f96913280380254e9b9fb25fe745c65\output\AndroidManifest.xml:18:5-19
+MERGED from [com.google.android.gms:play-services-tagmanager-api:10.2.0] C:\Users\Leyan\.android\build-cache\5e5d7987b7fa4967aef98c1cda0c1c91f082c6d2\output\AndroidManifest.xml:23:5-33:19
+MERGED from [com.google.firebase:firebase-analytics:10.2.0] C:\Users\Leyan\.android\build-cache\092d1b84d4f95d781e924a6108fe70a44b2bb697\output\AndroidManifest.xml:24:5-33:19
+MERGED from [com.google.firebase:firebase-analytics-impl:10.2.0] C:\Users\Leyan\.android\build-cache\6e7a48e68a0ddd840d6be2810c830bbd6d1fce24\output\AndroidManifest.xml:24:5-28:19
+MERGED from [com.google.firebase:firebase-iid:10.2.0] C:\Users\Leyan\.android\build-cache\9715aa679f473f00bb337c8f2071ac2433d293ac\output\AndroidManifest.xml:28:5-50:19
+MERGED from [com.google.firebase:firebase-common:10.2.0] C:\Users\Leyan\.android\build-cache\b48cc43c9cefb34dbe643675c232725bfab6646d\output\AndroidManifest.xml:4:5-7:19
+MERGED from [com.google.android.gms:play-services-tagmanager-v4-impl:10.2.0] C:\Users\Leyan\.android\build-cache\bed17f08f558fabe5221dcb7b6ae2cd3979c4609\output\AndroidManifest.xml:19:5-19
+MERGED from [com.google.android.gms:play-services-analytics-impl:10.2.0] C:\Users\Leyan\.android\build-cache\cd455d3ced2821f55b97719ab29e7593059ac119\output\AndroidManifest.xml:26:5-19
+MERGED from [com.google.android.gms:play-services-vision:10.2.0] C:\Users\Leyan\.android\build-cache\3ba85ef0b391edf12521b34c152acd7678b5a089\output\AndroidManifest.xml:4:5-19
+MERGED from [com.google.android.gms:play-services-identity:10.2.0] C:\Users\Leyan\.android\build-cache\876945c594c4bfa30b2b332ac80f32823ce3685e\output\AndroidManifest.xml:18:5-19
+MERGED from [com.google.android.gms:play-services-maps:10.2.0] C:\Users\Leyan\.android\build-cache\5891613f4a032ce50d91d32b2ed87d4ba554e0d4\output\AndroidManifest.xml:24:5-19
+MERGED from [com.google.android.gms:play-services-wearable:10.2.0] C:\Users\Leyan\.android\build-cache\03167f902beb0e5e48ea3e9c369d220ad57a9fcd\output\AndroidManifest.xml:18:5-19
+MERGED from [com.google.android.gms:play-services-base:10.2.0] C:\Users\Leyan\.android\build-cache\c5f03dfd84869f157e56983e8327663d21d03e79\output\AndroidManifest.xml:18:5-20:19
+MERGED from [com.google.android.gms:play-services-tasks:10.2.0] C:\Users\Leyan\.android\build-cache\0ffb3719dd63474161ab8a89bf477d81719fedba\output\AndroidManifest.xml:4:5-19
+MERGED from [com.google.android.gms:play-services-basement:10.2.0] C:\Users\Leyan\.android\build-cache\6886be48981cda7c3528e74595b03fac9a719ffc\output\AndroidManifest.xml:19:5-21:19
+MERGED from [com.android.support:support-v4:24.0.0] C:\Users\Leyan\.android\build-cache\feb1c688417b2f7a6e08714b0978d424ccae1374\output\AndroidManifest.xml:25:5-20
+	android:label
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:35:9-41
+	android:allowBackup
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:33:9-35
+	android:icon
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:34:9-45
+	android:theme
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:36:9-40
+meta-data#com.google.android.gms.version
+ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:37:9-39:69
+MERGED from [com.google.android.gms:play-services-basement:10.2.0] C:\Users\Leyan\.android\build-cache\6886be48981cda7c3528e74595b03fac9a719ffc\output\AndroidManifest.xml:20:9-121
+	android:value
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:39:13-66
+	android:name
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:38:13-58
+meta-data#com.google.android.geo.API_KEY
+ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:40:9-42:71
+	android:value
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:42:13-68
+	android:name
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:41:13-58
+activity#tw.edu.nkfust.eHat.BeginActivity
+ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:44:9-53:20
+	android:screenOrientation
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:47:13-49
+	android:label
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:46:13-45
+	android:name
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:45:13-60
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:48:13-52:29
+action#android.intent.action.MAIN
+ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:49:17-69
+	android:name
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:49:25-66
+category#android.intent.category.LAUNCHER
+ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:51:17-77
+	android:name
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:51:27-74
+activity#tw.edu.nkfust.eHat.MainActivity
+ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:54:9-61:20
+	android:screenOrientation
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:57:13-49
+	android:label
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:56:13-56
+	android:name
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:55:13-59
+intent-filter#android.intent.action.CALL
+ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:58:13-60:29
+action#android.intent.action.CALL
+ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:59:17-69
+	android:name
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:59:25-66
+activity#tw.edu.nkfust.eHat.TimePickerRing
+ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:62:9-63:20
+	android:name
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:62:19-67
+receiver#tw.edu.nkfust.eHat.TimePickerReceiver
+ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:65:9-74
+	android:name
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:65:19-71
+service#tw.edu.nkfust.eHat.RFduinoService
+ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:67:9-69
+	android:name
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:67:18-66
+activity#tw.edu.nkfust.eHat.AddressListActivity
+ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:69:9-73:20
+	android:screenOrientation
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:72:13-49
+	android:label
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:71:13-64
+	android:name
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:70:13-66
+activity#tw.edu.nkfust.eHat.PathListActivity
+ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:74:9-78:20
+	android:screenOrientation
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:77:13-49
+	android:label
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:76:13-61
+	android:name
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:75:13-63
+activity#com.google.android.gms.ads.AdActivity
+ADDED from [com.google.android.gms:play-services-ads-lite:10.2.0] C:\Users\Leyan\.android\build-cache\47c3afe7965228977ebb3896827269b7f24495ea\output\AndroidManifest.xml:25:9-232
+	android:configChanges
+		ADDED from [com.google.android.gms:play-services-ads-lite:10.2.0] C:\Users\Leyan\.android\build-cache\47c3afe7965228977ebb3896827269b7f24495ea\output\AndroidManifest.xml:25:72-181
+	android:theme
+		ADDED from [com.google.android.gms:play-services-ads-lite:10.2.0] C:\Users\Leyan\.android\build-cache\47c3afe7965228977ebb3896827269b7f24495ea\output\AndroidManifest.xml:25:182-230
+	android:name
+		ADDED from [com.google.android.gms:play-services-ads-lite:10.2.0] C:\Users\Leyan\.android\build-cache\47c3afe7965228977ebb3896827269b7f24495ea\output\AndroidManifest.xml:25:19-71
+activity#com.google.android.gms.ads.purchase.InAppPurchaseActivity
+ADDED from [com.google.android.gms:play-services-ads-lite:10.2.0] C:\Users\Leyan\.android\build-cache\47c3afe7965228977ebb3896827269b7f24495ea\output\AndroidManifest.xml:26:9-131
+	android:theme
+		ADDED from [com.google.android.gms:play-services-ads-lite:10.2.0] C:\Users\Leyan\.android\build-cache\47c3afe7965228977ebb3896827269b7f24495ea\output\AndroidManifest.xml:26:92-129
+	android:name
+		ADDED from [com.google.android.gms:play-services-ads-lite:10.2.0] C:\Users\Leyan\.android\build-cache\47c3afe7965228977ebb3896827269b7f24495ea\output\AndroidManifest.xml:26:19-91
+activity#com.google.android.gms.appinvite.PreviewActivity
+ADDED from [com.google.android.gms:play-services-appinvite:10.2.0] C:\Users\Leyan\.android\build-cache\c8a57c4e399be13521ba3adbfcff533a23b53875\output\AndroidManifest.xml:20:9-25:20
+	android:exported
+		ADDED from [com.google.android.gms:play-services-appinvite:10.2.0] C:\Users\Leyan\.android\build-cache\c8a57c4e399be13521ba3adbfcff533a23b53875\output\AndroidManifest.xml:20:51-74
+	android:theme
+		ADDED from [com.google.android.gms:play-services-appinvite:10.2.0] C:\Users\Leyan\.android\build-cache\c8a57c4e399be13521ba3adbfcff533a23b53875\output\AndroidManifest.xml:20:75-121
+	android:name
+		ADDED from [com.google.android.gms:play-services-appinvite:10.2.0] C:\Users\Leyan\.android\build-cache\c8a57c4e399be13521ba3adbfcff533a23b53875\output\AndroidManifest.xml:20:19-50
+intent-filter#android.intent.category.DEFAULT+com.google.android.gms.appinvite.ACTION_PREVIEW
+ADDED from [com.google.android.gms:play-services-appinvite:10.2.0] C:\Users\Leyan\.android\build-cache\c8a57c4e399be13521ba3adbfcff533a23b53875\output\AndroidManifest.xml:21:13-24:29
+action#com.google.android.gms.appinvite.ACTION_PREVIEW
+ADDED from [com.google.android.gms:play-services-appinvite:10.2.0] C:\Users\Leyan\.android\build-cache\c8a57c4e399be13521ba3adbfcff533a23b53875\output\AndroidManifest.xml:22:17-89
+	android:name
+		ADDED from [com.google.android.gms:play-services-appinvite:10.2.0] C:\Users\Leyan\.android\build-cache\c8a57c4e399be13521ba3adbfcff533a23b53875\output\AndroidManifest.xml:22:25-87
+category#android.intent.category.DEFAULT
+ADDED from [com.google.android.gms:play-services-appinvite:10.2.0] C:\Users\Leyan\.android\build-cache\c8a57c4e399be13521ba3adbfcff533a23b53875\output\AndroidManifest.xml:23:17-75
+	android:name
+		ADDED from [com.google.android.gms:play-services-appinvite:10.2.0] C:\Users\Leyan\.android\build-cache\c8a57c4e399be13521ba3adbfcff533a23b53875\output\AndroidManifest.xml:23:27-73
+activity#com.google.android.gms.auth.api.signin.internal.SignInHubActivity
+ADDED from [com.google.android.gms:play-services-auth:10.2.0] C:\Users\Leyan\.android\build-cache\f08d17a7e25769977db876543065e2dcd5cd6119\output\AndroidManifest.xml:20:9-189
+	android:excludeFromRecents
+		ADDED from [com.google.android.gms:play-services-auth:10.2.0] C:\Users\Leyan\.android\build-cache\f08d17a7e25769977db876543065e2dcd5cd6119\output\AndroidManifest.xml:20:129-162
+	android:exported
+		ADDED from [com.google.android.gms:play-services-auth:10.2.0] C:\Users\Leyan\.android\build-cache\f08d17a7e25769977db876543065e2dcd5cd6119\output\AndroidManifest.xml:20:163-187
+	android:theme
+		ADDED from [com.google.android.gms:play-services-auth:10.2.0] C:\Users\Leyan\.android\build-cache\f08d17a7e25769977db876543065e2dcd5cd6119\output\AndroidManifest.xml:20:69-128
+	android:name
+		ADDED from [com.google.android.gms:play-services-auth:10.2.0] C:\Users\Leyan\.android\build-cache\f08d17a7e25769977db876543065e2dcd5cd6119\output\AndroidManifest.xml:20:19-68
+service#com.google.android.gms.auth.api.signin.RevocationBoundService
+ADDED from [com.google.android.gms:play-services-auth:10.2.0] C:\Users\Leyan\.android\build-cache\f08d17a7e25769977db876543065e2dcd5cd6119\output\AndroidManifest.xml:24:9-184
+	android:exported
+		ADDED from [com.google.android.gms:play-services-auth:10.2.0] C:\Users\Leyan\.android\build-cache\f08d17a7e25769977db876543065e2dcd5cd6119\output\AndroidManifest.xml:24:64-87
+	android:permission
+		ADDED from [com.google.android.gms:play-services-auth:10.2.0] C:\Users\Leyan\.android\build-cache\f08d17a7e25769977db876543065e2dcd5cd6119\output\AndroidManifest.xml:24:88-182
+	android:name
+		ADDED from [com.google.android.gms:play-services-auth:10.2.0] C:\Users\Leyan\.android\build-cache\f08d17a7e25769977db876543065e2dcd5cd6119\output\AndroidManifest.xml:24:18-63
+receiver#com.google.android.gms.cast.framework.media.MediaIntentReceiver
+ADDED from [com.google.android.gms:play-services-cast-framework:10.2.0] C:\Users\Leyan\.android\build-cache\4b2c458fbf01da8a9d6814a7925a1ed33d3d1cab\output\AndroidManifest.xml:5:9-99
+	android:name
+		ADDED from [com.google.android.gms:play-services-cast-framework:10.2.0] C:\Users\Leyan\.android\build-cache\4b2c458fbf01da8a9d6814a7925a1ed33d3d1cab\output\AndroidManifest.xml:5:19-97
+service#com.google.android.gms.cast.framework.media.MediaNotificationService
+ADDED from [com.google.android.gms:play-services-cast-framework:10.2.0] C:\Users\Leyan\.android\build-cache\4b2c458fbf01da8a9d6814a7925a1ed33d3d1cab\output\AndroidManifest.xml:6:9-103
+	android:name
+		ADDED from [com.google.android.gms:play-services-cast-framework:10.2.0] C:\Users\Leyan\.android\build-cache\4b2c458fbf01da8a9d6814a7925a1ed33d3d1cab\output\AndroidManifest.xml:6:18-101
+service#com.google.android.gms.cast.framework.ReconnectionService
+ADDED from [com.google.android.gms:play-services-cast-framework:10.2.0] C:\Users\Leyan\.android\build-cache\4b2c458fbf01da8a9d6814a7925a1ed33d3d1cab\output\AndroidManifest.xml:7:9-92
+	android:name
+		ADDED from [com.google.android.gms:play-services-cast-framework:10.2.0] C:\Users\Leyan\.android\build-cache\4b2c458fbf01da8a9d6814a7925a1ed33d3d1cab\output\AndroidManifest.xml:7:18-90
+service#com.google.firebase.messaging.FirebaseMessagingService
+ADDED from [com.google.firebase:firebase-messaging:10.2.0] C:\Users\Leyan\.android\build-cache\d3526b0903b18fae50ef5eba86d3cbd76d17b21a\output\AndroidManifest.xml:23:9-27:19
+	android:exported
+		ADDED from [com.google.firebase:firebase-messaging:10.2.0] C:\Users\Leyan\.android\build-cache\d3526b0903b18fae50ef5eba86d3cbd76d17b21a\output\AndroidManifest.xml:23:88-111
+	android:name
+		ADDED from [com.google.firebase:firebase-messaging:10.2.0] C:\Users\Leyan\.android\build-cache\d3526b0903b18fae50ef5eba86d3cbd76d17b21a\output\AndroidManifest.xml:23:18-87
+intent-filter#com.google.firebase.MESSAGING_EVENT
+ADDED from [com.google.firebase:firebase-messaging:10.2.0] C:\Users\Leyan\.android\build-cache\d3526b0903b18fae50ef5eba86d3cbd76d17b21a\output\AndroidManifest.xml:24:13-26:29
+	android:priority
+		ADDED from [com.google.firebase:firebase-messaging:10.2.0] C:\Users\Leyan\.android\build-cache\d3526b0903b18fae50ef5eba86d3cbd76d17b21a\output\AndroidManifest.xml:24:28-51
+action#com.google.firebase.MESSAGING_EVENT
+ADDED from [com.google.firebase:firebase-messaging:10.2.0] C:\Users\Leyan\.android\build-cache\d3526b0903b18fae50ef5eba86d3cbd76d17b21a\output\AndroidManifest.xml:25:17-77
+	android:name
+		ADDED from [com.google.firebase:firebase-messaging:10.2.0] C:\Users\Leyan\.android\build-cache\d3526b0903b18fae50ef5eba86d3cbd76d17b21a\output\AndroidManifest.xml:25:25-75
+uses-permission#com.google.android.c2dm.permission.RECEIVE
+ADDED from [com.google.android.gms:play-services-gcm:10.2.0] C:\Users\Leyan\.android\build-cache\591c1ad0a0d23f336809ea0a9d060ad58a6a646a\output\AndroidManifest.xml:20:5-81
+MERGED from [com.google.android.gms:play-services-iid:10.2.0] C:\Users\Leyan\.android\build-cache\04b6120b9e88a0487c066ca02af5e3a078013b62\output\AndroidManifest.xml:20:5-81
+MERGED from [com.google.firebase:firebase-iid:10.2.0] C:\Users\Leyan\.android\build-cache\9715aa679f473f00bb337c8f2071ac2433d293ac\output\AndroidManifest.xml:22:5-81
+	android:name
+		ADDED from [com.google.android.gms:play-services-gcm:10.2.0] C:\Users\Leyan\.android\build-cache\591c1ad0a0d23f336809ea0a9d060ad58a6a646a\output\AndroidManifest.xml:20:22-79
+service#com.google.android.gms.tagmanager.TagManagerService
+ADDED from [com.google.android.gms:play-services-tagmanager-api:10.2.0] C:\Users\Leyan\.android\build-cache\5e5d7987b7fa4967aef98c1cda0c1c91f082c6d2\output\AndroidManifest.xml:24:9-134
+	android:enabled
+		ADDED from [com.google.android.gms:play-services-tagmanager-api:10.2.0] C:\Users\Leyan\.android\build-cache\5e5d7987b7fa4967aef98c1cda0c1c91f082c6d2\output\AndroidManifest.xml:24:110-132
+	android:exported
+		ADDED from [com.google.android.gms:play-services-tagmanager-api:10.2.0] C:\Users\Leyan\.android\build-cache\5e5d7987b7fa4967aef98c1cda0c1c91f082c6d2\output\AndroidManifest.xml:24:85-109
+	android:name
+		ADDED from [com.google.android.gms:play-services-tagmanager-api:10.2.0] C:\Users\Leyan\.android\build-cache\5e5d7987b7fa4967aef98c1cda0c1c91f082c6d2\output\AndroidManifest.xml:24:18-84
+activity#com.google.android.gms.tagmanager.TagManagerPreviewActivity
+ADDED from [com.google.android.gms:play-services-tagmanager-api:10.2.0] C:\Users\Leyan\.android\build-cache\5e5d7987b7fa4967aef98c1cda0c1c91f082c6d2\output\AndroidManifest.xml:25:9-32:20
+	android:noHistory
+		ADDED from [com.google.android.gms:play-services-tagmanager-api:10.2.0] C:\Users\Leyan\.android\build-cache\5e5d7987b7fa4967aef98c1cda0c1c91f082c6d2\output\AndroidManifest.xml:25:94-118
+	android:name
+		ADDED from [com.google.android.gms:play-services-tagmanager-api:10.2.0] C:\Users\Leyan\.android\build-cache\5e5d7987b7fa4967aef98c1cda0c1c91f082c6d2\output\AndroidManifest.xml:25:19-93
+intent-filter#android.intent.action.VIEW+android.intent.category.BROWSABLE+android.intent.category.DEFAULT
+ADDED from [com.google.android.gms:play-services-tagmanager-api:10.2.0] C:\Users\Leyan\.android\build-cache\5e5d7987b7fa4967aef98c1cda0c1c91f082c6d2\output\AndroidManifest.xml:26:13-31:29
+data
+ADDED from [com.google.android.gms:play-services-tagmanager-api:10.2.0] C:\Users\Leyan\.android\build-cache\5e5d7987b7fa4967aef98c1cda0c1c91f082c6d2\output\AndroidManifest.xml:27:17-71
+	android:scheme
+		ADDED from [com.google.android.gms:play-services-tagmanager-api:10.2.0] C:\Users\Leyan\.android\build-cache\5e5d7987b7fa4967aef98c1cda0c1c91f082c6d2\output\AndroidManifest.xml:27:23-69
+action#android.intent.action.VIEW
+ADDED from [com.google.android.gms:play-services-tagmanager-api:10.2.0] C:\Users\Leyan\.android\build-cache\5e5d7987b7fa4967aef98c1cda0c1c91f082c6d2\output\AndroidManifest.xml:28:17-68
+	android:name
+		ADDED from [com.google.android.gms:play-services-tagmanager-api:10.2.0] C:\Users\Leyan\.android\build-cache\5e5d7987b7fa4967aef98c1cda0c1c91f082c6d2\output\AndroidManifest.xml:28:25-66
+category#android.intent.category.BROWSABLE
+ADDED from [com.google.android.gms:play-services-tagmanager-api:10.2.0] C:\Users\Leyan\.android\build-cache\5e5d7987b7fa4967aef98c1cda0c1c91f082c6d2\output\AndroidManifest.xml:30:17-77
+	android:name
+		ADDED from [com.google.android.gms:play-services-tagmanager-api:10.2.0] C:\Users\Leyan\.android\build-cache\5e5d7987b7fa4967aef98c1cda0c1c91f082c6d2\output\AndroidManifest.xml:30:27-75
+receiver#com.google.android.gms.measurement.AppMeasurementReceiver
+ADDED from [com.google.firebase:firebase-analytics:10.2.0] C:\Users\Leyan\.android\build-cache\092d1b84d4f95d781e924a6108fe70a44b2bb697\output\AndroidManifest.xml:25:7-26:18
+MERGED from [com.google.firebase:firebase-analytics-impl:10.2.0] C:\Users\Leyan\.android\build-cache\6e7a48e68a0ddd840d6be2810c830bbd6d1fce24\output\AndroidManifest.xml:25:7-26:18
+	android:enabled
+		ADDED from [com.google.firebase:firebase-analytics:10.2.0] C:\Users\Leyan\.android\build-cache\092d1b84d4f95d781e924a6108fe70a44b2bb697\output\AndroidManifest.xml:25:90-112
+	android:exported
+		ADDED from [com.google.firebase:firebase-analytics:10.2.0] C:\Users\Leyan\.android\build-cache\092d1b84d4f95d781e924a6108fe70a44b2bb697\output\AndroidManifest.xml:25:113-137
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics:10.2.0] C:\Users\Leyan\.android\build-cache\092d1b84d4f95d781e924a6108fe70a44b2bb697\output\AndroidManifest.xml:25:17-89
+receiver#com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver
+ADDED from [com.google.firebase:firebase-analytics:10.2.0] C:\Users\Leyan\.android\build-cache\092d1b84d4f95d781e924a6108fe70a44b2bb697\output\AndroidManifest.xml:27:7-31:18
+	android:enabled
+		ADDED from [com.google.firebase:firebase-analytics:10.2.0] C:\Users\Leyan\.android\build-cache\092d1b84d4f95d781e924a6108fe70a44b2bb697\output\AndroidManifest.xml:27:162-184
+	android:permission
+		ADDED from [com.google.firebase:firebase-analytics:10.2.0] C:\Users\Leyan\.android\build-cache\092d1b84d4f95d781e924a6108fe70a44b2bb697\output\AndroidManifest.xml:27:105-161
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics:10.2.0] C:\Users\Leyan\.android\build-cache\092d1b84d4f95d781e924a6108fe70a44b2bb697\output\AndroidManifest.xml:27:17-104
+intent-filter#com.android.vending.INSTALL_REFERRER
+ADDED from [com.google.firebase:firebase-analytics:10.2.0] C:\Users\Leyan\.android\build-cache\092d1b84d4f95d781e924a6108fe70a44b2bb697\output\AndroidManifest.xml:28:11-30:27
+action#com.android.vending.INSTALL_REFERRER
+ADDED from [com.google.firebase:firebase-analytics:10.2.0] C:\Users\Leyan\.android\build-cache\092d1b84d4f95d781e924a6108fe70a44b2bb697\output\AndroidManifest.xml:29:15-76
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics:10.2.0] C:\Users\Leyan\.android\build-cache\092d1b84d4f95d781e924a6108fe70a44b2bb697\output\AndroidManifest.xml:29:23-74
+service#com.google.android.gms.measurement.AppMeasurementService
+ADDED from [com.google.firebase:firebase-analytics:10.2.0] C:\Users\Leyan\.android\build-cache\092d1b84d4f95d781e924a6108fe70a44b2bb697\output\AndroidManifest.xml:32:7-137
+MERGED from [com.google.firebase:firebase-analytics-impl:10.2.0] C:\Users\Leyan\.android\build-cache\6e7a48e68a0ddd840d6be2810c830bbd6d1fce24\output\AndroidManifest.xml:27:7-137
+	android:enabled
+		ADDED from [com.google.firebase:firebase-analytics:10.2.0] C:\Users\Leyan\.android\build-cache\092d1b84d4f95d781e924a6108fe70a44b2bb697\output\AndroidManifest.xml:32:88-110
+	android:exported
+		ADDED from [com.google.firebase:firebase-analytics:10.2.0] C:\Users\Leyan\.android\build-cache\092d1b84d4f95d781e924a6108fe70a44b2bb697\output\AndroidManifest.xml:32:111-135
+	android:name
+		ADDED from [com.google.firebase:firebase-analytics:10.2.0] C:\Users\Leyan\.android\build-cache\092d1b84d4f95d781e924a6108fe70a44b2bb697\output\AndroidManifest.xml:32:16-87
+permission#${applicationId}.permission.C2D_MESSAGE
+ADDED from [com.google.firebase:firebase-iid:10.2.0] C:\Users\Leyan\.android\build-cache\9715aa679f473f00bb337c8f2071ac2433d293ac\output\AndroidManifest.xml:24:5-109
+	android:protectionLevel
+		ADDED from [com.google.firebase:firebase-iid:10.2.0] C:\Users\Leyan\.android\build-cache\9715aa679f473f00bb337c8f2071ac2433d293ac\output\AndroidManifest.xml:24:72-107
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:10.2.0] C:\Users\Leyan\.android\build-cache\9715aa679f473f00bb337c8f2071ac2433d293ac\output\AndroidManifest.xml:24:17-71
+uses-permission#${applicationId}.permission.C2D_MESSAGE
+ADDED from [com.google.firebase:firebase-iid:10.2.0] C:\Users\Leyan\.android\build-cache\9715aa679f473f00bb337c8f2071ac2433d293ac\output\AndroidManifest.xml:26:5-78
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:10.2.0] C:\Users\Leyan\.android\build-cache\9715aa679f473f00bb337c8f2071ac2433d293ac\output\AndroidManifest.xml:26:22-76
+receiver#com.google.firebase.iid.FirebaseInstanceIdReceiver
+ADDED from [com.google.firebase:firebase-iid:10.2.0] C:\Users\Leyan\.android\build-cache\9715aa679f473f00bb337c8f2071ac2433d293ac\output\AndroidManifest.xml:30:9-36:20
+	android:exported
+		ADDED from [com.google.firebase:firebase-iid:10.2.0] C:\Users\Leyan\.android\build-cache\9715aa679f473f00bb337c8f2071ac2433d293ac\output\AndroidManifest.xml:30:85-108
+	android:permission
+		ADDED from [com.google.firebase:firebase-iid:10.2.0] C:\Users\Leyan\.android\build-cache\9715aa679f473f00bb337c8f2071ac2433d293ac\output\AndroidManifest.xml:30:109-169
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:10.2.0] C:\Users\Leyan\.android\build-cache\9715aa679f473f00bb337c8f2071ac2433d293ac\output\AndroidManifest.xml:30:19-84
+intent-filter#${applicationId}+com.google.android.c2dm.intent.RECEIVE+com.google.android.c2dm.intent.REGISTRATION
+ADDED from [com.google.firebase:firebase-iid:10.2.0] C:\Users\Leyan\.android\build-cache\9715aa679f473f00bb337c8f2071ac2433d293ac\output\AndroidManifest.xml:31:13-35:29
+action#com.google.android.c2dm.intent.RECEIVE
+ADDED from [com.google.firebase:firebase-iid:10.2.0] C:\Users\Leyan\.android\build-cache\9715aa679f473f00bb337c8f2071ac2433d293ac\output\AndroidManifest.xml:32:17-80
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:10.2.0] C:\Users\Leyan\.android\build-cache\9715aa679f473f00bb337c8f2071ac2433d293ac\output\AndroidManifest.xml:32:25-78
+action#com.google.android.c2dm.intent.REGISTRATION
+ADDED from [com.google.firebase:firebase-iid:10.2.0] C:\Users\Leyan\.android\build-cache\9715aa679f473f00bb337c8f2071ac2433d293ac\output\AndroidManifest.xml:33:17-85
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:10.2.0] C:\Users\Leyan\.android\build-cache\9715aa679f473f00bb337c8f2071ac2433d293ac\output\AndroidManifest.xml:33:25-83
+category#${applicationId}
+ADDED from [com.google.firebase:firebase-iid:10.2.0] C:\Users\Leyan\.android\build-cache\9715aa679f473f00bb337c8f2071ac2433d293ac\output\AndroidManifest.xml:34:17-60
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:10.2.0] C:\Users\Leyan\.android\build-cache\9715aa679f473f00bb337c8f2071ac2433d293ac\output\AndroidManifest.xml:34:27-58
+receiver#com.google.firebase.iid.FirebaseInstanceIdInternalReceiver
+ADDED from [com.google.firebase:firebase-iid:10.2.0] C:\Users\Leyan\.android\build-cache\9715aa679f473f00bb337c8f2071ac2433d293ac\output\AndroidManifest.xml:40:9-119
+	android:exported
+		ADDED from [com.google.firebase:firebase-iid:10.2.0] C:\Users\Leyan\.android\build-cache\9715aa679f473f00bb337c8f2071ac2433d293ac\output\AndroidManifest.xml:40:93-117
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:10.2.0] C:\Users\Leyan\.android\build-cache\9715aa679f473f00bb337c8f2071ac2433d293ac\output\AndroidManifest.xml:40:19-92
+service#com.google.firebase.iid.FirebaseInstanceIdService
+ADDED from [com.google.firebase:firebase-iid:10.2.0] C:\Users\Leyan\.android\build-cache\9715aa679f473f00bb337c8f2071ac2433d293ac\output\AndroidManifest.xml:44:9-48:19
+	android:exported
+		ADDED from [com.google.firebase:firebase-iid:10.2.0] C:\Users\Leyan\.android\build-cache\9715aa679f473f00bb337c8f2071ac2433d293ac\output\AndroidManifest.xml:44:83-106
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:10.2.0] C:\Users\Leyan\.android\build-cache\9715aa679f473f00bb337c8f2071ac2433d293ac\output\AndroidManifest.xml:44:18-82
+intent-filter#com.google.firebase.INSTANCE_ID_EVENT
+ADDED from [com.google.firebase:firebase-iid:10.2.0] C:\Users\Leyan\.android\build-cache\9715aa679f473f00bb337c8f2071ac2433d293ac\output\AndroidManifest.xml:45:13-47:29
+	android:priority
+		ADDED from [com.google.firebase:firebase-iid:10.2.0] C:\Users\Leyan\.android\build-cache\9715aa679f473f00bb337c8f2071ac2433d293ac\output\AndroidManifest.xml:45:28-51
+action#com.google.firebase.INSTANCE_ID_EVENT
+ADDED from [com.google.firebase:firebase-iid:10.2.0] C:\Users\Leyan\.android\build-cache\9715aa679f473f00bb337c8f2071ac2433d293ac\output\AndroidManifest.xml:46:17-79
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:10.2.0] C:\Users\Leyan\.android\build-cache\9715aa679f473f00bb337c8f2071ac2433d293ac\output\AndroidManifest.xml:46:25-77
+provider#com.google.firebase.provider.FirebaseInitProvider
+ADDED from [com.google.firebase:firebase-common:10.2.0] C:\Users\Leyan\.android\build-cache\b48cc43c9cefb34dbe643675c232725bfab6646d\output\AndroidManifest.xml:6:9-194
+	android:authorities
+		ADDED from [com.google.firebase:firebase-common:10.2.0] C:\Users\Leyan\.android\build-cache\b48cc43c9cefb34dbe643675c232725bfab6646d\output\AndroidManifest.xml:6:19-78
+	android:exported
+		ADDED from [com.google.firebase:firebase-common:10.2.0] C:\Users\Leyan\.android\build-cache\b48cc43c9cefb34dbe643675c232725bfab6646d\output\AndroidManifest.xml:6:144-168
+	android:initOrder
+		ADDED from [com.google.firebase:firebase-common:10.2.0] C:\Users\Leyan\.android\build-cache\b48cc43c9cefb34dbe643675c232725bfab6646d\output\AndroidManifest.xml:6:169-192
+	android:name
+		ADDED from [com.google.firebase:firebase-common:10.2.0] C:\Users\Leyan\.android\build-cache\b48cc43c9cefb34dbe643675c232725bfab6646d\output\AndroidManifest.xml:6:79-143
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:10.2.0] C:\Users\Leyan\.android\build-cache\c5f03dfd84869f157e56983e8327663d21d03e79\output\AndroidManifest.xml:19:9-172
+	android:exported
+		ADDED from [com.google.android.gms:play-services-base:10.2.0] C:\Users\Leyan\.android\build-cache\c5f03dfd84869f157e56983e8327663d21d03e79\output\AndroidManifest.xml:19:146-170
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:10.2.0] C:\Users\Leyan\.android\build-cache\c5f03dfd84869f157e56983e8327663d21d03e79\output\AndroidManifest.xml:19:86-145
+	android:name
+		ADDED from [com.google.android.gms:play-services-base:10.2.0] C:\Users\Leyan\.android\build-cache\c5f03dfd84869f157e56983e8327663d21d03e79\output\AndroidManifest.xml:19:19-85

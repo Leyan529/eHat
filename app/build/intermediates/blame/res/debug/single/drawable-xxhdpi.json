@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "E:\\Program\\Eclipse\\Android\\AndroidWorkSpace\\eHat\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\ic_settings_black_24dp.png",
+        "source": "E:\\Program\\Eclipse\\Android\\AndroidWorkSpace\\eHat\\app\\src\\main\\res\\drawable-xxhdpi\\ic_settings_black_24dp.png"
+    },
+    {
+        "merged": "E:\\Program\\Eclipse\\Android\\AndroidWorkSpace\\eHat\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\ic_exit_to_app_black_36dp.png",
+        "source": "E:\\Program\\Eclipse\\Android\\AndroidWorkSpace\\eHat\\app\\src\\main\\res\\drawable-xxhdpi\\ic_exit_to_app_black_36dp.png"
+    },
+    {
+        "merged": "E:\\Program\\Eclipse\\Android\\AndroidWorkSpace\\eHat\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\ic_person_add_black_36dp.png",
+        "source": "E:\\Program\\Eclipse\\Android\\AndroidWorkSpace\\eHat\\app\\src\\main\\res\\drawable-xxhdpi\\ic_person_add_black_36dp.png"
+    },
+    {
+        "merged": "E:\\Program\\Eclipse\\Android\\AndroidWorkSpace\\eHat\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\ic_my_location_black_36dp.png",
+        "source": "E:\\Program\\Eclipse\\Android\\AndroidWorkSpace\\eHat\\app\\src\\main\\res\\drawable-xxhdpi\\ic_my_location_black_36dp.png"
+    },
+    {
+        "merged": "E:\\Program\\Eclipse\\Android\\AndroidWorkSpace\\eHat\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\ic_highlight_remove_black_36dp.png",
+        "source": "E:\\Program\\Eclipse\\Android\\AndroidWorkSpace\\eHat\\app\\src\\main\\res\\drawable-xxhdpi\\ic_highlight_remove_black_36dp.png"
+    }
+]
