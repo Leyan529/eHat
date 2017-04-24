@@ -66,7 +66,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.UUID;
 
-public class MainActivity extends Activity implements BluetoothAdapter.LeScanCallback, SensorEventListener { //
+public class MainActivity extends Activity implements BluetoothAdapter.LeScanCallback, SensorEventListener { 
 	private LinearLayout tabViewOfDevice, tabViewOfAlarm, tabViewOfCall, tabViewOfMap;// 頁卡標頭
 	private ImageView tabImageOfDevice, tabImageOfAlarm, tabImageOfCall, tabImageOfMap;
 	private ImageView cursorImage;// 動畫圖片
