@@ -3,6 +3,11 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 23
     buildToolsVersion '25.0.2'
+    compileOptions {
+        encoding "UTF-8"
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
     defaultConfig {
         applicationId "tw.edu.nkfust.eHat"
         minSdkVersion 18
@@ -21,5 +26,5 @@ android {
 dependencies {
     compile 'com.google.android.gms:play-services:+'
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    //compileOptions.encoding = 'windows-1251' // write your encoding here
+    compile files('lib/httpcore-4.4.6.jar')
 }
