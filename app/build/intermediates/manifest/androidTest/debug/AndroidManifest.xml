@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="tw.edu.nkfust.eHat.test">
+    package="tw.edu.nkfust.eHat.test" >
 
-    <uses-sdk android:minSdkVersion="18" android:targetSdkVersion="14" />
+    <uses-sdk
+        android:minSdkVersion="18"
+        android:targetSdkVersion="14" />
+
+    <instrumentation
+        android:name="com.android.test.runner.MultiDexTestRunner"
+        android:functionalTest="false"
+        android:handleProfiling="false"
+        android:label="Tests for tw.edu.nkfust.eHat"
+        android:targetPackage="tw.edu.nkfust.eHat" />
 
     <application>
         <uses-library android:name="android.test.runner" />
     </application>
 
-    <instrumentation android:name="android.test.InstrumentationTestRunner"
-                     android:targetPackage="tw.edu.nkfust.eHat"
-                     android:handleProfiling="false"
-                     android:functionalTest="false"
-                     android:label="Tests for tw.edu.nkfust.eHat"/>
 </manifest>

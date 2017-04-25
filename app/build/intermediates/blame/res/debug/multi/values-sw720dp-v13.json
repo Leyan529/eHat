@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "E:\\Program\\Eclipse\\Android\\AndroidWorkSpace\\eHat\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-sw720dp-v13\\values-sw720dp-v13.xml",
+        "outputFile": "C:\\Users\\Leyan\\AndroidStudioProjects\\eHat\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-sw720dp-v13\\values-sw720dp-v13.xml",
         "map": [
             {
                 "to": {
@@ -11,7 +11,7 @@
                     "endOffset": 119
                 },
                 "from": {
-                    "file": "C:\\Users\\Leyan\\.android\\build-cache\\7205aa8d9580e45c5c6594d874560c721aa20102\\output\\res\\values-sw720dp-v13\\values-sw720dp-v13.xml",
+                    "file": "C:\\Users\\Leyan\\.android\\build-cache\\1d4c617c934fafb579a4d0d140e36b873679fdde\\output\\res\\values-sw720dp-v13\\values-sw720dp-v13.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -30,7 +30,7 @@
                     "endOffset": 188
                 },
                 "from": {
-                    "file": "C:\\Users\\Leyan\\.android\\build-cache\\7205aa8d9580e45c5c6594d874560c721aa20102\\output\\res\\values-sw720dp-v13\\values-sw720dp-v13.xml",
+                    "file": "C:\\Users\\Leyan\\.android\\build-cache\\1d4c617c934fafb579a4d0d140e36b873679fdde\\output\\res\\values-sw720dp-v13\\values-sw720dp-v13.xml",
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,

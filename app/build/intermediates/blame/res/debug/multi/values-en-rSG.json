@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "E:\\Program\\Eclipse\\Android\\AndroidWorkSpace\\eHat\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-en-rSG\\values-en-rSG.xml",
+        "outputFile": "C:\\Users\\Leyan\\AndroidStudioProjects\\eHat\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-en-rSG\\values-en-rSG.xml",
         "map": [
             {
                 "to": {
@@ -11,7 +11,7 @@
                     "endOffset": 154
                 },
                 "from": {
-                    "file": "C:\\Users\\Leyan\\.android\\build-cache\\d0becfc117537ae8e287ab670aee40bd1fb77f33\\output\\res\\values-en-rSG\\values.xml",
+                    "file": "C:\\Users\\Leyan\\.android\\build-cache\\d18a2d75604776e3ac51b300845dbe75f4af68d8\\output\\res\\values-en-rSG\\values.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 0,

@@ -12,6 +12,7 @@ android {
         applicationId "tw.edu.nkfust.eHat"
         minSdkVersion 18
         targetSdkVersion 14
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -20,6 +21,9 @@ android {
         }
     }
     productFlavors {
+    }
+    dexOptions {
+        javaMaxHeapSize "4g"
     }
 }
 

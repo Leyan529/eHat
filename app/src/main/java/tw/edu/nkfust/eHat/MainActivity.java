@@ -55,6 +55,8 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.GoogleMap.OnMapClickListener;
 import com.google.android.gms.maps.GoogleMap.OnMapLongClickListener;
 import com.google.android.gms.maps.GoogleMap.OnMarkerClickListener;
+import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
@@ -66,7 +68,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.UUID;
 
-public class MainActivity extends Activity implements BluetoothAdapter.LeScanCallback, SensorEventListener {
+public class MainActivity extends Activity implements BluetoothAdapter.LeScanCallback, SensorEventListener,OnMapReadyCallback  {
 	private LinearLayout tabViewOfDevice, tabViewOfAlarm, tabViewOfCall, tabViewOfMap;// 頁卡標頭
 	private ImageView tabImageOfDevice, tabImageOfAlarm, tabImageOfCall, tabImageOfMap;
 	private ImageView cursorImage;// 動畫圖片
@@ -538,7 +540,15 @@ public class MainActivity extends Activity implements BluetoothAdapter.LeScanCal
 					}// End of onItemLongClick
 				});
 
-		//mMap = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
+		/*((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMapAsync(new OnMapReadyCallback(){
+			@Override
+			public void onMapReady(GoogleMap googleMap) {
+				mMap  = googleMap;
+			}
+		});
+		*/
+		MapFragment mapFragment  = (MapFragment) getFragmentManager().findFragmentById(R.id.map);
+		mapFragment.getMapAsync(this);
 		mMap.setBuildingsEnabled(true);// Turns the 3D buildings layer on or off
 		mMap.setIndoorEnabled(true);// Sets whether indoor maps should be enabled
 		mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);// Sets the type of map tiles that should be displayed
@@ -864,6 +874,19 @@ public class MainActivity extends Activity implements BluetoothAdapter.LeScanCal
 		tabViewOfCall.setOnClickListener(new TabViewOnClickListener(2));
 		tabViewOfMap.setOnClickListener(new TabViewOnClickListener(3));
 	}// End of InitTabView
+
+	@Override
+	public void onMapReady(GoogleMap googleMap) {
+		mMap = googleMap;
+		//mMap = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
+		mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+		mMap.setMyLocationEnabled(true);
+		mMap.setTrafficEnabled(true);
+		mMap.setIndoorEnabled(true);
+		mMap.setBuildingsEnabled(true);
+		mMap.getUiSettings().setZoomControlsEnabled(true);
+	}
+
 
 	/**
 	 * 監聽頁卡標頭點擊

@@ -1,6 +1,6 @@
 /*
  * This file is auto-generated.  DO NOT MODIFY.
- * Original file: E:\\Program\\Eclipse\\Android\\AndroidWorkSpace\\eHat\\app\\src\\main\\aidl\\com\\android\\internal\\telephony\\ITelephony.aidl
+ * Original file: C:\\Users\\Leyan\\AndroidStudioProjects\\eHat\\app\\src\\main\\aidl\\com\\android\\internal\\telephony\\ITelephony.aidl
  */
 package com.android.internal.telephony;
 public interface ITelephony extends android.os.IInterface
