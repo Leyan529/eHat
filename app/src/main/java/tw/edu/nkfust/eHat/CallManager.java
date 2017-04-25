@@ -22,7 +22,7 @@ public class CallManager {
 
 	public CallManager(Context context) {
 		this.context = context;
-		mTelephonyManager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);// ¹ï¹q¸Üªº¨Ó¹qª¬ºA¶i¦æºÊÅ¥
+		mTelephonyManager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);// å°é›»è©±çš„ä¾†é›»ç‹€æ…‹é€²è¡Œç›£è½
 
 		Class<TelephonyManager> c = TelephonyManager.class;
 		Method getITelephonyMethod = null;
@@ -39,7 +39,7 @@ public class CallManager {
 	}// End of structure
 
 	public void register() {
-		mTelephonyManager.listen(new StateListener(), PhoneStateListener.LISTEN_CALL_STATE);// µù¥UºÊÅ¥¾¹¹ï¹q¸Üª¬ºA¶i¦æºÊÅ¥
+		mTelephonyManager.listen(new StateListener(), PhoneStateListener.LISTEN_CALL_STATE);// è¨»å†Šç›£è½å™¨å°é›»è©±ç‹€æ…‹é€²è¡Œç›£è½
 	}// End of register
 
 	public class StateListener extends PhoneStateListener {
@@ -48,25 +48,25 @@ public class CallManager {
 			super.onCallStateChanged(state, incomingNumber);
 
 			/**
-			 * 	»y­µ©I¥s¬ÛÃöª¬ºA (Call)
-			 * IDLE: idle ª¬ºA¡A µL¥ô¦óÃş«¬ªº©I¥s
-			 * ACTIVE: ¿E¬¡ª¬ºA¡Aªí¥Ü¥¿¦b³q¸Ü¤¤
-			 * HOLDING: ©I¥s«O«ùª¬ºA
-			 * DIALING: ¥¿¦bµo°_»y­µ©I¥sªº¹Lµ{¤¤¡A§Y¼·¸¹¤¤¡A¼È®ÉÁÙ¨S¦³±µ³q¹ï¤è
-			 * ALERTING: µo°_»y­µ©I¥s«á¡A¥¿¦b¾_¹aª¬ºA¡A¤w±µ³q¹ï¤è¡A¦ı¹ï¤èÁÙ¨S¦³±µÅ¥
-			 * INCOMING: ¨Ó¹q¾_¹aª¬ºA
-			 * WAITING: ©I¥sµ¥«İª¬ºA
-			 * DISCONNECTED: ³q¸Ü¤w§¹¥şµ²§ô¡A³s±µ§¹¥şÄÀ©ñ
-			 * DISCONNECTING: ³q¸Ü¥¿¦bÂ_¶}ªº¹Lµ{¤¤¡AÁÙ¨S¦³§¹¥şªºÂ_¶}
+			 * 	èªéŸ³å‘¼å«ç›¸é—œç‹€æ…‹ (Call)
+			 * IDLE: idle ç‹€æ…‹ï¼Œ ç„¡ä»»ä½•é¡å‹çš„å‘¼å«
+			 * ACTIVE: æ¿€æ´»ç‹€æ…‹ï¼Œè¡¨ç¤ºæ­£åœ¨é€šè©±ä¸­
+			 * HOLDING: å‘¼å«ä¿æŒç‹€æ…‹
+			 * DIALING: æ­£åœ¨ç™¼èµ·èªéŸ³å‘¼å«çš„éç¨‹ä¸­ï¼Œå³æ’¥è™Ÿä¸­ï¼Œæš«æ™‚é‚„æ²’æœ‰æ¥é€šå°æ–¹
+			 * ALERTING: ç™¼èµ·èªéŸ³å‘¼å«å¾Œï¼Œæ­£åœ¨éœ‡éˆ´ç‹€æ…‹ï¼Œå·²æ¥é€šå°æ–¹ï¼Œä½†å°æ–¹é‚„æ²’æœ‰æ¥è½
+			 * INCOMING: ä¾†é›»éœ‡éˆ´ç‹€æ…‹
+			 * WAITING: å‘¼å«ç­‰å¾…ç‹€æ…‹
+			 * DISCONNECTED: é€šè©±å·²å®Œå…¨çµæŸï¼Œé€£æ¥å®Œå…¨é‡‹æ”¾
+			 * DISCONNECTING: é€šè©±æ­£åœ¨æ–·é–‹çš„éç¨‹ä¸­ï¼Œé‚„æ²’æœ‰å®Œå…¨çš„æ–·é–‹
 			 * 
-			 * 	¤â¾÷¬ÛÃöª¬ºA (Phone)
-			 * IDLE: ¨S¦³¥h¹q¡A¤]¨S¦³¨Ó¹q¡A«e«á¥x Call ³£³B©ó DISCONNECTED ©M IDLE ª¬ºA
-			 * RINGING: ¹ïÀ³ Call ªº INCOMING ©M WAITING ª¬ºA
-			 * OFFHOOK: ¹q¸Ü¤¤
+			 * 	æ‰‹æ©Ÿç›¸é—œç‹€æ…‹ (Phone)
+			 * IDLE: æ²’æœ‰å»é›»ï¼Œä¹Ÿæ²’æœ‰ä¾†é›»ï¼Œå‰å¾Œå° Call éƒ½è™•æ–¼ DISCONNECTED å’Œ IDLE ç‹€æ…‹
+			 * RINGING: å°æ‡‰ Call çš„ INCOMING å’Œ WAITING ç‹€æ…‹
+			 * OFFHOOK: é›»è©±ä¸­
 			 */
 
 			switch (state) { 
-				case TelephonyManager.CALL_STATE_IDLE:// ªÅ¶¢ª¬ºA
+				case TelephonyManager.CALL_STATE_IDLE:// ç©ºé–’ç‹€æ…‹
 					if (oldState != state) {
 						if (MainActivity.mBluetoothA2dp != null) {
 							try {
@@ -81,7 +81,7 @@ public class CallManager {
 					}// End of if-condition
 
 					break;
-				case TelephonyManager.CALL_STATE_RINGING:// ¨Ó¹q®É
+				case TelephonyManager.CALL_STATE_RINGING:// ä¾†é›»æ™‚
 					if (oldState == TelephonyManager.CALL_STATE_IDLE) {
 						Cursor cursor = MainActivity.mCallDatabaseHelper.query(incomingNumber);
 						cursor.moveToFirst();
@@ -115,7 +115,7 @@ public class CallManager {
 					}// End of if-condition
 
 					break;
-				case TelephonyManager.CALL_STATE_OFFHOOK:// ¹q¸Ü¤¤ 
+				case TelephonyManager.CALL_STATE_OFFHOOK:// é›»è©±ä¸­ 
 					if (!MainActivity.mRFduinoManager.isOutOfRange()) MainActivity.mRFduinoManager.onStateChanged(11);
 					break;
 			}// End of switch-condition

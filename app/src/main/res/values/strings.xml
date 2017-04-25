@@ -6,7 +6,7 @@
     <string name="hello_world">Hello world!</string>
     <string name="labelOfBlock_TimerName">Name:</string>
     <string name="labelOfBlock_TimerNote">Note:</string>
-    <string name="labelOfBlock_TImerTime">Time:</string>
+    <string name="labelOfBlock_Time">Time:</string>
     <string name="labelOfBlock_PersonName">Name:</string>
     <string name="labelOfBlock_PersonPhone">Phone:</string>
     <string name="labelOfBlock_AddressName">Name:</string>
@@ -81,5 +81,7 @@
     <string name="toast_ErOfToAddress">地址設置錯誤</string>
     <string name="toast_SportModeOpen">運動模式開啟</string>
     <string name="toast_SportModeClose">運動模式關閉</string>
+    <string name="toast_ErOfWriteName">請填姓名欄</string>
+    <string name="toast_ErOfWritePhone">請填號碼欄</string>
 
 </resources>

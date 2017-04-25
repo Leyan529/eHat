@@ -18,12 +18,12 @@ public class AddressDatabaseHelper extends SQLiteOpenHelper {
 	private SQLiteDatabase db;
 
 	public AddressDatabaseHelper(Context context) {
-		super(context, DATABASE_NAME, null, DATABASE_VERSION);// «Øºc¤l(Context/¸ê®Æ®w¦WºÙ/Cursor/ª©¥»)
-		db = this.getWritableDatabase();// ¶}±Ò¥iÅª¼g¸ê®Æ®w
+		super(context, DATABASE_NAME, null, DATABASE_VERSION);// å»ºæ§‹å­(Context/è³‡æ–™åº«åç¨±/Cursor/ç‰ˆæœ¬)
+		db = this.getWritableDatabase();// é–‹å•Ÿå¯è®€å¯«è³‡æ–™åº«
 	}// End of structure
 
 	@Override
-	public void onCreate(SQLiteDatabase db) {// «Ø¥ß¸ê®Æ®wª«¥ó database
+	public void onCreate(SQLiteDatabase db) {// å»ºç«‹è³‡æ–™åº«ç‰©ä»¶ database
 		db.execSQL("CREATE TABLE IF NOT EXISTS "
 				+ TABLE_NAME + "("
 				+ FIELD_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -34,16 +34,16 @@ public class AddressDatabaseHelper extends SQLiteOpenHelper {
 
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-		db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);// §R°£¸ê®Æ®w
-		onCreate(db);// ­«·s«Ø¥ß¸ê®Æ®w
+		db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);// åˆªé™¤è³‡æ–™åº«
+		onCreate(db);// é‡æ–°å»ºç«‹è³‡æ–™åº«
 	}// End of onUpgrade
 
 	// Get all data
 	public Cursor get() {
-		Cursor cursor = db.query(TABLE_NAME,// ¸ê®Æªí¦WºÙ
-				new String[] { FIELD_ID, FIELD_NAME, FIELD_Address },// Äæ¦ì¦WºÙ
+		Cursor cursor = db.query(TABLE_NAME,// è³‡æ–™è¡¨åç¨±
+				new String[] { FIELD_ID, FIELD_NAME, FIELD_Address },// æ¬„ä½åç¨±
 				null,// SELECTION
-				null,// SELECTION ªº°Ñ¼Æ
+				null,// SELECTION çš„åƒæ•¸
 				null,// GROUP BY
 				null,// HAVING
 				null// ORDOR BY

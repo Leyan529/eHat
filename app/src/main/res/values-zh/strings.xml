@@ -3,7 +3,6 @@
 
     <string name="labelOfBlock_TimerName">名稱:</string>
     <string name="labelOfBlock_TimerNote">備註:</string>
-    <string name="labelOfBlock_TimerTime">時間:</string>
     <string name="labelOfBlock_PersonName">姓名:</string>
     <string name="labelOfBlock_PersonPhone">號碼:</string>
     <string name="labelOfBlock_AddressName">名稱:</string>
@@ -74,5 +73,15 @@
     <string name="toast_ErOfToAddress">地址設置錯誤</string>
     <string name="toast_SportModeOpen">運動模式開啟</string>
     <string name="toast_SportModeClose">運動模式關閉</string>
+    <string name="app_name">eHat</string>
+    <string name="app_version">1.0</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_address_list">AddressListActivity</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_path_list">PathListActivity</string>
+    <string name="toast_ErOfWritePersonName">請填姓名欄</string>
+    <string name="toast_ErOfWritePersonPhone">請填號碼欄</string>
+    <string name="toast_RFduino_Disconnect">RFduino 已斷開連接</string>
+    <string name="labelOfBlock_Time">時間:</string>
 
 </resources>

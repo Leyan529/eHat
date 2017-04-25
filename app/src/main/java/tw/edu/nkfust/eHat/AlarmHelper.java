@@ -124,7 +124,7 @@ public class AlarmHelper {
 				break;
 		}// End of switch-condition
 
-		int interval = 1000;// ¶¡¹j®É¶¡
+		int interval = 1000;// é–“éš”æ™‚é–“
 		CountDownTimer timer;
 
 		timer = new CountDownTimer(sum, interval) {

@@ -38,12 +38,12 @@ public class PathHelper {
 		return url;
 	}// End of getPathUrl
 
-	private String updatePathData(String strUrl) throws IOException { //Web Service ¦ê±µ¼´¦^¸ê®Æ
+	private String updatePathData(String strUrl) throws IOException { //Web Service ä¸²æ¥æ’ˆå›è³‡æ–™
 		String data = "";
 		InputStream input = null;
 		HttpURLConnection urlConnection = null;
 
-		// ¨ú±o¦ì§}¸ê®Æºô§}
+		// å–å¾—ä½å€è³‡æ–™ç¶²å€
 		try {
 			URL url = new URL(strUrl);
 
@@ -147,8 +147,8 @@ public class PathHelper {
 
 				// Add all the points in the route to LineOptions
 				lineOptions.addAll(points);
-				lineOptions.width(20);// ¸ô®|¼e«×
-				lineOptions.color(Color.BLUE);// ¸ô®|ÃC¦â
+				lineOptions.width(20);// è·¯å¾‘å¯¬åº¦
+				lineOptions.color(Color.BLUE);// è·¯å¾‘é¡è‰²
 			}// End of for-loop
 
 			MainActivity.mMap.addPolyline(lineOptions);

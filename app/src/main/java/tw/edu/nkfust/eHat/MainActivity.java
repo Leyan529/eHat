@@ -66,13 +66,13 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.UUID;
 
-public class MainActivity extends Activity implements BluetoothAdapter.LeScanCallback, SensorEventListener { 
-	private LinearLayout tabViewOfDevice, tabViewOfAlarm, tabViewOfCall, tabViewOfMap;// ­¶¥d¼ĞÀY
+public class MainActivity extends Activity implements BluetoothAdapter.LeScanCallback, SensorEventListener {
+	private LinearLayout tabViewOfDevice, tabViewOfAlarm, tabViewOfCall, tabViewOfMap;// é å¡æ¨™é ­
 	private ImageView tabImageOfDevice, tabImageOfAlarm, tabImageOfCall, tabImageOfMap;
-	private ImageView cursorImage;// °Êµe¹Ï¤ù
-	private int indexOfCurrent = 0;// ·í«e­¶¥d½s¸¹
-	private int offset = 0;// °Êµe¹Ï¤ù°¾²¾¶q
-	private int bmpW;// °Êµe¹Ï¤ù¼e«×
+	private ImageView cursorImage;// å‹•ç•«åœ–ç‰‡
+	private int indexOfCurrent = 0;// ç•¶å‰é å¡ç·¨è™Ÿ
+	private int offset = 0;// å‹•ç•«åœ–ç‰‡åç§»é‡
+	private int bmpW;// å‹•ç•«åœ–ç‰‡å¯¬åº¦
 
 	private ScrollView layoutOfDevice, layoutOfAlarm;
 	private LinearLayout layoutOfCall;
@@ -226,10 +226,10 @@ public class MainActivity extends Activity implements BluetoothAdapter.LeScanCal
 
 	protected static boolean guiding;
 	protected static String pathMode = "walking";
-	protected static String mapMode = "normal";// normal: ¾É¯è, sport: ¹B°Ê
+	protected static String mapMode = "normal";// normal: å°èˆª, sport: é‹å‹•
 	protected static Timer timerOfGuide, timerOfSport;
 
-	@Override //1.¤À°t¸ê·½µ¹³o­Ó Activity(onCreate)
+	@Override //1.åˆ†é…è³‡æºçµ¦é€™å€‹ Activity(onCreate)
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -399,9 +399,9 @@ public class MainActivity extends Activity implements BluetoothAdapter.LeScanCal
 						@Override
 						public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
 							if (hourOfDay >= 12) {
-								textOfTimePickerStatus.setText(String.format("¤U¤È	%02d : %02d", hourOfDay - 12, minute));
+								textOfTimePickerStatus.setText(String.format("ä¸‹åˆ	%02d : %02d", hourOfDay - 12, minute));
 							} else {
-								textOfTimePickerStatus.setText(String.format("¤W¤È	%02d : %02d", hourOfDay, minute));
+								textOfTimePickerStatus.setText(String.format("ä¸Šåˆ	%02d : %02d", hourOfDay, minute));
 							}// End of if-condition
 
 							mAlarmHelper.setTimePicker(hourOfDay, minute);
@@ -809,35 +809,35 @@ public class MainActivity extends Activity implements BluetoothAdapter.LeScanCal
 		});
 	}// End of onCreate
 
-	@Override //2.±N Activity ¤º®eÅã¥Ü¨ì¿Ã¹õ¤W(onStart)
+	@Override //2.å°‡ Activity å…§å®¹é¡¯ç¤ºåˆ°è¢å¹•ä¸Š(onStart)
 	protected void onStart() {
 		super.onStart();
 		updateState(mBluetoothAdapter.isEnabled() ? STATE_DISCONNECTED : STATE_BLUETOOTH_OFF);
 		wakeLock.acquire();
 	}// End of onStart
 
-	@Override //3.¦b¤@¤Á´Nºü«á, ¨ú±o¿Ã¹õªº±±¨îÅv(onResume), ¨Ï¥ÎªÌ¥i¥H¶}©l¨Ï¥Î³o­Óµ{¦¡¡A¨Ã§â«O¦sªº¸ê®Æ®³¦^¨Ó¨Ï¥Î.
+	@Override //3.åœ¨ä¸€åˆ‡å°±ç·’å¾Œ, å–å¾—è¢å¹•çš„æ§åˆ¶æ¬Š(onResume), ä½¿ç”¨è€…å¯ä»¥é–‹å§‹ä½¿ç”¨é€™å€‹ç¨‹å¼ï¼Œä¸¦æŠŠä¿å­˜çš„è³‡æ–™æ‹¿å›ä¾†ä½¿ç”¨.
 	protected void onResume(){
 		super.onResume();
 	}
 
-	@Override //4.­áµ²­ì¥»ªº Activity, ¦A¥æ¥Xª½±µ¦s¨ú¿Ã¹õ¯à¤O(onPause )¡A¨Ã§â»İ­n«O¦sªº¸ê®Æ«O¦s
+	@Override //4.å‡çµåŸæœ¬çš„ Activity, å†äº¤å‡ºç›´æ¥å­˜å–è¢å¹•èƒ½åŠ›(onPause )ï¼Œä¸¦æŠŠéœ€è¦ä¿å­˜çš„è³‡æ–™ä¿å­˜
 	protected void onPause(){
 		super.onPause();
 	}
 
-	@Override //5.¥Nªí¸ÓActivity¬°°±¤î¡A¤´«O¯d¨Ï¥ÎªÌ­ì¥ı¿é¤J¤§¤º®e¡A¦ı¨Ï¥ÎªÌ¤w¸g§¹¥ş¬İ¤£¨ì³o­Óµe­±¡C°£«D¤â¾÷¤Wªº°O¾ĞÅéÄY­«¤£¨¬¡A«h¦³¥i¯à¾D¨ìÃö³¬
+	@Override //5.ä»£è¡¨è©²Activityç‚ºåœæ­¢ï¼Œä»ä¿ç•™ä½¿ç”¨è€…åŸå…ˆè¼¸å…¥ä¹‹å…§å®¹ï¼Œä½†ä½¿ç”¨è€…å·²ç¶“å®Œå…¨çœ‹ä¸åˆ°é€™å€‹ç•«é¢ã€‚é™¤éæ‰‹æ©Ÿä¸Šçš„è¨˜æ†¶é«”åš´é‡ä¸è¶³ï¼Œå‰‡æœ‰å¯èƒ½é­åˆ°é—œé–‰
 	protected void onStop() {
 		super.onStop();
 		wakeLock.release();
 	}// End of onStop
 
-	@Override //6.±N°±¤î¹B§@ªºActivity­«·s±Ò°Ê¡A±`¨£±¡ªp¬°¨Ï¥ÎªÌ«ö¤UBackÁä¦^¨ì­ì¥»ªº Activity
+	@Override //6.å°‡åœæ­¢é‹ä½œçš„Activityé‡æ–°å•Ÿå‹•ï¼Œå¸¸è¦‹æƒ…æ³ç‚ºä½¿ç”¨è€…æŒ‰ä¸‹Backéµå›åˆ°åŸæœ¬çš„ Activity
 	protected void onRestart() {
 		super.onRestart();
 	}
 
-	@Override //7.¾P·´(Destroy)°±¤î¹B§@ªºActivity¤Wªº©Ò¦³¸ê·½¨ÃÄÀ©ñ
+	@Override //7.éŠ·æ¯€(Destroy)åœæ­¢é‹ä½œçš„Activityä¸Šçš„æ‰€æœ‰è³‡æºä¸¦é‡‹æ”¾
 	protected void onDestroy() {
 		super.onDestroy();
 		mBluetoothAdapter.stopLeScan(this);
@@ -852,7 +852,7 @@ public class MainActivity extends Activity implements BluetoothAdapter.LeScanCal
 	}// End of onDestroy
 
 	/**
-	 * ªì©l¤Æ­¶¥dÀY¼Ğ
+	 * åˆå§‹åŒ–é å¡é ­æ¨™
 	 */
 	private void initTabView() {
 		tabViewOfDevice = (LinearLayout) findViewById(R.id.tabViewOfDevice);
@@ -866,7 +866,7 @@ public class MainActivity extends Activity implements BluetoothAdapter.LeScanCal
 	}// End of InitTabView
 
 	/**
-	 * ºÊÅ¥­¶¥d¼ĞÀYÂIÀ»
+	 * ç›£è½é å¡æ¨™é ­é»æ“Š
 	 */
 	private class TabViewOnClickListener implements OnClickListener {
 		private int index = 0;
@@ -877,9 +877,9 @@ public class MainActivity extends Activity implements BluetoothAdapter.LeScanCal
 
 		@Override
 		public void onClick(View arg0) {
-			int one = offset * 2 + bmpW;// ­¶¥d1 -> ­¶¥d2 ªº°¾²¾¶q
-			int two = one * 2;// ­¶¥d1 -> ­¶¥d3 ªº°¾²¾¶q
-			int three = one * 3;// ­¶¥d1 -> ­¶¥d4 ªº°¾²¾¶q
+			int one = offset * 2 + bmpW;// é å¡1 -> é å¡2 çš„åç§»é‡
+			int two = one * 2;// é å¡1 -> é å¡3 çš„åç§»é‡
+			int three = one * 3;// é å¡1 -> é å¡4 çš„åç§»é‡
 
 			Animation animation = null;
 			tabImageOfDevice = (ImageView) findViewById(R.id.tabImageOfDevice);
@@ -977,7 +977,7 @@ public class MainActivity extends Activity implements BluetoothAdapter.LeScanCal
 				}// End of switch-condition
 
 				indexOfCurrent = index;
-				animation.setFillAfter(true);// True:¹Ï¤ù°±¦b°Êµeµ²§ôªº¦ì¸m
+				animation.setFillAfter(true);// True:åœ–ç‰‡åœåœ¨å‹•ç•«çµæŸçš„ä½ç½®
 				animation.setDuration(300);
 				cursorImage.startAnimation(animation);
 			}// End of if-condition
@@ -985,22 +985,22 @@ public class MainActivity extends Activity implements BluetoothAdapter.LeScanCal
 	}// End of TabViewOnClickListener
 
 	/**
-	 * ªì©l¤Æ°Êµe¹Ï¤ù
+	 * åˆå§‹åŒ–å‹•ç•«åœ–ç‰‡
 	 */
 	private void initCursor() {
 		cursorImage = (ImageView) findViewById(R.id.cursorImage);
-		bmpW = BitmapFactory.decodeResource(getResources(), R.drawable.cursor_blue_60x6).getWidth();// Àò¨ú¹Ï¤ù¼e«×
+		bmpW = BitmapFactory.decodeResource(getResources(), R.drawable.cursor_blue_60x6).getWidth();// ç²å–åœ–ç‰‡å¯¬åº¦
 		DisplayMetrics dm = new DisplayMetrics();
 		getWindowManager().getDefaultDisplay().getMetrics(dm);
-		int screenW = dm.widthPixels;// Àò¨ú¤À¿ë²v¼e«×
-		offset = (screenW / 4 - bmpW) / 2;// ­pºâ°¾²¾¶q
+		int screenW = dm.widthPixels;// ç²å–åˆ†è¾¨ç‡å¯¬åº¦
+		offset = (screenW / 4 - bmpW) / 2;// è¨ˆç®—åç§»é‡
 		Matrix matrix = new Matrix();
 		matrix.postTranslate(offset, 0);
-		cursorImage.setImageMatrix(matrix);// ³]¸m°Êµeªì©l¦ì¸m
+		cursorImage.setImageMatrix(matrix);// è¨­ç½®å‹•ç•«åˆå§‹ä½ç½®
 	}// End of InitCursor
 
 	/**
-	 * ªì©l¤Æ­¶­±
+	 * åˆå§‹åŒ–é é¢
 	 */
 	private void initLayout() {
 		layoutOfDevice = (ScrollView) findViewById(R.id.layoutOfDevice);

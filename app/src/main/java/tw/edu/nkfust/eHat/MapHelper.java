@@ -56,20 +56,20 @@ public class MapHelper extends Activity implements LocationListener {
 		this.context = context;
 		mLocationManager = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
 		mConnectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-		networkInfo = mConnectivityManager.getActiveNetworkInfo();// ­Y¥¼³s½u, mNetworkInfo = null
+		networkInfo = mConnectivityManager.getActiveNetworkInfo();// è‹¥æœªé€£ç·š, mNetworkInfo = null
 	}// End of structure
 
 	public void initialize() {
 		if (criteria == null) {
 			criteria = new Criteria();
 			criteria.setAccuracy(Criteria.ACCURACY_FINE);
-			criteria.setAltitudeRequired(false);// ¤£­n¨D®ü©Ş
-			criteria.setBearingRequired(false);// ¤£­n¨D¤è¦ì
-			criteria.setPowerRequirement(Criteria.POWER_HIGH);// °ª¥\¯Ó
-			geocoder = new Geocoder(context, Locale.TRADITIONAL_CHINESE); // ¥xÆW
+			criteria.setAltitudeRequired(false);// ä¸è¦æ±‚æµ·æ‹”
+			criteria.setBearingRequired(false);// ä¸è¦æ±‚æ–¹ä½
+			criteria.setPowerRequirement(Criteria.POWER_HIGH);// é«˜åŠŸè€—
+			geocoder = new Geocoder(context, Locale.TRADITIONAL_CHINESE); // å°ç£
 			theBestProvider = mLocationManager.getBestProvider(criteria, true);
-			mLocationManager.requestLocationUpdates(theBestProvider, 0, 0, this);// ¶g´Á©ÊºÊÅ¥¦ì¸mªºª¬ºA
-			updateMap(22.754519, 120.333249);// °ª¶¯²Ä¤@¬ì§Ş¤j¾Ç
+			mLocationManager.requestLocationUpdates(theBestProvider, 0, 0, this);// é€±æœŸæ€§ç›£è½ä½ç½®çš„ç‹€æ…‹
+			updateMap(22.754519, 120.333249);// é«˜é›„ç¬¬ä¸€ç§‘æŠ€å¤§å­¸
 		}// End of if-condition
 	}// End of initialize
 
@@ -150,7 +150,7 @@ public class MapHelper extends Activity implements LocationListener {
 		CameraPosition cameraPosition = new CameraPosition
 				.Builder()
 				.target(new LatLng(lat, lng))// Sets the center of the map to Mountain View
-				.zoom(ratio)// Sets the zoom ¤ñ¨Ò¤Ø (4-20)
+				.zoom(ratio)// Sets the zoom æ¯”ä¾‹å°º (4-20)
 				.bearing(bearing)// Sets the orientation of the camera to east
 				.tilt(tilt)// Sets the tilt of the camera to 30 degrees
 				.build();// Creates a CameraPosition from the builder
@@ -258,7 +258,7 @@ public class MapHelper extends Activity implements LocationListener {
 				oldLatLng = new LatLng(lat, lng);
 				points.add(oldLatLng);
 				lineOptions.add(oldLatLng);
-				MainActivity.textOfMapDescription.setText("¨½µ{¼Æ(¤½¤Ø): " + String.format("%.3f", lengthOfPath));
+				MainActivity.textOfMapDescription.setText("é‡Œç¨‹æ•¸(å…¬å°º): " + String.format("%.3f", lengthOfPath));
 
 				lineOptions.width(20);
 				lineOptions.color(Color.DKGRAY);

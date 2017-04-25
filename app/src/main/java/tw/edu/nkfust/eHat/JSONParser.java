@@ -70,7 +70,7 @@ public class JSONParser {
 		return routes;
 	}// End of parse
 
-	// ¸Ñ½X§é½uÂI
+	// è§£ç¢¼æŠ˜ç·šé»ž
 	private List<LatLng> decodePolyline(String encoded) {
 		List<LatLng> polyline = new ArrayList<LatLng>();
 		int index = 0, len = encoded.length();
