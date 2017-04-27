@@ -1,17 +1,5 @@
 package tw.edu.nkfust.eHat;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-
-import com.google.android.gms.maps.CameraUpdateFactory;
-import com.google.android.gms.maps.model.BitmapDescriptorFactory;
-import com.google.android.gms.maps.model.CameraPosition;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.android.gms.maps.model.PolylineOptions;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -30,7 +18,21 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.widget.Toast;
 
-public class MapHelper extends Activity implements LocationListener {
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.CameraPosition;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.PolylineOptions;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
+
+import static tw.edu.nkfust.eHat.MainActivity.mMap;
+
+public class MapHelper extends Activity implements LocationListener{
 	private Context context;
 	private static LocationManager mLocationManager;
 	private static ConnectivityManager mConnectivityManager;
@@ -154,7 +156,7 @@ public class MapHelper extends Activity implements LocationListener {
 				.bearing(bearing)// Sets the orientation of the camera to east
 				.tilt(tilt)// Sets the tilt of the camera to 30 degrees
 				.build();// Creates a CameraPosition from the builder
-		MainActivity.mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+		mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
 	}// End of updateMap
 
 	public LatLng presentLatLng() {
@@ -254,7 +256,7 @@ public class MapHelper extends Activity implements LocationListener {
 					if (!MainActivity.mRFduinoManager.isOutOfRange()) MainActivity.mRFduinoManager.onStateChanged(30);
 				}// End of if-condition
 
-				MainActivity.mMap.clear();
+				mMap.clear();
 				oldLatLng = new LatLng(lat, lng);
 				points.add(oldLatLng);
 				lineOptions.add(oldLatLng);
@@ -262,7 +264,7 @@ public class MapHelper extends Activity implements LocationListener {
 
 				lineOptions.width(20);
 				lineOptions.color(Color.DKGRAY);
-				MainActivity.mMap.addPolyline(lineOptions);
+				mMap.addPolyline(lineOptions);
 			}// End of if-condition
 
 			return true;
@@ -270,4 +272,6 @@ public class MapHelper extends Activity implements LocationListener {
 
 		return false;
 	}// End of recordPath
+
+
 }// End of MapHelper

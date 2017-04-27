@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "C:\\Users\\Leyan\\AndroidStudioProjects\\eHat\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v18\\values-v18.xml",
+        "outputFile": "E:\\Program\\Eclipse\\Android\\AndroidWorkSpace\\eHat\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v18\\values-v18.xml",
         "map": [
             {
                 "to": {
@@ -11,7 +11,7 @@
                     "endOffset": 99
                 },
                 "from": {
-                    "file": "C:\\Users\\Leyan\\.android\\build-cache\\de4c43f3fa5ec2930394da64674852aa37a217e3\\output\\res\\values-v18\\values-v18.xml",
+                    "file": "C:\\Users\\Leyan\\.android\\build-cache\\a0e67bf4efe870720919c6c9462c1ad05a3199eb\\output\\res\\values-v18\\values-v18.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,

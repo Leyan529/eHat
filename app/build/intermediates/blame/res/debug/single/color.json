@@ -1,90 +1,90 @@
 [
     {
-        "merged": "C:\\Users\\Leyan\\AndroidStudioProjects\\eHat\\app\\build\\intermediates\\res\\merged\\debug\\color\\wallet_secondary_text_holo_dark.xml",
-        "source": "C:\\Users\\Leyan\\.android\\build-cache\\d18a2d75604776e3ac51b300845dbe75f4af68d8\\output\\res\\color\\wallet_secondary_text_holo_dark.xml"
+        "merged": "E:\\Program\\Eclipse\\Android\\AndroidWorkSpace\\eHat\\app\\build\\intermediates\\res\\merged\\debug\\color\\wallet_primary_text_holo_light.xml",
+        "source": "C:\\Users\\Leyan\\.android\\build-cache\\d0becfc117537ae8e287ab670aee40bd1fb77f33\\output\\res\\color\\wallet_primary_text_holo_light.xml"
     },
     {
-        "merged": "C:\\Users\\Leyan\\AndroidStudioProjects\\eHat\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_primary_text_disable_only_material_light.xml",
-        "source": "C:\\Users\\Leyan\\.android\\build-cache\\de4c43f3fa5ec2930394da64674852aa37a217e3\\output\\res\\color\\abc_primary_text_disable_only_material_light.xml"
+        "merged": "E:\\Program\\Eclipse\\Android\\AndroidWorkSpace\\eHat\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_tint_switch_thumb.xml",
+        "source": "C:\\Users\\Leyan\\.android\\build-cache\\a0e67bf4efe870720919c6c9462c1ad05a3199eb\\output\\res\\color\\abc_tint_switch_thumb.xml"
     },
     {
-        "merged": "C:\\Users\\Leyan\\AndroidStudioProjects\\eHat\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_tint_btn_checkable.xml",
-        "source": "C:\\Users\\Leyan\\.android\\build-cache\\de4c43f3fa5ec2930394da64674852aa37a217e3\\output\\res\\color\\abc_tint_btn_checkable.xml"
+        "merged": "E:\\Program\\Eclipse\\Android\\AndroidWorkSpace\\eHat\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_btn_colored_borderless_text_material.xml",
+        "source": "C:\\Users\\Leyan\\.android\\build-cache\\a0e67bf4efe870720919c6c9462c1ad05a3199eb\\output\\res\\color\\abc_btn_colored_borderless_text_material.xml"
     },
     {
-        "merged": "C:\\Users\\Leyan\\AndroidStudioProjects\\eHat\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_tint_seek_thumb.xml",
-        "source": "C:\\Users\\Leyan\\.android\\build-cache\\de4c43f3fa5ec2930394da64674852aa37a217e3\\output\\res\\color\\abc_tint_seek_thumb.xml"
+        "merged": "E:\\Program\\Eclipse\\Android\\AndroidWorkSpace\\eHat\\app\\build\\intermediates\\res\\merged\\debug\\color\\switch_thumb_material_light.xml",
+        "source": "C:\\Users\\Leyan\\.android\\build-cache\\a0e67bf4efe870720919c6c9462c1ad05a3199eb\\output\\res\\color\\switch_thumb_material_light.xml"
     },
     {
-        "merged": "C:\\Users\\Leyan\\AndroidStudioProjects\\eHat\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_tint_spinner.xml",
-        "source": "C:\\Users\\Leyan\\.android\\build-cache\\de4c43f3fa5ec2930394da64674852aa37a217e3\\output\\res\\color\\abc_tint_spinner.xml"
+        "merged": "E:\\Program\\Eclipse\\Android\\AndroidWorkSpace\\eHat\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_tint_default.xml",
+        "source": "C:\\Users\\Leyan\\.android\\build-cache\\a0e67bf4efe870720919c6c9462c1ad05a3199eb\\output\\res\\color\\abc_tint_default.xml"
     },
     {
-        "merged": "C:\\Users\\Leyan\\AndroidStudioProjects\\eHat\\app\\build\\intermediates\\res\\merged\\debug\\color\\common_google_signin_btn_text_dark.xml",
-        "source": "C:\\Users\\Leyan\\.android\\build-cache\\b96d8b77a19afe3ff30e11c2235e82e5897d40ed\\output\\res\\color\\common_google_signin_btn_text_dark.xml"
+        "merged": "E:\\Program\\Eclipse\\Android\\AndroidWorkSpace\\eHat\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_primary_text_disable_only_material_dark.xml",
+        "source": "C:\\Users\\Leyan\\.android\\build-cache\\a0e67bf4efe870720919c6c9462c1ad05a3199eb\\output\\res\\color\\abc_primary_text_disable_only_material_dark.xml"
     },
     {
-        "merged": "C:\\Users\\Leyan\\AndroidStudioProjects\\eHat\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_tint_switch_track.xml",
-        "source": "C:\\Users\\Leyan\\.android\\build-cache\\de4c43f3fa5ec2930394da64674852aa37a217e3\\output\\res\\color\\abc_tint_switch_track.xml"
+        "merged": "E:\\Program\\Eclipse\\Android\\AndroidWorkSpace\\eHat\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_primary_text_material_dark.xml",
+        "source": "C:\\Users\\Leyan\\.android\\build-cache\\a0e67bf4efe870720919c6c9462c1ad05a3199eb\\output\\res\\color\\abc_primary_text_material_dark.xml"
     },
     {
-        "merged": "C:\\Users\\Leyan\\AndroidStudioProjects\\eHat\\app\\build\\intermediates\\res\\merged\\debug\\color\\common_google_signin_btn_tint.xml",
-        "source": "C:\\Users\\Leyan\\.android\\build-cache\\b96d8b77a19afe3ff30e11c2235e82e5897d40ed\\output\\res\\color\\common_google_signin_btn_tint.xml"
+        "merged": "E:\\Program\\Eclipse\\Android\\AndroidWorkSpace\\eHat\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_secondary_text_material_dark.xml",
+        "source": "C:\\Users\\Leyan\\.android\\build-cache\\a0e67bf4efe870720919c6c9462c1ad05a3199eb\\output\\res\\color\\abc_secondary_text_material_dark.xml"
     },
     {
-        "merged": "C:\\Users\\Leyan\\AndroidStudioProjects\\eHat\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_search_url_text.xml",
-        "source": "C:\\Users\\Leyan\\.android\\build-cache\\de4c43f3fa5ec2930394da64674852aa37a217e3\\output\\res\\color\\abc_search_url_text.xml"
+        "merged": "E:\\Program\\Eclipse\\Android\\AndroidWorkSpace\\eHat\\app\\build\\intermediates\\res\\merged\\debug\\color\\common_google_signin_btn_tint.xml",
+        "source": "C:\\Users\\Leyan\\.android\\build-cache\\d01a468e9b54a207f928eb91e7b6d6415e79e93c\\output\\res\\color\\common_google_signin_btn_tint.xml"
     },
     {
-        "merged": "C:\\Users\\Leyan\\AndroidStudioProjects\\eHat\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_btn_colored_borderless_text_material.xml",
-        "source": "C:\\Users\\Leyan\\.android\\build-cache\\de4c43f3fa5ec2930394da64674852aa37a217e3\\output\\res\\color\\abc_btn_colored_borderless_text_material.xml"
+        "merged": "E:\\Program\\Eclipse\\Android\\AndroidWorkSpace\\eHat\\app\\build\\intermediates\\res\\merged\\debug\\color\\common_google_signin_btn_text_dark.xml",
+        "source": "C:\\Users\\Leyan\\.android\\build-cache\\d01a468e9b54a207f928eb91e7b6d6415e79e93c\\output\\res\\color\\common_google_signin_btn_text_dark.xml"
     },
     {
-        "merged": "C:\\Users\\Leyan\\AndroidStudioProjects\\eHat\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_primary_text_material_dark.xml",
-        "source": "C:\\Users\\Leyan\\.android\\build-cache\\de4c43f3fa5ec2930394da64674852aa37a217e3\\output\\res\\color\\abc_primary_text_material_dark.xml"
+        "merged": "E:\\Program\\Eclipse\\Android\\AndroidWorkSpace\\eHat\\app\\build\\intermediates\\res\\merged\\debug\\color\\switch_thumb_material_dark.xml",
+        "source": "C:\\Users\\Leyan\\.android\\build-cache\\a0e67bf4efe870720919c6c9462c1ad05a3199eb\\output\\res\\color\\switch_thumb_material_dark.xml"
     },
     {
-        "merged": "C:\\Users\\Leyan\\AndroidStudioProjects\\eHat\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_primary_text_material_light.xml",
-        "source": "C:\\Users\\Leyan\\.android\\build-cache\\de4c43f3fa5ec2930394da64674852aa37a217e3\\output\\res\\color\\abc_primary_text_material_light.xml"
+        "merged": "E:\\Program\\Eclipse\\Android\\AndroidWorkSpace\\eHat\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_tint_edittext.xml",
+        "source": "C:\\Users\\Leyan\\.android\\build-cache\\a0e67bf4efe870720919c6c9462c1ad05a3199eb\\output\\res\\color\\abc_tint_edittext.xml"
     },
     {
-        "merged": "C:\\Users\\Leyan\\AndroidStudioProjects\\eHat\\app\\build\\intermediates\\res\\merged\\debug\\color\\switch_thumb_material_dark.xml",
-        "source": "C:\\Users\\Leyan\\.android\\build-cache\\de4c43f3fa5ec2930394da64674852aa37a217e3\\output\\res\\color\\switch_thumb_material_dark.xml"
+        "merged": "E:\\Program\\Eclipse\\Android\\AndroidWorkSpace\\eHat\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_tint_spinner.xml",
+        "source": "C:\\Users\\Leyan\\.android\\build-cache\\a0e67bf4efe870720919c6c9462c1ad05a3199eb\\output\\res\\color\\abc_tint_spinner.xml"
     },
     {
-        "merged": "C:\\Users\\Leyan\\AndroidStudioProjects\\eHat\\app\\build\\intermediates\\res\\merged\\debug\\color\\switch_thumb_material_light.xml",
-        "source": "C:\\Users\\Leyan\\.android\\build-cache\\de4c43f3fa5ec2930394da64674852aa37a217e3\\output\\res\\color\\switch_thumb_material_light.xml"
+        "merged": "E:\\Program\\Eclipse\\Android\\AndroidWorkSpace\\eHat\\app\\build\\intermediates\\res\\merged\\debug\\color\\wallet_secondary_text_holo_dark.xml",
+        "source": "C:\\Users\\Leyan\\.android\\build-cache\\d0becfc117537ae8e287ab670aee40bd1fb77f33\\output\\res\\color\\wallet_secondary_text_holo_dark.xml"
     },
     {
-        "merged": "C:\\Users\\Leyan\\AndroidStudioProjects\\eHat\\app\\build\\intermediates\\res\\merged\\debug\\color\\common_google_signin_btn_text_light.xml",
-        "source": "C:\\Users\\Leyan\\.android\\build-cache\\b96d8b77a19afe3ff30e11c2235e82e5897d40ed\\output\\res\\color\\common_google_signin_btn_text_light.xml"
+        "merged": "E:\\Program\\Eclipse\\Android\\AndroidWorkSpace\\eHat\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_tint_switch_track.xml",
+        "source": "C:\\Users\\Leyan\\.android\\build-cache\\a0e67bf4efe870720919c6c9462c1ad05a3199eb\\output\\res\\color\\abc_tint_switch_track.xml"
     },
     {
-        "merged": "C:\\Users\\Leyan\\AndroidStudioProjects\\eHat\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_primary_text_disable_only_material_dark.xml",
-        "source": "C:\\Users\\Leyan\\.android\\build-cache\\de4c43f3fa5ec2930394da64674852aa37a217e3\\output\\res\\color\\abc_primary_text_disable_only_material_dark.xml"
+        "merged": "E:\\Program\\Eclipse\\Android\\AndroidWorkSpace\\eHat\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_tint_seek_thumb.xml",
+        "source": "C:\\Users\\Leyan\\.android\\build-cache\\a0e67bf4efe870720919c6c9462c1ad05a3199eb\\output\\res\\color\\abc_tint_seek_thumb.xml"
     },
     {
-        "merged": "C:\\Users\\Leyan\\AndroidStudioProjects\\eHat\\app\\build\\intermediates\\res\\merged\\debug\\color\\wallet_primary_text_holo_light.xml",
-        "source": "C:\\Users\\Leyan\\.android\\build-cache\\d18a2d75604776e3ac51b300845dbe75f4af68d8\\output\\res\\color\\wallet_primary_text_holo_light.xml"
+        "merged": "E:\\Program\\Eclipse\\Android\\AndroidWorkSpace\\eHat\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_tint_btn_checkable.xml",
+        "source": "C:\\Users\\Leyan\\.android\\build-cache\\a0e67bf4efe870720919c6c9462c1ad05a3199eb\\output\\res\\color\\abc_tint_btn_checkable.xml"
     },
     {
-        "merged": "C:\\Users\\Leyan\\AndroidStudioProjects\\eHat\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_tint_switch_thumb.xml",
-        "source": "C:\\Users\\Leyan\\.android\\build-cache\\de4c43f3fa5ec2930394da64674852aa37a217e3\\output\\res\\color\\abc_tint_switch_thumb.xml"
+        "merged": "E:\\Program\\Eclipse\\Android\\AndroidWorkSpace\\eHat\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_primary_text_disable_only_material_light.xml",
+        "source": "C:\\Users\\Leyan\\.android\\build-cache\\a0e67bf4efe870720919c6c9462c1ad05a3199eb\\output\\res\\color\\abc_primary_text_disable_only_material_light.xml"
     },
     {
-        "merged": "C:\\Users\\Leyan\\AndroidStudioProjects\\eHat\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_secondary_text_material_light.xml",
-        "source": "C:\\Users\\Leyan\\.android\\build-cache\\de4c43f3fa5ec2930394da64674852aa37a217e3\\output\\res\\color\\abc_secondary_text_material_light.xml"
+        "merged": "E:\\Program\\Eclipse\\Android\\AndroidWorkSpace\\eHat\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_secondary_text_material_light.xml",
+        "source": "C:\\Users\\Leyan\\.android\\build-cache\\a0e67bf4efe870720919c6c9462c1ad05a3199eb\\output\\res\\color\\abc_secondary_text_material_light.xml"
     },
     {
-        "merged": "C:\\Users\\Leyan\\AndroidStudioProjects\\eHat\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_tint_edittext.xml",
-        "source": "C:\\Users\\Leyan\\.android\\build-cache\\de4c43f3fa5ec2930394da64674852aa37a217e3\\output\\res\\color\\abc_tint_edittext.xml"
+        "merged": "E:\\Program\\Eclipse\\Android\\AndroidWorkSpace\\eHat\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_search_url_text.xml",
+        "source": "C:\\Users\\Leyan\\.android\\build-cache\\a0e67bf4efe870720919c6c9462c1ad05a3199eb\\output\\res\\color\\abc_search_url_text.xml"
     },
     {
-        "merged": "C:\\Users\\Leyan\\AndroidStudioProjects\\eHat\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_secondary_text_material_dark.xml",
-        "source": "C:\\Users\\Leyan\\.android\\build-cache\\de4c43f3fa5ec2930394da64674852aa37a217e3\\output\\res\\color\\abc_secondary_text_material_dark.xml"
+        "merged": "E:\\Program\\Eclipse\\Android\\AndroidWorkSpace\\eHat\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_primary_text_material_light.xml",
+        "source": "C:\\Users\\Leyan\\.android\\build-cache\\a0e67bf4efe870720919c6c9462c1ad05a3199eb\\output\\res\\color\\abc_primary_text_material_light.xml"
     },
     {
-        "merged": "C:\\Users\\Leyan\\AndroidStudioProjects\\eHat\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_tint_default.xml",
-        "source": "C:\\Users\\Leyan\\.android\\build-cache\\de4c43f3fa5ec2930394da64674852aa37a217e3\\output\\res\\color\\abc_tint_default.xml"
+        "merged": "E:\\Program\\Eclipse\\Android\\AndroidWorkSpace\\eHat\\app\\build\\intermediates\\res\\merged\\debug\\color\\common_google_signin_btn_text_light.xml",
+        "source": "C:\\Users\\Leyan\\.android\\build-cache\\d01a468e9b54a207f928eb91e7b6d6415e79e93c\\output\\res\\color\\common_google_signin_btn_text_light.xml"
     }
 ]

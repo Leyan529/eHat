@@ -68,7 +68,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.UUID;
 
-public class MainActivity extends Activity implements BluetoothAdapter.LeScanCallback, SensorEventListener,OnMapReadyCallback  {
+public class MainActivity extends Activity implements BluetoothAdapter.LeScanCallback, SensorEventListener,OnMapReadyCallback {
 	private LinearLayout tabViewOfDevice, tabViewOfAlarm, tabViewOfCall, tabViewOfMap;// 頁卡標頭
 	private ImageView tabImageOfDevice, tabImageOfAlarm, tabImageOfCall, tabImageOfMap;
 	private ImageView cursorImage;// 動畫圖片
@@ -211,6 +211,7 @@ public class MainActivity extends Activity implements BluetoothAdapter.LeScanCal
 	private Sensor sensor;
 	private float bearing;
 
+	protected static MapFragment mapFragment;
 	protected static GoogleMap mMap;
 	protected static MapHelper mMapHelper;
 	protected static PathHelper mPathHelper;
@@ -540,283 +541,11 @@ public class MainActivity extends Activity implements BluetoothAdapter.LeScanCal
 					}// End of onItemLongClick
 				});
 
-		/*((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMapAsync(new OnMapReadyCallback(){
-			@Override
-			public void onMapReady(GoogleMap googleMap) {
-				mMap  = googleMap;
-			}
-		});
-		*/
-		MapFragment mapFragment  = (MapFragment) getFragmentManager().findFragmentById(R.id.map);
+		mapFragment = (MapFragment) getFragmentManager().findFragmentById(R.id.map);
 		mapFragment.getMapAsync(this);
-		mMap.setBuildingsEnabled(true);// Turns the 3D buildings layer on or off
-		mMap.setIndoorEnabled(true);// Sets whether indoor maps should be enabled
-		mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);// Sets the type of map tiles that should be displayed
-		mMap.setMyLocationEnabled(true);// Enables or disables the my-location layer
-		mMap.setTrafficEnabled(false);// Turns the traffic layer on or off
-		mMap.getUiSettings().setMapToolbarEnabled(false);
 
 		mMapHelper = new MapHelper(MainActivity.this);
 		mPathHelper = new PathHelper();
-
-		mMap.setOnMapClickListener(new OnMapClickListener() {
-			@Override
-			public void onMapClick(LatLng arg0) {
-				if (layoutOfSearchBar.getVisibility() == View.VISIBLE) layoutOfSearchBar.setVisibility(View.GONE);
-
-				if (toMarker != null) toMarker.remove();
-			}// End of onMapClick
-		});
-
-		mMap.setOnMapLongClickListener(new OnMapLongClickListener() {
-			@Override
-			public void onMapLongClick(LatLng latLng) {
-				if (toMarker != null) toMarker.remove();
-
-				toLatLng = latLng;
-				toAddress = mMapHelper.latLngToAddress(toLatLng.latitude, toLatLng.longitude);
-				toMarkerOpt = mMapHelper.setMarker(toLatLng.latitude, toLatLng.longitude);
-				toMarker = mMap.addMarker(toMarkerOpt);
-			}// End of onMapLongClick
-		});
-
-		mMap.setOnMarkerClickListener(new OnMarkerClickListener() {
-			@Override
-			public boolean onMarkerClick(final Marker marker) {
-				new AlertDialog.Builder(MainActivity.this)
-						.setTitle(toAddress)
-						.setItems(new String[] { getString(R.string.textOfMenuItem_Draw), getString(R.string.textOfMenuItem_NewFavorite), getString(R.string.textOfMenuItem_Delete) }, new DialogInterface.OnClickListener() {
-							@Override
-							public void onClick(DialogInterface dialog, int which) {
-								switch (which) {
-									case 0:
-										nowLatLng = mMapHelper.presentLatLng();
-										mPathHelper.getPath(nowLatLng, toLatLng);
-										break;
-									case 1:
-										LayoutInflater inflater = getLayoutInflater();
-										View viewOfNewAddress = inflater.inflate(R.layout.address_dialog, null);
-										final EditText editTextOfAddressName = (EditText) viewOfNewAddress.findViewById(R.id.editTextOfAddressName);
-
-										new AlertDialog.Builder(MainActivity.this)
-												.setTitle(R.string.title_NewAddress)
-												.setView(viewOfNewAddress)
-												.setPositiveButton(R.string.textOfButton_DialogYes, new DialogInterface.OnClickListener() {
-													@Override
-													public void onClick(DialogInterface dialog, int which) {
-														if ((editTextOfAddressName.getText().toString().equals(""))) {
-															Toast.makeText(MainActivity.this, R.string.toast_ErOfWriteAddressName, Toast.LENGTH_SHORT).show();
-														} else {
-															mAddressDatabaseHelper.insert(editTextOfAddressName.getText().toString(), mMapHelper.latLngToAddress(marker.getPosition().latitude, marker.getPosition().longitude));
-															Toast.makeText(MainActivity.this, R.string.toast_AddTheNewAddress, Toast.LENGTH_SHORT).show();
-														}// End of if-condition
-													}// End of onClick
-												})
-												.setNegativeButton(R.string.textOfButton_DialogNo, null).show();
-										break;
-									case 2:
-										marker.remove();
-										break;
-								}// End of switch-condition
-							}// End of onClick
-						})
-						.show();
-
-				return false;
-			}// End of onMarkerClick
-		});
-
-		layoutOfSearchBar = (LinearLayout) findViewById(R.id.layoutOfSearchBar);
-
-		final InputMethodManager keyboard = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
-
-		editTextOfSrearch = (EditText) findViewById(R.id.editTextOfSearch);
-		buttonOfSearch = (Button) findViewById(R.id.buttonOfSearch);
-		buttonOfSearch.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				if (!editTextOfSrearch.getText().toString().equals("")) {
-					toAddress = editTextOfSrearch.getText().toString();
-
-					if (mMapHelper.addressToLatLng(toAddress) != null) {
-						keyboard.toggleSoftInput(0 , InputMethodManager.HIDE_NOT_ALWAYS);
-
-						if (toMarker != null) toMarker.remove();
-
-						toLatLng = mMapHelper.addressToLatLng(toAddress);
-						toMarkerOpt = mMapHelper.setMarker(toLatLng.latitude, toLatLng.longitude);
-						toMarker = mMap.addMarker(toMarkerOpt);
-						mMap.animateCamera(CameraUpdateFactory.newLatLng(toLatLng));
-					} else {
-						Toast.makeText(MainActivity.this, R.string.toast_ErOfToAddress, Toast.LENGTH_SHORT).show();
-					}// End of if-condition
-				} else {
-					Toast.makeText(MainActivity.this, R.string.toast_ErOfToAddress, Toast.LENGTH_SHORT).show();
-				}// End of if-condition
-			}// End of onClick
-		});
-
-		buttonOfSearchBar = (Button) findViewById(R.id.buttonOfSearchBar);
-		buttonOfSearchBar.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				if (layoutOfSearchBar.getVisibility() == View.VISIBLE) {
-					layoutOfSearchBar.setVisibility(View.GONE);
-				} else if (layoutOfSearchBar.getVisibility() == View.GONE) {
-					layoutOfSearchBar.setVisibility(View.VISIBLE);
-				}// End of if-condition
-			}// End of onClick
-		});
-
-		mAddressDatabaseHelper = new AddressDatabaseHelper(MainActivity.this);
-
-		buttonOfFavorite = (Button) findViewById(R.id.buttonOfFavorite);
-		buttonOfFavorite.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				startActivity(new Intent(MainActivity.this, AddressListActivity.class));
-			}// End of onClick
-		});
-
-		mSensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
-		listSensor = mSensorManager.getSensorList(Sensor.TYPE_ORIENTATION);
-
-		if (listSensor.size() > 0) {
-			sensor = listSensor.get(0);
-			Boolean mRegisteredSensor = mSensorManager.registerListener(this, sensor, SensorManager.SENSOR_DELAY_FASTEST);
-		}// End of if-condition
-
-		buttonOfPath = (Button) findViewById(R.id.buttonOfPath);
-		buttonOfPath.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				if (guiding) {
-					startActivity(new Intent(MainActivity.this, PathListActivity.class));
-				} else {
-					if (toMarker != null) {
-						guiding = true;
-						nowLatLng = mMapHelper.presentLatLng();
-						mPathHelper.getPath(nowLatLng, toLatLng);
-
-						mMapHelper.setRatio(20);
-						mMapHelper.setBearing(bearing);
-						mMapHelper.setTilt(45);
-						mMapHelper.updateMap(nowLatLng.latitude, nowLatLng.longitude);
-
-						timerOfGuide = new Timer();
-						timerOfGuide.scheduleAtFixedRate(new TimerTask() {
-							@Override
-							public void run() {
-								runOnUiThread(new Runnable() {
-									@Override
-									public void run() {
-										if (JSONParser.jInstructions[0] != null) {
-											mMap.clear();
-											toMarker = mMap.addMarker(toMarkerOpt);
-											nowLatLng = mMapHelper.presentLatLng();
-											mMapHelper.updateMap(nowLatLng.latitude, nowLatLng.longitude);
-											textOfMapDescription.setText(JSONParser.jInstructions[0]);
-											mPathHelper.getPath(nowLatLng, toLatLng);
-
-											LatLng nextLatLng = new LatLng(((LatLng) JSONParser.jPoints.get(0)).latitude, ((LatLng) JSONParser.jPoints.get(0)).longitude);
-											float[] results = null;
-											float len = 0;
-
-											Location.distanceBetween(nowLatLng.latitude, nowLatLng.longitude, nextLatLng.latitude, nextLatLng.longitude, results);
-											len = results[0];
-
-											if (len < 100) {
-												if (!mRFduinoManager.isOutOfRange()) {
-													if (JSONParser.jManeuvers[0].equals("turn-right")) {
-														mRFduinoManager.onStateChanged(13);
-													} else if (JSONParser.jManeuvers[0].equals("turn-left")) {
-														mRFduinoManager.onStateChanged(12);
-													} else if (JSONParser.jManeuvers[0].equals("turn-slight-right")) {
-														mRFduinoManager.onStateChanged(16);
-													} else if (JSONParser.jManeuvers[0].equals("turn-slight-left")) {
-														mRFduinoManager.onStateChanged(15);
-													}// End of if-condition
-												}// End of if-condition
-											} else {
-												if (!mRFduinoManager.isOutOfRange()) mRFduinoManager.onStateChanged(14);
-											}// End of if-condition
-										}// End of if-condition
-									}// End of run
-								});
-							}// End of run
-						}, 5000, 3000);
-					}// End of if-condition
-				}// End of if-condition
-			}// End of onClick
-		});
-
-		textOfMapDescription = (TextView) findViewById(R.id.textOfMapDescription);
-
-		buttonOfSport = (Button) findViewById(R.id.buttonOfSport);
-		buttonOfSport.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				if (mapMode.equals("normal")) {
-					LayoutInflater inflater = getLayoutInflater();
-					View viewOfSport = inflater.inflate(R.layout.sport_dialog, null);
-					final EditText editTextOfGoalLength = (EditText) viewOfSport.findViewById(R.id.editTextOfGoalLength);
-
-					new AlertDialog.Builder(MainActivity.this)
-							.setView(viewOfSport)
-							.setPositiveButton(R.string.textOfButton_DialogYes, new DialogInterface.OnClickListener() {
-								@Override
-								public void onClick(DialogInterface dialog, int which) {
-									if ((!editTextOfGoalLength.getText().toString().equals(""))) {
-										mapMode = "sport";
-										mMap.clear();
-										nowLatLng = mMapHelper.presentLatLng();
-										nowMarkerOpt = mMapHelper.setMarker(nowLatLng.latitude, nowLatLng.longitude);
-										nowMarkerOpt.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
-										nowMarker = mMap.addMarker(nowMarkerOpt);
-
-										mMapHelper.setRatio(20);
-										mMapHelper.setBearing(0);
-										mMapHelper.setTilt(30);
-										mMapHelper.updateMap(nowLatLng.latitude, nowLatLng.longitude);
-
-										mMapHelper.startSport(nowLatLng.latitude, nowLatLng.longitude, Integer.valueOf(editTextOfGoalLength.getText().toString()));
-
-										timerOfSport = new Timer();
-										timerOfSport.scheduleAtFixedRate(new TimerTask() {
-											@Override
-											public void run() {
-												runOnUiThread(new Runnable() {
-													@Override
-													public void run() {
-														nowLatLng = mMapHelper.presentLatLng();
-
-														if (mMapHelper.recordPath(nowLatLng.latitude, nowLatLng.longitude)) {
-															nowMarker = mMap.addMarker(nowMarkerOpt);
-															mMap.animateCamera(CameraUpdateFactory.newLatLng(nowLatLng));
-														}// End of if-condition
-													}// End of run
-												});
-											}// End of run
-										}, 2000, 3000);
-									}// End of if-condition
-								}// End of onClick
-							})
-							.setNegativeButton(R.string.textOfButton_DialogNo, null).show();
-				} else if (mapMode.equals("sport")) {
-					mapMode = "normal";
-					mMap.clear();
-					timerOfSport.cancel();
-					textOfMapDescription.setText("");
-					nowLatLng = mMapHelper.presentLatLng();
-
-					mMapHelper.setRatio(15);
-					mMapHelper.setBearing(0);
-					mMapHelper.setTilt(30);
-					mMapHelper.updateMap(nowLatLng.latitude, nowLatLng.longitude);
-					Toast.makeText(MainActivity.this, R.string.toast_SportModeClose, Toast.LENGTH_SHORT).show();
-				}// End of if-condition
-			}// End of if-condition
-		});
 	}// End of onCreate
 
 	@Override //2.將 Activity 內容顯示到螢幕上(onStart)
@@ -877,16 +606,24 @@ public class MainActivity extends Activity implements BluetoothAdapter.LeScanCal
 
 	@Override
 	public void onMapReady(GoogleMap googleMap) {
-		mMap = googleMap;
-		//mMap = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
-		mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
-		mMap.setMyLocationEnabled(true);
-		mMap.setTrafficEnabled(true);
-		mMap.setIndoorEnabled(true);
-		mMap.setBuildingsEnabled(true);
-		mMap.getUiSettings().setZoomControlsEnabled(true);
-	}
+		{
+			mMap = googleMap;
+			mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+			mMap.setMyLocationEnabled(true);
+			mMap.setTrafficEnabled(true);
+			mMap.setIndoorEnabled(true);
+			mMap.setBuildingsEnabled(true);
+			mMap.getUiSettings().setZoomControlsEnabled(true);
 
+			mMap.setBuildingsEnabled(true);// Turns the 3D buildings layer on or off
+			mMap.setIndoorEnabled(true);// Sets whether indoor maps should be enabled
+			mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);// Sets the type of map tiles that should be displayed
+			mMap.setMyLocationEnabled(true);// Enables or disables the my-location layer
+			mMap.setTrafficEnabled(false);// Turns the traffic layer on or off
+			mMap.getUiSettings().setMapToolbarEnabled(false);
+			setMapUi();
+		}
+	}
 
 	/**
 	 * 監聽頁卡標頭點擊
@@ -1149,4 +886,265 @@ public class MainActivity extends Activity implements BluetoothAdapter.LeScanCal
 			}// End of try-catch
 		}// End of run
 	}// End of SignalHandler
+
+	public void setMapUi(){
+		mMap.setOnMapClickListener(new OnMapClickListener() {
+			@Override
+			public void onMapClick(LatLng arg0) {
+				if (layoutOfSearchBar.getVisibility() == View.VISIBLE) layoutOfSearchBar.setVisibility(View.GONE);
+
+				if (toMarker != null) toMarker.remove();
+			}// End of onMapClick
+		});
+
+		mMap.setOnMapLongClickListener(new OnMapLongClickListener() {
+			@Override
+			public void onMapLongClick(LatLng latLng) {
+				if (toMarker != null) toMarker.remove();
+
+				toLatLng = latLng;
+				toAddress = mMapHelper.latLngToAddress(toLatLng.latitude, toLatLng.longitude);
+				toMarkerOpt = mMapHelper.setMarker(toLatLng.latitude, toLatLng.longitude);
+				toMarker = mMap.addMarker(toMarkerOpt);
+			}// End of onMapLongClick
+		});
+
+		mMap.setOnMarkerClickListener(new OnMarkerClickListener() {
+			@Override
+			public boolean onMarkerClick(final Marker marker) {
+				new AlertDialog.Builder(MainActivity.this)
+						.setTitle(toAddress)
+						.setItems(new String[] { getString(R.string.textOfMenuItem_Draw), getString(R.string.textOfMenuItem_NewFavorite), getString(R.string.textOfMenuItem_Delete) }, new DialogInterface.OnClickListener() {
+							@Override
+							public void onClick(DialogInterface dialog, int which) {
+								switch (which) {
+									case 0:
+										nowLatLng = mMapHelper.presentLatLng();
+										mPathHelper.getPath(nowLatLng, toLatLng);
+										break;
+									case 1:
+										LayoutInflater inflater = getLayoutInflater();
+										View viewOfNewAddress = inflater.inflate(R.layout.address_dialog, null);
+										final EditText editTextOfAddressName = (EditText) viewOfNewAddress.findViewById(R.id.editTextOfAddressName);
+
+										new AlertDialog.Builder(MainActivity.this)
+												.setTitle(R.string.title_NewAddress)
+												.setView(viewOfNewAddress)
+												.setPositiveButton(R.string.textOfButton_DialogYes, new DialogInterface.OnClickListener() {
+													@Override
+													public void onClick(DialogInterface dialog, int which) {
+														if ((editTextOfAddressName.getText().toString().equals(""))) {
+															Toast.makeText(MainActivity.this, R.string.toast_ErOfWriteAddressName, Toast.LENGTH_SHORT).show();
+														} else {
+															mAddressDatabaseHelper.insert(editTextOfAddressName.getText().toString(), mMapHelper.latLngToAddress(marker.getPosition().latitude, marker.getPosition().longitude));
+															Toast.makeText(MainActivity.this, R.string.toast_AddTheNewAddress, Toast.LENGTH_SHORT).show();
+														}// End of if-condition
+													}// End of onClick
+												})
+												.setNegativeButton(R.string.textOfButton_DialogNo, null).show();
+										break;
+									case 2:
+										marker.remove();
+										break;
+								}// End of switch-condition
+							}// End of onClick
+						})
+						.show();
+
+				return false;
+			}// End of onMarkerClick
+		});
+
+		layoutOfSearchBar = (LinearLayout) findViewById(R.id.layoutOfSearchBar);
+
+		final InputMethodManager keyboard = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+
+		editTextOfSrearch = (EditText) findViewById(R.id.editTextOfSearch);
+		buttonOfSearch = (Button) findViewById(R.id.buttonOfSearch);
+		buttonOfSearch.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				if (!editTextOfSrearch.getText().toString().equals("")) {
+					toAddress = editTextOfSrearch.getText().toString();
+
+					if (mMapHelper.addressToLatLng(toAddress) != null) {
+						keyboard.toggleSoftInput(0 , InputMethodManager.HIDE_NOT_ALWAYS);
+
+						if (toMarker != null) toMarker.remove();
+
+						toLatLng = mMapHelper.addressToLatLng(toAddress);
+						toMarkerOpt = mMapHelper.setMarker(toLatLng.latitude, toLatLng.longitude);
+						toMarker = mMap.addMarker(toMarkerOpt);
+						mMap.animateCamera(CameraUpdateFactory.newLatLng(toLatLng));
+					} else {
+						Toast.makeText(MainActivity.this, R.string.toast_ErOfToAddress, Toast.LENGTH_SHORT).show();
+					}// End of if-condition
+				} else {
+					Toast.makeText(MainActivity.this, R.string.toast_ErOfToAddress, Toast.LENGTH_SHORT).show();
+				}// End of if-condition
+			}// End of onClick
+		});
+
+		buttonOfSearchBar = (Button) findViewById(R.id.buttonOfSearchBar);
+		buttonOfSearchBar.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				if (layoutOfSearchBar.getVisibility() == View.VISIBLE) {
+					layoutOfSearchBar.setVisibility(View.GONE);
+				} else if (layoutOfSearchBar.getVisibility() == View.GONE) {
+					layoutOfSearchBar.setVisibility(View.VISIBLE);
+				}// End of if-condition
+			}// End of onClick
+		});
+
+		mAddressDatabaseHelper = new AddressDatabaseHelper(MainActivity.this);
+
+		buttonOfFavorite = (Button) findViewById(R.id.buttonOfFavorite);
+		buttonOfFavorite.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				startActivity(new Intent(MainActivity.this, AddressListActivity.class));
+			}// End of onClick
+		});
+
+		mSensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+		listSensor = mSensorManager.getSensorList(Sensor.TYPE_ORIENTATION);
+
+		if (listSensor.size() > 0) {
+			sensor = listSensor.get(0);
+			Boolean mRegisteredSensor = mSensorManager.registerListener(this, sensor, SensorManager.SENSOR_DELAY_FASTEST);
+		}// End of if-condition
+
+		buttonOfPath = (Button) findViewById(R.id.buttonOfPath);
+		buttonOfPath.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				if (guiding) {
+					startActivity(new Intent(MainActivity.this, PathListActivity.class));
+				} else {
+					if (toMarker != null) {
+						guiding = true;
+						nowLatLng = mMapHelper.presentLatLng();
+						mPathHelper.getPath(nowLatLng, toLatLng);
+
+						mMapHelper.setRatio(20);
+						mMapHelper.setBearing(bearing);
+						mMapHelper.setTilt(45);
+						mMapHelper.updateMap(nowLatLng.latitude, nowLatLng.longitude);
+
+						timerOfGuide = new Timer();
+						timerOfGuide.scheduleAtFixedRate(new TimerTask() {
+							@Override
+							public void run() {
+								runOnUiThread(new Runnable() {
+									@Override
+									public void run() {
+										if (JSONParser.jInstructions[0] != null) {
+											mMap.clear();
+											toMarker = mMap.addMarker(toMarkerOpt);
+											nowLatLng = mMapHelper.presentLatLng();
+											mMapHelper.updateMap(nowLatLng.latitude, nowLatLng.longitude);
+											textOfMapDescription.setText(JSONParser.jInstructions[0]);
+											mPathHelper.getPath(nowLatLng, toLatLng);
+
+											LatLng nextLatLng = new LatLng(((LatLng) JSONParser.jPoints.get(0)).latitude, ((LatLng) JSONParser.jPoints.get(0)).longitude);
+											float[] results = null;
+											float len = 0;
+
+											Location.distanceBetween(nowLatLng.latitude, nowLatLng.longitude, nextLatLng.latitude, nextLatLng.longitude, results);
+											len = results[0];
+
+											if (len < 100) {
+												if (!mRFduinoManager.isOutOfRange()) {
+													if (JSONParser.jManeuvers[0].equals("turn-right")) {
+														mRFduinoManager.onStateChanged(13);
+													} else if (JSONParser.jManeuvers[0].equals("turn-left")) {
+														mRFduinoManager.onStateChanged(12);
+													} else if (JSONParser.jManeuvers[0].equals("turn-slight-right")) {
+														mRFduinoManager.onStateChanged(16);
+													} else if (JSONParser.jManeuvers[0].equals("turn-slight-left")) {
+														mRFduinoManager.onStateChanged(15);
+													}// End of if-condition
+												}// End of if-condition
+											} else {
+												if (!mRFduinoManager.isOutOfRange()) mRFduinoManager.onStateChanged(14);
+											}// End of if-condition
+										}// End of if-condition
+									}// End of run
+								});
+							}// End of run
+						}, 5000, 3000);
+					}// End of if-condition
+				}// End of if-condition
+			}// End of onClick
+		});
+
+		textOfMapDescription = (TextView) findViewById(R.id.textOfMapDescription);
+
+		buttonOfSport = (Button) findViewById(R.id.buttonOfSport);
+		buttonOfSport.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				if (mapMode.equals("normal")) {
+					LayoutInflater inflater = getLayoutInflater();
+					View viewOfSport = inflater.inflate(R.layout.sport_dialog, null);
+					final EditText editTextOfGoalLength = (EditText) viewOfSport.findViewById(R.id.editTextOfGoalLength);
+
+					new AlertDialog.Builder(MainActivity.this)
+							.setView(viewOfSport)
+							.setPositiveButton(R.string.textOfButton_DialogYes, new DialogInterface.OnClickListener() {
+								@Override
+								public void onClick(DialogInterface dialog, int which) {
+									if ((!editTextOfGoalLength.getText().toString().equals(""))) {
+										mapMode = "sport";
+										mMap.clear();
+										nowLatLng = mMapHelper.presentLatLng();
+										nowMarkerOpt = mMapHelper.setMarker(nowLatLng.latitude, nowLatLng.longitude);
+										nowMarkerOpt.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
+										nowMarker = mMap.addMarker(nowMarkerOpt);
+
+										mMapHelper.setRatio(20);
+										mMapHelper.setBearing(0);
+										mMapHelper.setTilt(30);
+										mMapHelper.updateMap(nowLatLng.latitude, nowLatLng.longitude);
+
+										mMapHelper.startSport(nowLatLng.latitude, nowLatLng.longitude, Integer.valueOf(editTextOfGoalLength.getText().toString()));
+
+										timerOfSport = new Timer();
+										timerOfSport.scheduleAtFixedRate(new TimerTask() {
+											@Override
+											public void run() {
+												runOnUiThread(new Runnable() {
+													@Override
+													public void run() {
+														nowLatLng = mMapHelper.presentLatLng();
+
+														if (mMapHelper.recordPath(nowLatLng.latitude, nowLatLng.longitude)) {
+															nowMarker = mMap.addMarker(nowMarkerOpt);
+															mMap.animateCamera(CameraUpdateFactory.newLatLng(nowLatLng));
+														}// End of if-condition
+													}// End of run
+												});
+											}// End of run
+										}, 2000, 3000);
+									}// End of if-condition
+								}// End of onClick
+							})
+							.setNegativeButton(R.string.textOfButton_DialogNo, null).show();
+				} else if (mapMode.equals("sport")) {
+					mapMode = "normal";
+					mMap.clear();
+					timerOfSport.cancel();
+					textOfMapDescription.setText("");
+					nowLatLng = mMapHelper.presentLatLng();
+
+					mMapHelper.setRatio(15);
+					mMapHelper.setBearing(0);
+					mMapHelper.setTilt(30);
+					mMapHelper.updateMap(nowLatLng.latitude, nowLatLng.longitude);
+					Toast.makeText(MainActivity.this, R.string.toast_SportModeClose, Toast.LENGTH_SHORT).show();
+				}// End of if-condition
+			}// End of if-condition
+		});
+	}
 }// End of MainActivity

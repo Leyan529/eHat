@@ -2,7 +2,8 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 23
-    buildToolsVersion '25.0.2'
+    buildToolsVersion '25.0.3'
+    //compileOptions.encoding = 'windows-1251' // write your encoding here
     compileOptions {
         encoding "UTF-8"
         sourceCompatibility JavaVersion.VERSION_1_7
