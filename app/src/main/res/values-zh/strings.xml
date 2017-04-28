@@ -83,5 +83,7 @@
     <string name="toast_ErOfWritePersonPhone">請填號碼欄</string>
     <string name="toast_RFduino_Disconnect">RFduino 已斷開連接</string>
     <string name="labelOfBlock_Time">時間:</string>
+    <string name="toast_NavigationModeClose">導航模式關閉</string>
+    <string name="toast_NavigationModeOpen">導航模式開啟</string>
 
 </resources>

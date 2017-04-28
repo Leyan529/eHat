@@ -1048,7 +1048,7 @@ public class MainActivity extends Activity implements BluetoothAdapter.LeScanCal
 											mPathHelper.getPath(nowLatLng, toLatLng);
 
 											LatLng nextLatLng = new LatLng(((LatLng) JSONParser.jPoints.get(0)).latitude, ((LatLng) JSONParser.jPoints.get(0)).longitude);
-											float[] results = null;
+											float[] results = new float[3]; //計算結果沒有放入results陣列
 											float len = 0;
 
 											Location.distanceBetween(nowLatLng.latitude, nowLatLng.longitude, nextLatLng.latitude, nextLatLng.longitude, results);
@@ -1074,6 +1074,7 @@ public class MainActivity extends Activity implements BluetoothAdapter.LeScanCal
 								});
 							}// End of run
 						}, 5000, 3000);
+						Toast.makeText(MainActivity.this, R.string.toast_NavigationModeOpen, Toast.LENGTH_SHORT).show();
 					}// End of if-condition
 				}// End of if-condition
 			}// End of onClick

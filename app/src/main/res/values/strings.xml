@@ -81,6 +81,8 @@
     <string name="toast_ErOfToAddress">地址設置錯誤</string>
     <string name="toast_SportModeOpen">運動模式開啟</string>
     <string name="toast_SportModeClose">運動模式關閉</string>
+    <string name="toast_NavigationModeOpen">導航模式開啟</string>
+    <string name="toast_NavigationModeClose">導航模式關閉</string>
     <string name="toast_ErOfWriteName">請填姓名欄</string>
     <string name="toast_ErOfWritePhone">請填號碼欄</string>
 

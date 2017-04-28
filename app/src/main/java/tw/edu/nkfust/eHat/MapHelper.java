@@ -71,7 +71,9 @@ public class MapHelper extends Activity implements LocationListener{
 			geocoder = new Geocoder(context, Locale.TRADITIONAL_CHINESE); // 台灣
 			theBestProvider = mLocationManager.getBestProvider(criteria, true);
 			mLocationManager.requestLocationUpdates(theBestProvider, 0, 0, this);// 週期性監聽位置的狀態
-			updateMap(22.754519, 120.333249);// 高雄第一科技大學
+            LatLng initLatLng = presentLatLng();
+            updateMap(initLatLng.latitude, initLatLng.longitude);// 使用者位址
+            //updateMap(22.754519, 120.333249);// 高雄第一科技大學
 		}// End of if-condition
 	}// End of initialize
 
@@ -151,8 +153,7 @@ public class MapHelper extends Activity implements LocationListener{
 	public void updateMap(double lat, double lng) {
 		CameraPosition cameraPosition = new CameraPosition
 				.Builder()
-				//.target(new LatLng(lat, lng))// Sets the center of the map to Mountain View
-				.target(presentLatLng())// 改為自己座標
+				.target(new LatLng(lat, lng))// Sets the center of the map to Mountain View
 				.zoom(ratio)// Sets the zoom 比例尺 (4-20)
 				.bearing(bearing)// Sets the orientation of the camera to east
 				.tilt(tilt)// Sets the tilt of the camera to 30 degrees
@@ -263,6 +264,7 @@ public class MapHelper extends Activity implements LocationListener{
 				points.add(oldLatLng);
 				lineOptions.add(oldLatLng);
 				MainActivity.textOfMapDescription.setText("里程數(公尺): " + String.format("%.3f", lengthOfPath));
+				Toast.makeText(context, R.string.toast_NavigationModeOpen, Toast.LENGTH_SHORT).show();
 
 				lineOptions.width(20);
 				lineOptions.color(Color.DKGRAY);

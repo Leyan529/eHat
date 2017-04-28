@@ -5,4 +5,13 @@
     android:background="@drawable/begin"
     context=".BeginActivity">
 
+    <TextView
+        android:id="@+id/textOfTime"
+        text="2017.04.28. 00:00"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:text="2017.04.28. 00:00"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 </RelativeLayout>

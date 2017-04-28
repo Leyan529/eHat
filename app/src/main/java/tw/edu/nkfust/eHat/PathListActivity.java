@@ -11,13 +11,13 @@ import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
+import android.widget.Toast;
 
 public class PathListActivity extends Activity {
 	private ListView listViewOfPath;
 	private RadioButton buttonOfDrive, buttonOfWalk;
 	private RadioGroup groupOfPathMode;
 	private Button buttonOfRemove, buttonOfExit;
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -77,6 +77,7 @@ public class PathListActivity extends Activity {
 				MainActivity.mMapHelper.setTilt(30);
 				MainActivity.mMapHelper.updateMap(MainActivity.nowLatLng.latitude, MainActivity.nowLatLng.longitude);
 				finish();
+				Toast.makeText(PathListActivity.this, R.string.toast_NavigationModeClose, Toast.LENGTH_SHORT).show();
 			}// End of onClick
 		});
 
