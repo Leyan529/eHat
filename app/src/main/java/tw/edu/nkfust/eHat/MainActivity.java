@@ -545,7 +545,7 @@ public class MainActivity extends Activity implements BluetoothAdapter.LeScanCal
 		mapFragment.getMapAsync(this);
 
 		mMapHelper = new MapHelper(MainActivity.this);
-		mPathHelper = new PathHelper();
+		mPathHelper = new PathHelper(MainActivity.this);
 	}// End of onCreate
 
 	@Override //2.將 Activity 內容顯示到螢幕上(onStart)

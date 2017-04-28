@@ -1,7 +1,9 @@
 package tw.edu.nkfust.eHat;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.os.AsyncTask;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.PolylineOptions;
@@ -20,14 +22,24 @@ import java.util.List;
 
 public class PathHelper {
 	private String url;
+	private Context context;
 
+	public PathHelper(final Context context){
+		this.context = context;
+	}
 	public void getPath(LatLng origin, LatLng dest) {
-		url = getPathUrl(origin, dest);
-		DownloadTask downloadTask = new DownloadTask();
-		downloadTask.execute(url);
+		try {
+			url = getPathUrl(origin, dest);
+			DownloadTask downloadTask = new DownloadTask();
+			downloadTask.execute(url);
+		} catch (Exception e) {
+			Toast.makeText(context, "路線規劃載入失敗", Toast.LENGTH_SHORT).show();
+			e.printStackTrace();
+		}
+
 	}// End of getPath
 
-	private String getPathUrl(LatLng origin, LatLng dest) {
+	private String getPathUrl(LatLng origin, LatLng dest) throws Exception{
 		String strOrigin = "origin=" + origin.latitude + "," + origin.longitude;
 		String strDest = "destination=" + dest.latitude + "," + dest.longitude;
 		String sensor = "sensor=false";

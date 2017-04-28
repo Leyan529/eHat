@@ -151,7 +151,8 @@ public class MapHelper extends Activity implements LocationListener{
 	public void updateMap(double lat, double lng) {
 		CameraPosition cameraPosition = new CameraPosition
 				.Builder()
-				.target(new LatLng(lat, lng))// Sets the center of the map to Mountain View
+				//.target(new LatLng(lat, lng))// Sets the center of the map to Mountain View
+				.target(presentLatLng())// 改為自己座標
 				.zoom(ratio)// Sets the zoom 比例尺 (4-20)
 				.bearing(bearing)// Sets the orientation of the camera to east
 				.tilt(tilt)// Sets the tilt of the camera to 30 degrees
@@ -161,12 +162,13 @@ public class MapHelper extends Activity implements LocationListener{
 
 	public LatLng presentLatLng() {
 		LatLng latLng = null;
-		Location location = mLocationManager.getLastKnownLocation(theBestProvider);
+		Location location = mLocationManager.getLastKnownLocation(theBestProvider); //此行location取不到位址
 
-		if (location == null) {
+		if (location != null) {
+			latLng = new LatLng(location.getLatitude(), location.getLongitude());
 			return latLng;
 		} else {
-			latLng = new LatLng(location.getLatitude(), location.getLongitude());
+			//latLng = new LatLng(location.getLatitude(), location.getLongitude());
 			return latLng;
 		}// End of if-condition
 	}// End of presentLatLng
