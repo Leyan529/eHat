@@ -72,8 +72,8 @@ public class MapHelper extends Activity implements LocationListener{
 			theBestProvider = mLocationManager.getBestProvider(criteria, true);
 			mLocationManager.requestLocationUpdates(theBestProvider, 0, 0, this);// 週期性監聽位置的狀態
             LatLng initLatLng = presentLatLng();
-            updateMap(initLatLng.latitude, initLatLng.longitude);// 使用者位址
-            //updateMap(22.754519, 120.333249);// 高雄第一科技大學
+			if(initLatLng!=null) updateMap(initLatLng.latitude, initLatLng.longitude);// 使用者位址
+            else updateMap(22.754519, 120.333249);// 高雄第一科技大學
 		}// End of if-condition
 	}// End of initialize
 
