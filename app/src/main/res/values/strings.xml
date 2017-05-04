@@ -85,5 +85,6 @@
     <string name="toast_NavigationModeClose">導航模式關閉</string>
     <string name="toast_ErOfWriteName">請填姓名欄</string>
     <string name="toast_ErOfWritePhone">請填號碼欄</string>
+    <string name="PageLoding">page loading...</string>
 
 </resources>

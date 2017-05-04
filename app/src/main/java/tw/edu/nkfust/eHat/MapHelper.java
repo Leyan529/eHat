@@ -53,6 +53,7 @@ public class MapHelper extends Activity implements LocationListener{
 	private LatLng oldLatLng;
 	private float goalOfPath;
 	private float lengthOfPath;
+	private Location localLocation;
 
 	public MapHelper(final Context context) {
 		this.context = context;
@@ -71,9 +72,9 @@ public class MapHelper extends Activity implements LocationListener{
 			geocoder = new Geocoder(context, Locale.TRADITIONAL_CHINESE); // 台灣
 			theBestProvider = mLocationManager.getBestProvider(criteria, true);
 			mLocationManager.requestLocationUpdates(theBestProvider, 0, 0, this);// 週期性監聽位置的狀態
-            LatLng initLatLng = presentLatLng();
-			if(initLatLng!=null) updateMap(initLatLng.latitude, initLatLng.longitude);// 使用者位址
-            else updateMap(22.754519, 120.333249);// 高雄第一科技大學
+			LatLng localLatLng = presentLatLng();
+			updateMap(localLatLng.latitude, localLatLng.longitude);// 使用者位址
+            //else updateMap(22.754519, 120.333249);// 高雄第一科技大學
 		}// End of if-condition
 	}// End of initialize
 
@@ -162,16 +163,12 @@ public class MapHelper extends Activity implements LocationListener{
 	}// End of updateMap
 
 	public LatLng presentLatLng() {
-		LatLng latLng = null;
-		Location location = mLocationManager.getLastKnownLocation(theBestProvider); //此行location取不到位址
+		while (localLocation == null){
+			localLocation = mLocationManager.getLastKnownLocation(theBestProvider);
+		}
+		LatLng localLatLng = new LatLng(localLocation.getLatitude(), localLocation.getLongitude());
+		return localLatLng;
 
-		if (location != null) {
-			latLng = new LatLng(location.getLatitude(), location.getLongitude());
-			return latLng;
-		} else {
-			//latLng = new LatLng(location.getLatitude(), location.getLongitude());
-			return latLng;
-		}// End of if-condition
 	}// End of presentLatLng
 
 	public LatLng addressToLatLng(String address) {

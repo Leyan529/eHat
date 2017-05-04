@@ -29,6 +29,7 @@ public class PathHelper {
 	}
 	public void getPath(LatLng origin, LatLng dest) {
 		try {
+			MainActivity.progress.show();
 			url = getPathUrl(origin, dest);
 			DownloadTask downloadTask = new DownloadTask();
 			downloadTask.execute(url);
@@ -164,6 +165,7 @@ public class PathHelper {
 			}// End of for-loop
 
 			MainActivity.mMap.addPolyline(lineOptions);
+			MainActivity.progress.dismiss();
 		}// End of onPostExecute
 	}// End of ParserTask
 }// End of PathHelper

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="PageLoding">頁面加載中...</string>
     <string name="app_name">eHat</string>
     <string name="app_version">1.0</string>
     <string name="hello_world">Hello world!</string>
@@ -77,6 +78,8 @@
     <string name="toast_ErOfWritePersonName">請填姓名欄</string>
     <string name="toast_ErOfWritePersonPhone">請填號碼欄</string>
     <string name="toast_ErOfWritePhone">請填號碼欄</string>
+    <string name="toast_NavigationModeClose">導航模式關閉</string>
+    <string name="toast_NavigationModeOpen">導航模式開啟</string>
     <string name="toast_RFduino_Disconnect">RFduino 已斷開連接</string>
     <string name="toast_SportModeClose">運動模式關閉</string>
     <string name="toast_SportModeOpen">運動模式開啟</string>

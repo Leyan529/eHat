@@ -16,10 +16,10 @@
                     "position": {
                         "startLine": 6,
                         "startColumn": 4,
-                        "startOffset": 182,
+                        "startOffset": 183,
                         "endLine": 8,
                         "endColumn": 12,
-                        "endOffset": 316
+                        "endOffset": 317
                     }
                 }
             },
@@ -420,7 +420,7 @@
                     "endOffset": 12257
                 },
                 "from": {
-                    "file": "C:\\Users\\Leyan\\.android\\build-cache\\6a515c00c2e67a075d3983221fdb648af022e949\\output\\res\\values-v11\\values.xml",
+                    "file": "C:\\Users\\Leyan\\.android\\build-cache\\0d69742d32bfcb7651155156247cd9a194f5373a\\output\\res\\values-v11\\values.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 0,

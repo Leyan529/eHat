@@ -2,6 +2,7 @@ package tw.edu.nkfust.eHat;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
 import android.bluetooth.BluetoothA2dp;
 import android.bluetooth.BluetoothAdapter;
@@ -231,6 +232,7 @@ public class MainActivity extends Activity implements BluetoothAdapter.LeScanCal
 	protected static String pathMode = "walking";
 	protected static String mapMode = "normal";// normal: 導航, sport: 運動
 	protected static Timer timerOfGuide, timerOfSport;
+	protected static ProgressDialog progress;
 
 	@Override //1.分配資源給這個 Activity(onCreate)
 	protected void onCreate(Bundle savedInstanceState) {
@@ -546,6 +548,10 @@ public class MainActivity extends Activity implements BluetoothAdapter.LeScanCal
 
 		mMapHelper = new MapHelper(MainActivity.this);
 		mPathHelper = new PathHelper(MainActivity.this);
+		progress = new ProgressDialog(this);
+		progress.setProgressStyle(0);
+		progress.setMessage(getString(R.string.PageLoding));
+		progress.setCancelable(false);
 	}// End of onCreate
 
 	@Override //2.將 Activity 內容顯示到螢幕上(onStart)
