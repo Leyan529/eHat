@@ -34,6 +34,8 @@ import android.os.PowerManager;
 import android.provider.ContactsContract.CommonDataKinds.Phone;
 import android.provider.ContactsContract.Contacts;
 import android.support.annotation.NonNull;
+import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -100,8 +102,9 @@ public class MainActivity extends Activity implements BluetoothAdapter.LeScanCal
     private int bmpW;// 動畫圖片寬度
 
     private ScrollView layoutOfDevice, layoutOfAlarm;
-    private LinearLayout layoutOfCall;
+    //private LinearLayout layoutOfCall;
     private FrameLayout layoutOfMap;
+    private CoordinatorLayout layoutOfCall;
 
     private PowerManager pm;
     private PowerManager.WakeLock wakeLock;
@@ -364,41 +367,14 @@ public class MainActivity extends Activity implements BluetoothAdapter.LeScanCal
 
         // Create SQLiteOpenHelper
         mCallDatabaseHelper = new CallDatabaseHelper(MainActivity.this);
-       /* cursor = mCallDatabaseHelper.get();
+        cursor = mCallDatabaseHelper.get();
         mSimpleCursorAdapter = new SimpleCursorAdapter(MainActivity.this,
                 R.layout.call_adapter, cursor,
                 new String[]{"Name", "Phone"},
-                new int[]{R.id.textOfTitle, R.id.textOfSubtitle});*/
-
-        ContentResolver reslover = getContentResolver();    /**取得ContentReslover內容查找器物件**/
-        String projection[] = {Contacts._ID, Contacts.DISPLAY_NAME, Phone.NUMBER};
-        Cursor resCursor = reslover.query(Phone.CONTENT_URI, projection, null, null, null, null);/**取得所有聯絡人的結果資料指標*/
-        mSimpleCursorAdapter = new SimpleCursorAdapter(MainActivity.this,
-                R.layout.call_adapter, resCursor,
-                new String[]{Contacts.DISPLAY_NAME, Phone.NUMBER},
                 new int[]{R.id.textOfTitle, R.id.textOfSubtitle});
 
         editTextOfPersonName = (EditText) findViewById(R.id.editTextOfPersonName);
         editTextOfPersonPhone = (EditText) findViewById(R.id.editTextOfPersonPhone);
-
-        buttonOfNewPerson = (Button) findViewById(R.id.buttonOfNewPerson);
-        buttonOfNewPerson.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (editTextOfPersonName.getText().toString().equals("")) {
-                    Toast.makeText(MainActivity.this, R.string.toast_ErOfWriteName, Toast.LENGTH_SHORT).show();
-                } else if (editTextOfPersonPhone.getText().toString().equals("")) {
-                    Toast.makeText(MainActivity.this, R.string.toast_ErOfWritePhone, Toast.LENGTH_SHORT).show();
-                } else {
-                    mCallDatabaseHelper.insert(editTextOfPersonName.getText().toString(), editTextOfPersonPhone.getText().toString());
-                    cursor.requery();
-                    listViewOfCall.setAdapter(mSimpleCursorAdapter);
-                    editTextOfPersonName.setText("");
-                    editTextOfPersonPhone.setText("");
-                    Toast.makeText(MainActivity.this, R.string.toast_AddTheNewPerson, Toast.LENGTH_SHORT).show();
-                }// End of if-condition
-            }// End of onClick
-        });
 
         listViewOfCall = (ListView) findViewById(R.id.listViewOfCall);
         listViewOfCall.setAdapter(mSimpleCursorAdapter);
@@ -471,6 +447,65 @@ public class MainActivity extends Activity implements BluetoothAdapter.LeScanCal
 
                 return false;
             }// End of onItemLongClick
+        });
+        FloatingActionButton importCallManger = (FloatingActionButton) findViewById(R.id.importCallManger);
+        importCallManger.setOnClickListener(new View.OnClickListener() {
+            /**查看聯絡人按鈕*/
+            @Override
+            public void onClick(View view) {
+                cursor = mCallDatabaseHelper.get();
+                mSimpleCursorAdapter = new SimpleCursorAdapter(MainActivity.this,
+                        R.layout.call_adapter, cursor,
+                        new String[]{"Name", "Phone"},
+                        new int[]{R.id.textOfTitle, R.id.textOfSubtitle});
+                listViewOfCall.setAdapter(mSimpleCursorAdapter);
+            }
+        });
+        FloatingActionButton localPhoneViewButton = (FloatingActionButton) findViewById(R.id.localPhoneViewButton);
+        localPhoneViewButton.setOnClickListener(new View.OnClickListener() {
+            /**查看本機聯絡人按鈕*/
+            @Override
+            public void onClick(View view) {
+                ContentResolver reslover = getContentResolver();    //取得ContentReslover內容查找器物件
+                String projection[] = {Contacts._ID, Contacts.DISPLAY_NAME, Phone.NUMBER};
+                Cursor resCursor = reslover.query(Phone.CONTENT_URI, projection, null, null, null, null); /**取得所有聯絡人的結果資料指標*/
+                mSimpleCursorAdapter = new SimpleCursorAdapter(MainActivity.this,
+                        R.layout.call_adapter, resCursor,
+                        new String[]{Contacts.DISPLAY_NAME, Phone.NUMBER},
+                        new int[]{R.id.textOfTitle, R.id.textOfSubtitle});
+                listViewOfCall.setAdapter(mSimpleCursorAdapter);
+            }
+        });
+        FloatingActionButton buttonOfNewPerson = (FloatingActionButton) findViewById(R.id.buttonOfNewPerson);
+        buttonOfNewPerson.setOnClickListener(new View.OnClickListener() {
+            /**新增聯絡人按鈕*/
+            @Override
+            public void onClick(View view) {
+                LayoutInflater inflater = getLayoutInflater();
+                View viewOfEditCall = inflater.inflate(R.layout.call_dialog, null);
+                final EditText editTextOfPersonName = (EditText) viewOfEditCall.findViewById(R.id.editTextOfPersonName);
+                final EditText editTextOfPhone = (EditText) viewOfEditCall.findViewById(R.id.editTextOfPersonPhone);
+                new AlertDialog.Builder(MainActivity.this)
+                        .setTitle("建立聯絡人")
+                        .setView(viewOfEditCall)
+                        .setPositiveButton("確定", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                if (editTextOfPersonName.getText().toString().equals("")) {
+                                    Toast.makeText(MainActivity.this, R.string.toast_ErOfWriteName, Toast.LENGTH_SHORT).show();
+                                } else if (editTextOfPhone.getText().toString().equals("")) {
+                                    Toast.makeText(MainActivity.this, R.string.toast_ErOfWritePhone, Toast.LENGTH_SHORT).show();
+                                } else {
+                                    mCallDatabaseHelper.insert(editTextOfPersonName.getText().toString(), editTextOfPhone.getText().toString());
+                                    cursor.requery();
+                                    listViewOfCall.setAdapter(mSimpleCursorAdapter);
+                                    Toast.makeText(MainActivity.this, R.string.toast_AddTheNewPerson, Toast.LENGTH_SHORT).show();
+                                }// End of if-condition
+                            }
+                        })
+                        .setNegativeButton("取消", null)
+                        .show();
+            }
         });
     }
 
@@ -882,7 +917,7 @@ public class MainActivity extends Activity implements BluetoothAdapter.LeScanCal
     private void initLayout() {
         layoutOfDevice = (ScrollView) findViewById(R.id.layoutOfDevice);
         layoutOfAlarm = (ScrollView) findViewById(R.id.layoutOfAlarm);
-        layoutOfCall = (LinearLayout) findViewById(R.id.layoutOfCall);
+        layoutOfCall = (CoordinatorLayout) findViewById(R.id.layoutOfCall);
         layoutOfMap = (FrameLayout) findViewById(R.id.layoutOfMap);
     }// End of InitLayout
 

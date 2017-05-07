@@ -1,4 +1,5 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -151,7 +152,7 @@
         android:id="@+id/layoutOfDevice"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="visible">
+        android:visibility="gone">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -331,7 +332,7 @@
         </LinearLayout>
     </ScrollView>
 
-    <LinearLayout
+    <android.support.design.widget.CoordinatorLayout
         android:id="@+id/layoutOfCall"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -340,69 +341,47 @@
         android:paddingLeft="16dip"
         android:paddingRight="16dip"
         android:paddingTop="16dip"
-        android:visibility="gone">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/labelOfBlock_PersonName" />
-
-                    <EditText
-                        android:id="@+id/editTextOfPersonName"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:ems="9"
-                        android:inputType="text" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/labelOfBlock_PersonPhone" />
-
-                    <EditText
-                        android:id="@+id/editTextOfPersonPhone"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:ems="9"
-                        android:inputType="phone" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <Button
-                android:id="@+id/buttonOfNewPerson"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:drawableTop="@drawable/ic_person_add_black_36dp"
-                android:text="@string/textOfButton_NewPerson"
-                android:typeface="serif" />
-        </LinearLayout>
+        android:visibility="visible">
 
         <ListView
             android:id="@+id/listViewOfCall"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"></ListView>
-    </LinearLayout>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/importCallManger"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="bottom|start"
+            android:layout_margin="16dp"
+            android:clickable="true"
+            app:backgroundTint="@android:color/holo_red_light"
+            app:rippleColor="@android:color/holo_red_dark"
+            app:srcCompat="@drawable/ic_person_add_black_36dp" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/localPhoneViewButton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="bottom|center"
+            android:layout_margin="16dp"
+            android:clickable="true"
+            app:backgroundTint="@android:color/holo_orange_light"
+            app:rippleColor="@android:color/holo_orange_dark"
+            app:srcCompat="@drawable/ic_person_add_black_36dp" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/buttonOfNewPerson"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="bottom|right"
+            android:layout_margin="16dp"
+            android:clickable="true"
+            app:backgroundTint="@android:color/holo_green_light"
+            app:rippleColor="@android:color/holo_green_dark"
+            app:srcCompat="@drawable/ic_person_add_black_36dp" />
+
+    </android.support.design.widget.CoordinatorLayout>
 
     <FrameLayout
         android:id="@+id/layoutOfMap"

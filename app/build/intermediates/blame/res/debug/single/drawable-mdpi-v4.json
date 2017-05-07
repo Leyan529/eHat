@@ -540,12 +540,12 @@
         "source": "C:\\Users\\Leyan\\.android\\build-cache\\50cdd795df67f450913ff5b059485a0a33dba30b\\output\\res\\drawable-mdpi-v4\\cast_ic_stop_circle_filled_white.png"
     },
     {
-        "merged": "E:\\Program\\Eclipse\\Android\\AndroidWorkSpace\\eHat\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\ic_media_play_light.png",
-        "source": "C:\\Users\\Leyan\\.android\\build-cache\\5006b941e93459475e96c8e39a67fa1a4ddeab64\\output\\res\\drawable-mdpi-v4\\ic_media_play_light.png"
-    },
-    {
         "merged": "E:\\Program\\Eclipse\\Android\\AndroidWorkSpace\\eHat\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\places_ic_search.png",
         "source": "C:\\Users\\Leyan\\.android\\build-cache\\0ae5d86df08a7640889a27f047807810be9fb31d\\output\\res\\drawable-mdpi-v4\\places_ic_search.png"
+    },
+    {
+        "merged": "E:\\Program\\Eclipse\\Android\\AndroidWorkSpace\\eHat\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\ic_media_play_light.png",
+        "source": "C:\\Users\\Leyan\\.android\\build-cache\\5006b941e93459475e96c8e39a67fa1a4ddeab64\\output\\res\\drawable-mdpi-v4\\ic_media_play_light.png"
     },
     {
         "merged": "E:\\Program\\Eclipse\\Android\\AndroidWorkSpace\\eHat\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4\\cast_ic_stop_circle_filled_grey600.png",
