@@ -36,6 +36,6 @@ public class BeginActivity extends Activity {
 		SimpleDateFormat sdFormat = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss");
 		Date date = new Date();
 		textOfTime.setText(sdFormat.format(date));
-		handler.sendEmptyMessageDelayed(STATE_START, 2000); // Delay 2s
+		handler.sendEmptyMessageDelayed(STATE_START, 1000); // Delay 2s
 	}// End of onCreate
 }// End of BeginActivity

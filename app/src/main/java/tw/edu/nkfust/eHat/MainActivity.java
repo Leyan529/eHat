@@ -85,7 +85,10 @@ import static android.Manifest.permission.WRITE_CONTACTS;
 /**
  * 引用聯絡人常數庫引用聯絡人電話常數庫
  */
-/**引用聯絡人電話常數庫*/
+
+/**
+ * 引用聯絡人電話常數庫
+ */
 
 
 public class MainActivity extends Activity implements BluetoothAdapter.LeScanCallback, SensorEventListener, OnMapReadyCallback {
@@ -321,46 +324,38 @@ public class MainActivity extends Activity implements BluetoothAdapter.LeScanCal
     }
 
     private void readContacts() {
-        TreeMap<Integer,HashMap<String,String>> ContactMap = new TreeMap<>();
+        TreeMap<Integer, HashMap<String, String>> ContactMap = new TreeMap<>();
         ContentResolver reslover = getContentResolver();    /**取得ContentReslover內容查找器物件**/
-        Cursor cursor = reslover.query(Contacts.CONTENT_URI, null, null, null, null, null);/**取得所有聯絡人的結果資料指標*/
+        String projection[] = {Contacts._ID, Contacts.DISPLAY_NAME, Phone.NUMBER};
+        Cursor cursor = reslover.query(Phone.CONTENT_URI, projection, null, null, null, null);/**取得所有聯絡人的結果資料指標*/
         while (cursor.moveToNext()) { /**依序拜訪所有聯絡人資料*/
             int contactId = cursor.getInt(cursor.getColumnIndex(Contacts._ID));
             String contactName = cursor.getString(cursor.getColumnIndex(Contacts.DISPLAY_NAME));
-            int phoneCount = cursor.getInt(cursor.getColumnIndex(Contacts.HAS_PHONE_NUMBER));
-            if (phoneCount > 0) {   /**假如聯絡人電話數>0 ，依序讀取聯絡人電話號碼*/
-                Cursor curPhones = getContentResolver().query(Phone.CONTENT_URI, null, Phone.CONTACT_ID + " = " + contactId, null, null);
-                while(curPhones.moveToNext()){
-                    String phoneNumber = curPhones.getString(curPhones.getColumnIndex(Phone.NUMBER));
-                    HashMap<String,String> tempMap = new HashMap<>();
-                    tempMap.put(contactName,phoneNumber);
-                    ContactMap.put(contactId,tempMap);
-                    //Log.d("Record", contactId + "/" + contactName + "/"+phoneCount);
-                }
-
-            }
+            String phoneNumber = cursor.getString(cursor.getColumnIndex(Phone.NUMBER));
+            Log.d("Record", contactId + "/" + contactName + "/" + phoneNumber);
+            HashMap<String, String> tempMap = new HashMap<>();
+            tempMap.put(contactName, phoneNumber);
+            ContactMap.put(contactId, tempMap);
         }
-
-        TestMap(ContactMap);
+        //TestMap(ContactMap);
     }
 
     public void TestMap(TreeMap<Integer, HashMap<String, String>> contactMap) {
         Iterator contactIter = contactMap.entrySet().iterator();
-        while(contactIter.hasNext()){
+        while (contactIter.hasNext()) {
             TreeMap.Entry entry = (TreeMap.Entry) contactIter.next();
             Integer key = (Integer) entry.getKey();
-            HashMap<String,String> value = (HashMap<String,String>)entry.getValue();
+            HashMap<String, String> value = (HashMap<String, String>) entry.getValue();
 
             Iterator contactInnnerIter = value.entrySet().iterator();
-            while(contactInnnerIter.hasNext()){
+            while (contactInnnerIter.hasNext()) {
                 HashMap.Entry innerEntry = (HashMap.Entry) contactInnnerIter.next();
                 String innerKey = (String) innerEntry.getKey();
                 String innerValue = (String) innerEntry.getValue();
-                Log.d("Record", key + "/"+innerKey+"/"+innerValue);
+                Log.d("Record", key + "/" + innerKey + "/" + innerValue);
             }
         }
     }
-
 
 
     public void callDbFunc() {
@@ -369,10 +364,18 @@ public class MainActivity extends Activity implements BluetoothAdapter.LeScanCal
 
         // Create SQLiteOpenHelper
         mCallDatabaseHelper = new CallDatabaseHelper(MainActivity.this);
-        cursor = mCallDatabaseHelper.get();
+       /* cursor = mCallDatabaseHelper.get();
         mSimpleCursorAdapter = new SimpleCursorAdapter(MainActivity.this,
                 R.layout.call_adapter, cursor,
                 new String[]{"Name", "Phone"},
+                new int[]{R.id.textOfTitle, R.id.textOfSubtitle});*/
+
+        ContentResolver reslover = getContentResolver();    /**取得ContentReslover內容查找器物件**/
+        String projection[] = {Contacts._ID, Contacts.DISPLAY_NAME, Phone.NUMBER};
+        Cursor resCursor = reslover.query(Phone.CONTENT_URI, projection, null, null, null, null);/**取得所有聯絡人的結果資料指標*/
+        mSimpleCursorAdapter = new SimpleCursorAdapter(MainActivity.this,
+                R.layout.call_adapter, resCursor,
+                new String[]{Contacts.DISPLAY_NAME, Phone.NUMBER},
                 new int[]{R.id.textOfTitle, R.id.textOfSubtitle});
 
         editTextOfPersonName = (EditText) findViewById(R.id.editTextOfPersonName);

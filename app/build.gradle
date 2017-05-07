@@ -29,7 +29,9 @@ android {
 }
 
 dependencies {
-    compile 'com.google.android.gms:play-services:+'
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile files('lib/httpcore-4.4.6.jar')
+    compile 'com.google.android.gms:play-services:10.2.4'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    testCompile 'junit:junit:4.12'
 }

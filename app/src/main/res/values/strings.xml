@@ -86,5 +86,7 @@
     <string name="toast_ErOfWriteName">請填姓名欄</string>
     <string name="toast_ErOfWritePhone">請填號碼欄</string>
     <string name="PageLoding">page loading...</string>
+    <string name="title_activity_test_call">TestCallActivity</string>
+    <string name="action_settings">Settings</string>
 
 </resources>

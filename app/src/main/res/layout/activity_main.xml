@@ -151,7 +151,7 @@
         android:id="@+id/layoutOfDevice"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="visible" >
+        android:visibility="visible">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -160,7 +160,7 @@
             android:paddingBottom="16dip"
             android:paddingLeft="16dip"
             android:paddingRight="16dip"
-            android:paddingTop="16dip" >
+            android:paddingTop="16dip">
 
             <TextView
                 style="?android:attr/listSeparatorTextViewStyle"
@@ -340,22 +340,22 @@
         android:paddingLeft="16dip"
         android:paddingRight="16dip"
         android:paddingTop="16dip"
-        android:visibility="gone" >
+        android:visibility="gone">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal" >
+            android:orientation="horizontal">
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal" >
+                    android:orientation="horizontal">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -373,7 +373,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal" >
+                    android:orientation="horizontal">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -401,8 +401,7 @@
         <ListView
             android:id="@+id/listViewOfCall"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-        </ListView>
+            android:layout_height="wrap_content"></ListView>
     </LinearLayout>
 
     <FrameLayout
