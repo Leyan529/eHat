@@ -31,7 +31,8 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.IBinder;
 import android.os.PowerManager;
-import android.provider.ContactsContract;
+import android.provider.ContactsContract.CommonDataKinds.Phone;
+import android.provider.ContactsContract.Contacts;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.util.DisplayMetrics;
@@ -80,6 +81,12 @@ import java.util.UUID;
 
 import static android.Manifest.permission.READ_CONTACTS;
 import static android.Manifest.permission.WRITE_CONTACTS;
+
+/**
+ * 引用聯絡人常數庫引用聯絡人電話常數庫
+ */
+/**引用聯絡人電話常數庫*/
+
 
 public class MainActivity extends Activity implements BluetoothAdapter.LeScanCallback, SensorEventListener, OnMapReadyCallback {
     private LinearLayout tabViewOfDevice, tabViewOfAlarm, tabViewOfCall, tabViewOfMap;// 頁卡標頭
@@ -294,48 +301,6 @@ public class MainActivity extends Activity implements BluetoothAdapter.LeScanCal
         }
     }
 
-    private void readContacts() {
-        TreeMap<Integer,HashMap<String,String>> ContactMap = new TreeMap<>();
-        ContentResolver reslover = getContentResolver();    /**取得ContentReslover內容查找器物件**/
-        Cursor cursor = reslover.query(ContactsContract.Contacts.CONTENT_URI, null, null, null, null, null);/**取得所有聯絡人的結果資料指標*/
-        while (cursor.moveToNext()) { /**依序拜訪所有聯絡人資料*/
-            int contactId;
-            String contactName;
-
-            contactId = cursor.getInt(cursor.getColumnIndex(ContactsContract.Contacts._ID));
-            contactName = cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME));
-            int phoneCount = cursor.getInt(cursor.getColumnIndex(ContactsContract.Contacts.HAS_PHONE_NUMBER));
-            //Log.d("Record", contactId + "/" + contactName + "/"+phoneCount);
-            if (phoneCount > 0) {   /**假如聯絡人電話數>0 ，依序讀取聯絡人電話號碼*/
-                Cursor curPhones = getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null, ContactsContract.CommonDataKinds.Phone.CONTACT_ID + " = " + contactId, null, null);
-                while(curPhones.moveToNext()){
-                    String phoneNumber = curPhones.getString(curPhones.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
-                    HashMap<String,String> tempMap = new HashMap<>();
-                    tempMap.put(contactName,phoneNumber);
-                    ContactMap.put(contactId,tempMap);
-                    //Log.d("Record", contactId + "/" + contactName + "/"+phoneCount+"/"+phoneNumber);
-                }
-
-            }
-        }
-
-        Iterator contactIter = ContactMap.entrySet().iterator();
-        while(contactIter.hasNext()){
-            TreeMap.Entry entry = (TreeMap.Entry) contactIter.next();
-            Integer key = (Integer) entry.getKey();
-            HashMap<String,String> value = (HashMap<String,String>)entry.getValue();
-
-            Iterator contactInnnerIter = value.entrySet().iterator();
-            while(contactInnnerIter.hasNext()){
-                HashMap.Entry innerEntry = (HashMap.Entry) contactInnnerIter.next();
-                String innerKey = (String) innerEntry.getKey();
-                String innerValue = (String) innerEntry.getValue();
-                Log.d("Record", key + "/"+innerKey+"/"+innerValue);
-            }
-            //System.out.println("印出Map元素=>"+"鍵值為:"+key+"，內容值為:"+value);
-        }
-    }
-
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         /**參數1 :已取得權限的名稱     參數2 :要求權限的字串列    參數3 : 使用者的回覆結果  */
@@ -354,6 +319,49 @@ public class MainActivity extends Activity implements BluetoothAdapter.LeScanCal
                 return;
         }
     }
+
+    private void readContacts() {
+        TreeMap<Integer,HashMap<String,String>> ContactMap = new TreeMap<>();
+        ContentResolver reslover = getContentResolver();    /**取得ContentReslover內容查找器物件**/
+        Cursor cursor = reslover.query(Contacts.CONTENT_URI, null, null, null, null, null);/**取得所有聯絡人的結果資料指標*/
+        while (cursor.moveToNext()) { /**依序拜訪所有聯絡人資料*/
+            int contactId = cursor.getInt(cursor.getColumnIndex(Contacts._ID));
+            String contactName = cursor.getString(cursor.getColumnIndex(Contacts.DISPLAY_NAME));
+            int phoneCount = cursor.getInt(cursor.getColumnIndex(Contacts.HAS_PHONE_NUMBER));
+            if (phoneCount > 0) {   /**假如聯絡人電話數>0 ，依序讀取聯絡人電話號碼*/
+                Cursor curPhones = getContentResolver().query(Phone.CONTENT_URI, null, Phone.CONTACT_ID + " = " + contactId, null, null);
+                while(curPhones.moveToNext()){
+                    String phoneNumber = curPhones.getString(curPhones.getColumnIndex(Phone.NUMBER));
+                    HashMap<String,String> tempMap = new HashMap<>();
+                    tempMap.put(contactName,phoneNumber);
+                    ContactMap.put(contactId,tempMap);
+                    //Log.d("Record", contactId + "/" + contactName + "/"+phoneCount);
+                }
+
+            }
+        }
+
+        TestMap(ContactMap);
+    }
+
+    public void TestMap(TreeMap<Integer, HashMap<String, String>> contactMap) {
+        Iterator contactIter = contactMap.entrySet().iterator();
+        while(contactIter.hasNext()){
+            TreeMap.Entry entry = (TreeMap.Entry) contactIter.next();
+            Integer key = (Integer) entry.getKey();
+            HashMap<String,String> value = (HashMap<String,String>)entry.getValue();
+
+            Iterator contactInnnerIter = value.entrySet().iterator();
+            while(contactInnnerIter.hasNext()){
+                HashMap.Entry innerEntry = (HashMap.Entry) contactInnnerIter.next();
+                String innerKey = (String) innerEntry.getKey();
+                String innerValue = (String) innerEntry.getValue();
+                Log.d("Record", key + "/"+innerKey+"/"+innerValue);
+            }
+        }
+    }
+
+
 
     public void callDbFunc() {
         mCallManager = new CallManager(MainActivity.this);
