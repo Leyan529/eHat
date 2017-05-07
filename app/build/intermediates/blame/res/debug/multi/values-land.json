@@ -11,7 +11,7 @@
                     "endOffset": 120
                 },
                 "from": {
-                    "file": "C:\\Users\\Leyan\\.android\\build-cache\\a0e67bf4efe870720919c6c9462c1ad05a3199eb\\output\\res\\values-land\\values-land.xml",
+                    "file": "C:\\Users\\Leyan\\.android\\build-cache\\2135ea806b8b24aa0660213fbc65b58fa37a8ca2\\output\\res\\values-land\\values-land.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -30,7 +30,7 @@
                     "endOffset": 184
                 },
                 "from": {
-                    "file": "C:\\Users\\Leyan\\.android\\build-cache\\a0e67bf4efe870720919c6c9462c1ad05a3199eb\\output\\res\\values-land\\values-land.xml",
+                    "file": "C:\\Users\\Leyan\\.android\\build-cache\\2135ea806b8b24aa0660213fbc65b58fa37a8ca2\\output\\res\\values-land\\values-land.xml",
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
@@ -49,7 +49,7 @@
                     "endOffset": 255
                 },
                 "from": {
-                    "file": "C:\\Users\\Leyan\\.android\\build-cache\\a0e67bf4efe870720919c6c9462c1ad05a3199eb\\output\\res\\values-land\\values-land.xml",
+                    "file": "C:\\Users\\Leyan\\.android\\build-cache\\2135ea806b8b24aa0660213fbc65b58fa37a8ca2\\output\\res\\values-land\\values-land.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
@@ -68,7 +68,7 @@
                     "endOffset": 323
                 },
                 "from": {
-                    "file": "C:\\Users\\Leyan\\.android\\build-cache\\a0e67bf4efe870720919c6c9462c1ad05a3199eb\\output\\res\\values-land\\values-land.xml",
+                    "file": "C:\\Users\\Leyan\\.android\\build-cache\\2135ea806b8b24aa0660213fbc65b58fa37a8ca2\\output\\res\\values-land\\values-land.xml",
                     "position": {
                         "startLine": 5,
                         "startColumn": 4,
@@ -201,7 +201,7 @@
                     "endOffset": 908
                 },
                 "from": {
-                    "file": "C:\\Users\\Leyan\\.android\\build-cache\\7205aa8d9580e45c5c6594d874560c721aa20102\\output\\res\\values-land\\values-land.xml",
+                    "file": "C:\\Users\\Leyan\\.android\\build-cache\\5006b941e93459475e96c8e39a67fa1a4ddeab64\\output\\res\\values-land\\values-land.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -220,7 +220,7 @@
                     "endOffset": 986
                 },
                 "from": {
-                    "file": "C:\\Users\\Leyan\\.android\\build-cache\\7205aa8d9580e45c5c6594d874560c721aa20102\\output\\res\\values-land\\values-land.xml",
+                    "file": "C:\\Users\\Leyan\\.android\\build-cache\\5006b941e93459475e96c8e39a67fa1a4ddeab64\\output\\res\\values-land\\values-land.xml",
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
@@ -239,13 +239,34 @@
                     "endOffset": 1061
                 },
                 "from": {
-                    "file": "C:\\Users\\Leyan\\.android\\build-cache\\7205aa8d9580e45c5c6594d874560c721aa20102\\output\\res\\values-land\\values-land.xml",
+                    "file": "C:\\Users\\Leyan\\.android\\build-cache\\5006b941e93459475e96c8e39a67fa1a4ddeab64\\output\\res\\values-land\\values-land.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
                         "startOffset": 208,
                         "endColumn": 74,
                         "endOffset": 278
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 15,
+                    "startColumn": 4,
+                    "startOffset": 1066,
+                    "endLine": 18,
+                    "endColumn": 12,
+                    "endOffset": 1243
+                },
+                "from": {
+                    "file": "C:\\Users\\Leyan\\.android\\build-cache\\4961af592f4d7db548f52e172eb0c5bf9bf5747b\\output\\res\\values-land\\values-land.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endLine": 5,
+                        "endColumn": 12,
+                        "endOffset": 232
                     }
                 }
             }

@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="play-services-nearby-10.2.4">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.android/build-cache/e500c2177eee9ece794027950538b91d7becb384/output/res" />
+      <root url="jar://$USER_HOME$/.android/build-cache/e500c2177eee9ece794027950538b91d7becb384/output/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

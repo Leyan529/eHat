@@ -29,11 +29,6 @@ MERGED from [com.google.android.gms:play-services-auth:10.2.4] C:\Users\Leyan\.a
 MERGED from [com.google.android.gms:play-services-auth-base:10.2.4] C:\Users\Leyan\.android\build-cache\ea2b77dbf01a1bbb335fea2e3554387240dc61c9\output\AndroidManifest.xml:4:5-43
 MERGED from [com.google.android.gms:play-services-cast-framework:10.2.4] C:\Users\Leyan\.android\build-cache\50cdd795df67f450913ff5b059485a0a33dba30b\output\AndroidManifest.xml:3:5-43
 MERGED from [com.google.android.gms:play-services-cast:10.2.4] C:\Users\Leyan\.android\build-cache\ce0203aeaced0abcdd9904456021c8d08f0bdfa3\output\AndroidManifest.xml:17:5-43
-MERGED from [com.android.support:mediarouter-v7:24.0.0] C:\Users\Leyan\.android\build-cache\7205aa8d9580e45c5c6594d874560c721aa20102\output\AndroidManifest.xml:20:5-43
-MERGED from [com.android.support:palette-v7:24.0.0] C:\Users\Leyan\.android\build-cache\0b132dcaeadabb9b3c460f8d3290bc94d2eb05f2\output\AndroidManifest.xml:20:5-43
-MERGED from [com.android.support:appcompat-v7:24.0.0] C:\Users\Leyan\.android\build-cache\a0e67bf4efe870720919c6c9462c1ad05a3199eb\output\AndroidManifest.xml:21:5-23:78
-MERGED from [com.android.support:animated-vector-drawable:24.0.0] C:\Users\Leyan\.android\build-cache\e82090d931c3a14f9f644dd5936c6481b3c4616e\output\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:24.0.0] C:\Users\Leyan\.android\build-cache\e646756bafb544005f60645ea607ca2cba0cc7b8\output\AndroidManifest.xml:21:5-43
 MERGED from [com.google.android.gms:play-services-clearcut:10.2.4] C:\Users\Leyan\.android\build-cache\05b6605794f7df63ee5b7834cfade5a7b5599554\output\AndroidManifest.xml:17:5-43
 MERGED from [com.google.firebase:firebase-config:10.2.4] C:\Users\Leyan\.android\build-cache\027855d3f1bc5364311e72f71a04beff60f6e040\output\AndroidManifest.xml:17:5-43
 MERGED from [com.google.android.gms:play-services-awareness:10.2.4] C:\Users\Leyan\.android\build-cache\1de1ec0eff216f34d776384dc59aa9e0ad37ed05\output\AndroidManifest.xml:17:5-43
@@ -74,10 +69,23 @@ MERGED from [com.google.android.gms:play-services-wearable:10.2.4] C:\Users\Leya
 MERGED from [com.google.android.gms:play-services-base:10.2.4] C:\Users\Leyan\.android\build-cache\f3747b9d2844fe4de78953ad7a00382d7a8ad81a\output\AndroidManifest.xml:17:5-43
 MERGED from [com.google.android.gms:play-services-tasks:10.2.4] C:\Users\Leyan\.android\build-cache\c6ff5dac78034785b305e649f18755a9b0bfba91\output\AndroidManifest.xml:3:5-43
 MERGED from [com.google.android.gms:play-services-basement:10.2.4] C:\Users\Leyan\.android\build-cache\769f7f2766a9bcbfc869da0fc1e6a0967e91f815\output\AndroidManifest.xml:17:5-43
-MERGED from [com.android.support:support-v4:24.0.0] C:\Users\Leyan\.android\build-cache\51c83561296c7b4331067676cc4445425141ef1c\output\AndroidManifest.xml:21:5-23:54
 MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Leyan\.android\build-cache\a79ea97704f81d2ca71cd4430205cb66ecaa8d81\output\AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support:design:25.3.1] C:\Users\Leyan\.android\build-cache\4961af592f4d7db548f52e172eb0c5bf9bf5747b\output\AndroidManifest.xml:21:5-23:62
+MERGED from [com.android.support:recyclerview-v7:25.3.1] C:\Users\Leyan\.android\build-cache\be922d514a0f5e4a6012bd25e1a340a4caf0b104\output\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:transition:25.3.1] C:\Users\Leyan\.android\build-cache\7d5cdbf16a624a3537dd6511299a8150ee422442\output\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:mediarouter-v7:25.3.1] C:\Users\Leyan\.android\build-cache\5006b941e93459475e96c8e39a67fa1a4ddeab64\output\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:appcompat-v7:25.3.1] C:\Users\Leyan\.android\build-cache\2135ea806b8b24aa0660213fbc65b58fa37a8ca2\output\AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:support-v4:25.3.1] C:\Users\Leyan\.android\build-cache\53fd32f0badd9de7f0712641d88e56eb05fa7808\output\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-fragment:25.3.1] C:\Users\Leyan\.android\build-cache\e4fd6a2caa8f37a6cb67eca326e0d037302bdc19\output\AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-media-compat:25.3.1] C:\Users\Leyan\.android\build-cache\3ddd0cea077cd9b3a31d55d6847a8e541831e59a\output\AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-core-ui:25.3.1] C:\Users\Leyan\.android\build-cache\0cc6eedc7b4d33f5b6283ae2bab4287de8d2d55f\output\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:animated-vector-drawable:25.3.1] C:\Users\Leyan\.android\build-cache\0f0f7c887817652b98a30a6e84046e0a4b71f3c0\output\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:25.3.1] C:\Users\Leyan\.android\build-cache\a0c27eac7e7d1f9b4d426409e3fd00b408171de1\output\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:palette-v7:25.3.1] C:\Users\Leyan\.android\build-cache\18766883e079f5c37acbe400fecdeb7402921ee0\output\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-core-utils:25.3.1] C:\Users\Leyan\.android\build-cache\0405d0fdce0217f7bed0f26687aaf5769bc269a6\output\AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-compat:25.3.1] C:\Users\Leyan\.android\build-cache\b86da92f8d9426cf5f143c1b294a710e00f4acaa\output\AndroidManifest.xml:21:5-23:58
 	tools:overrideLibrary
-		ADDED from [com.android.support:appcompat-v7:24.0.0] C:\Users\Leyan\.android\build-cache\a0e67bf4efe870720919c6c9462c1ad05a3199eb\output\AndroidManifest.xml:23:9-75
+		ADDED from [com.android.support:design:25.3.1] C:\Users\Leyan\.android\build-cache\4961af592f4d7db548f52e172eb0c5bf9bf5747b\output\AndroidManifest.xml:23:9-59
 	android:targetSdkVersion
 		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:10:9-38
 		INJECTED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml
@@ -220,11 +228,6 @@ MERGED from [com.google.android.gms:play-services-appinvite:10.2.4] C:\Users\Ley
 MERGED from [com.google.android.gms:play-services-auth:10.2.4] C:\Users\Leyan\.android\build-cache\d794a30f119583c76b6508ba8c151a704f3122ae\output\AndroidManifest.xml:19:5-25:19
 MERGED from [com.google.android.gms:play-services-cast-framework:10.2.4] C:\Users\Leyan\.android\build-cache\50cdd795df67f450913ff5b059485a0a33dba30b\output\AndroidManifest.xml:4:5-8:19
 MERGED from [com.google.android.gms:play-services-cast:10.2.4] C:\Users\Leyan\.android\build-cache\ce0203aeaced0abcdd9904456021c8d08f0bdfa3\output\AndroidManifest.xml:18:5-19
-MERGED from [com.android.support:mediarouter-v7:24.0.0] C:\Users\Leyan\.android\build-cache\7205aa8d9580e45c5c6594d874560c721aa20102\output\AndroidManifest.xml:22:5-20
-MERGED from [com.android.support:palette-v7:24.0.0] C:\Users\Leyan\.android\build-cache\0b132dcaeadabb9b3c460f8d3290bc94d2eb05f2\output\AndroidManifest.xml:22:5-23:19
-MERGED from [com.android.support:appcompat-v7:24.0.0] C:\Users\Leyan\.android\build-cache\a0e67bf4efe870720919c6c9462c1ad05a3199eb\output\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:animated-vector-drawable:24.0.0] C:\Users\Leyan\.android\build-cache\e82090d931c3a14f9f644dd5936c6481b3c4616e\output\AndroidManifest.xml:22:5-20
-MERGED from [com.android.support:support-vector-drawable:24.0.0] C:\Users\Leyan\.android\build-cache\e646756bafb544005f60645ea607ca2cba0cc7b8\output\AndroidManifest.xml:23:5-20
 MERGED from [com.google.android.gms:play-services-clearcut:10.2.4] C:\Users\Leyan\.android\build-cache\05b6605794f7df63ee5b7834cfade5a7b5599554\output\AndroidManifest.xml:18:5-19
 MERGED from [com.google.firebase:firebase-config:10.2.4] C:\Users\Leyan\.android\build-cache\027855d3f1bc5364311e72f71a04beff60f6e040\output\AndroidManifest.xml:18:5-19
 MERGED from [com.google.android.gms:play-services-awareness:10.2.4] C:\Users\Leyan\.android\build-cache\1de1ec0eff216f34d776384dc59aa9e0ad37ed05\output\AndroidManifest.xml:18:5-19
@@ -258,8 +261,20 @@ MERGED from [com.google.android.gms:play-services-wearable:10.2.4] C:\Users\Leya
 MERGED from [com.google.android.gms:play-services-base:10.2.4] C:\Users\Leyan\.android\build-cache\f3747b9d2844fe4de78953ad7a00382d7a8ad81a\output\AndroidManifest.xml:18:5-20:19
 MERGED from [com.google.android.gms:play-services-tasks:10.2.4] C:\Users\Leyan\.android\build-cache\c6ff5dac78034785b305e649f18755a9b0bfba91\output\AndroidManifest.xml:4:5-19
 MERGED from [com.google.android.gms:play-services-basement:10.2.4] C:\Users\Leyan\.android\build-cache\769f7f2766a9bcbfc869da0fc1e6a0967e91f815\output\AndroidManifest.xml:19:5-21:19
-MERGED from [com.android.support:support-v4:24.0.0] C:\Users\Leyan\.android\build-cache\51c83561296c7b4331067676cc4445425141ef1c\output\AndroidManifest.xml:25:5-20
 MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Leyan\.android\build-cache\a79ea97704f81d2ca71cd4430205cb66ecaa8d81\output\AndroidManifest.xml:9:5-20
+MERGED from [com.android.support:design:25.3.1] C:\Users\Leyan\.android\build-cache\4961af592f4d7db548f52e172eb0c5bf9bf5747b\output\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:transition:25.3.1] C:\Users\Leyan\.android\build-cache\7d5cdbf16a624a3537dd6511299a8150ee422442\output\AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:mediarouter-v7:25.3.1] C:\Users\Leyan\.android\build-cache\5006b941e93459475e96c8e39a67fa1a4ddeab64\output\AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:appcompat-v7:25.3.1] C:\Users\Leyan\.android\build-cache\2135ea806b8b24aa0660213fbc65b58fa37a8ca2\output\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-v4:25.3.1] C:\Users\Leyan\.android\build-cache\53fd32f0badd9de7f0712641d88e56eb05fa7808\output\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-fragment:25.3.1] C:\Users\Leyan\.android\build-cache\e4fd6a2caa8f37a6cb67eca326e0d037302bdc19\output\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-media-compat:25.3.1] C:\Users\Leyan\.android\build-cache\3ddd0cea077cd9b3a31d55d6847a8e541831e59a\output\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-ui:25.3.1] C:\Users\Leyan\.android\build-cache\0cc6eedc7b4d33f5b6283ae2bab4287de8d2d55f\output\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:animated-vector-drawable:25.3.1] C:\Users\Leyan\.android\build-cache\0f0f7c887817652b98a30a6e84046e0a4b71f3c0\output\AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:support-vector-drawable:25.3.1] C:\Users\Leyan\.android\build-cache\a0c27eac7e7d1f9b4d426409e3fd00b408171de1\output\AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:palette-v7:25.3.1] C:\Users\Leyan\.android\build-cache\18766883e079f5c37acbe400fecdeb7402921ee0\output\AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:support-core-utils:25.3.1] C:\Users\Leyan\.android\build-cache\0405d0fdce0217f7bed0f26687aaf5769bc269a6\output\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-compat:25.3.1] C:\Users\Leyan\.android\build-cache\b86da92f8d9426cf5f143c1b294a710e00f4acaa\output\AndroidManifest.xml:29:5-20
 	android:label
 		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:54:9-41
 	android:allowBackup
@@ -551,3 +566,22 @@ ADDED from [com.google.android.gms:play-services-base:10.2.4] C:\Users\Leyan\.an
 		ADDED from [com.google.android.gms:play-services-base:10.2.4] C:\Users\Leyan\.android\build-cache\f3747b9d2844fe4de78953ad7a00382d7a8ad81a\output\AndroidManifest.xml:19:86-145
 	android:name
 		ADDED from [com.google.android.gms:play-services-base:10.2.4] C:\Users\Leyan\.android\build-cache\f3747b9d2844fe4de78953ad7a00382d7a8ad81a\output\AndroidManifest.xml:19:19-85
+meta-data#android.support.VERSION
+ADDED from [com.android.support:design:25.3.1] C:\Users\Leyan\.android\build-cache\4961af592f4d7db548f52e172eb0c5bf9bf5747b\output\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:recyclerview-v7:25.3.1] C:\Users\Leyan\.android\build-cache\be922d514a0f5e4a6012bd25e1a340a4caf0b104\output\AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:transition:25.3.1] C:\Users\Leyan\.android\build-cache\7d5cdbf16a624a3537dd6511299a8150ee422442\output\AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:mediarouter-v7:25.3.1] C:\Users\Leyan\.android\build-cache\5006b941e93459475e96c8e39a67fa1a4ddeab64\output\AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:appcompat-v7:25.3.1] C:\Users\Leyan\.android\build-cache\2135ea806b8b24aa0660213fbc65b58fa37a8ca2\output\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-v4:25.3.1] C:\Users\Leyan\.android\build-cache\53fd32f0badd9de7f0712641d88e56eb05fa7808\output\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-fragment:25.3.1] C:\Users\Leyan\.android\build-cache\e4fd6a2caa8f37a6cb67eca326e0d037302bdc19\output\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-media-compat:25.3.1] C:\Users\Leyan\.android\build-cache\3ddd0cea077cd9b3a31d55d6847a8e541831e59a\output\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-core-ui:25.3.1] C:\Users\Leyan\.android\build-cache\0cc6eedc7b4d33f5b6283ae2bab4287de8d2d55f\output\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:animated-vector-drawable:25.3.1] C:\Users\Leyan\.android\build-cache\0f0f7c887817652b98a30a6e84046e0a4b71f3c0\output\AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:support-vector-drawable:25.3.1] C:\Users\Leyan\.android\build-cache\a0c27eac7e7d1f9b4d426409e3fd00b408171de1\output\AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:palette-v7:25.3.1] C:\Users\Leyan\.android\build-cache\18766883e079f5c37acbe400fecdeb7402921ee0\output\AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:support-core-utils:25.3.1] C:\Users\Leyan\.android\build-cache\0405d0fdce0217f7bed0f26687aaf5769bc269a6\output\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-compat:25.3.1] C:\Users\Leyan\.android\build-cache\b86da92f8d9426cf5f143c1b294a710e00f4acaa\output\AndroidManifest.xml:25:5-27:34
+	android:value
+		ADDED from [com.android.support:design:25.3.1] C:\Users\Leyan\.android\build-cache\4961af592f4d7db548f52e172eb0c5bf9bf5747b\output\AndroidManifest.xml:27:9-31
+	android:name
+		ADDED from [com.android.support:design:25.3.1] C:\Users\Leyan\.android\build-cache\4961af592f4d7db548f52e172eb0c5bf9bf5747b\output\AndroidManifest.xml:26:9-47

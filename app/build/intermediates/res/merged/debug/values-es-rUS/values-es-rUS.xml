@@ -8,8 +8,8 @@
     <string msgid="4076576682505996667" name="abc_action_mode_done">"Listo"</string>
     <string msgid="7468859129482906941" name="abc_activity_chooser_view_see_all">"Ver todo"</string>
     <string msgid="2031811694353399454" name="abc_activitychooserview_choose_application">"Elige una aplicación."</string>
-    <string msgid="121134116657445385" name="abc_capital_off">"DESACTIVAR"</string>
-    <string msgid="3405795526292276155" name="abc_capital_on">"ACTIVAR"</string>
+    <string msgid="121134116657445385" name="abc_capital_off">"DESACTIVADO"</string>
+    <string msgid="3405795526292276155" name="abc_capital_on">"ACTIVADO"</string>
     <string msgid="7723749260725869598" name="abc_search_hint">"Buscar…"</string>
     <string msgid="3691816814315814921" name="abc_searchview_description_clear">"Eliminar la consulta"</string>
     <string msgid="2550479030709304392" name="abc_searchview_description_query">"Consulta de búsqueda"</string>
@@ -84,6 +84,9 @@
     <string msgid="1173358804935285568" name="debug_menu_troubleshooting">"Solución de problemas"</string>
     <string msgid="6099173376375995052" name="decline">"Rechazar"</string>
     <string msgid="3698378085901466129" name="mr_button_content_description">"Botón para transmitir"</string>
+    <string msgid="5088427771788648085" name="mr_cast_button_connected">"Botón para transmitir (conectado)"</string>
+    <string msgid="2187642765091873834" name="mr_cast_button_connecting">"Botón para transmitir (conectando)"</string>
+    <string msgid="816305490427819240" name="mr_cast_button_disconnected">"Botón para transmitir (desconectado)"</string>
     <string msgid="6349900579507521956" name="mr_chooser_searching">"Buscando dispositivos"</string>
     <string msgid="414301941546135990" name="mr_chooser_title">"Transmitir a"</string>
     <string msgid="6422801843540543585" name="mr_controller_album_art">"Imagen del álbum"</string>
@@ -96,11 +99,13 @@
     <string msgid="6547130360349182381" name="mr_controller_no_media_selected">"No se seleccionó ningún contenido multimedia"</string>
     <string msgid="5451884435510905406" name="mr_controller_pause">"Pausar"</string>
     <string msgid="683634565969987458" name="mr_controller_play">"Reproducir"</string>
-    <string msgid="4570331844078181931" name="mr_controller_stop">"Detener la transmisión"</string>
+    <string msgid="4570331844078181931" name="mr_controller_stop_casting">"Detener la transmisión"</string>
+    <string msgid="2361785992211841709" name="mr_controller_volume_slider">"Control deslizante del volumen"</string>
     <string msgid="5441529851481176817" name="mr_system_route_name">"Sistema"</string>
     <string msgid="7498112907524977311" name="mr_user_route_category_name">"Dispositivos"</string>
     <string msgid="1303870564366209730" name="place_autocomplete_clear_button">"Borrar búsqueda"</string>
     <string msgid="2809095107724486040" name="place_autocomplete_search_hint">"Búsqueda"</string>
+    <string msgid="146198913615257606" name="search_menu_title">"Buscar"</string>
     <string msgid="2869576371154716097" name="status_bar_notification_info_overflow">"999+"</string>
     <string msgid="8020323581538738027" name="store_picture_message">"¿Quieres permitir que el anuncio guarde la imagen en la galería de imágenes?"</string>
     <string msgid="4180630057627064606" name="store_picture_title">"Guardar imagen"</string>

@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 23
+    compileSdkVersion 25
     buildToolsVersion '25.0.3'
     //compileOptions.encoding = 'windows-1251' // write your encoding here
     compileOptions {
@@ -34,4 +34,6 @@ dependencies {
     compile 'com.google.android.gms:play-services:10.2.4'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
+    compile 'com.android.support:design:25.3.1'
+    compile 'com.android.support:mediarouter-v7:25.3.1'
 }
