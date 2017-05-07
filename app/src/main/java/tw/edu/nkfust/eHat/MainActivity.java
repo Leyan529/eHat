@@ -1,6 +1,5 @@
 package tw.edu.nkfust.eHat;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
@@ -37,6 +36,7 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
+import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -74,7 +74,6 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.Calendar;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -93,7 +92,7 @@ import static android.Manifest.permission.WRITE_CONTACTS;
  */
 
 
-public class MainActivity extends Activity implements BluetoothAdapter.LeScanCallback, SensorEventListener, OnMapReadyCallback {
+public class MainActivity extends AppCompatActivity implements BluetoothAdapter.LeScanCallback, SensorEventListener, OnMapReadyCallback {
     private LinearLayout tabViewOfDevice, tabViewOfAlarm, tabViewOfCall, tabViewOfMap;// 頁卡標頭
     private ImageView tabImageOfDevice, tabImageOfAlarm, tabImageOfCall, tabImageOfMap;
     private ImageView cursorImage;// 動畫圖片
@@ -339,24 +338,6 @@ public class MainActivity extends Activity implements BluetoothAdapter.LeScanCal
             HashMap<String, String> tempMap = new HashMap<>();
             tempMap.put(contactName, phoneNumber);
             ContactMap.put(contactId, tempMap);
-        }
-        //TestMap(ContactMap);
-    }
-
-    public void TestMap(TreeMap<Integer, HashMap<String, String>> contactMap) {
-        Iterator contactIter = contactMap.entrySet().iterator();
-        while (contactIter.hasNext()) {
-            TreeMap.Entry entry = (TreeMap.Entry) contactIter.next();
-            Integer key = (Integer) entry.getKey();
-            HashMap<String, String> value = (HashMap<String, String>) entry.getValue();
-
-            Iterator contactInnnerIter = value.entrySet().iterator();
-            while (contactInnnerIter.hasNext()) {
-                HashMap.Entry innerEntry = (HashMap.Entry) contactInnnerIter.next();
-                String innerKey = (String) innerEntry.getKey();
-                String innerValue = (String) innerEntry.getValue();
-                Log.d("Record", key + "/" + innerKey + "/" + innerValue);
-            }
         }
     }
 

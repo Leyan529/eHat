@@ -1,11 +1,11 @@
 package tw.edu.nkfust.eHat;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
-public class TimePickerRing extends Activity {
+public class TimePickerRing extends AppCompatActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

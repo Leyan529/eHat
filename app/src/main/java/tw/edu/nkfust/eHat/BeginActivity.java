@@ -1,17 +1,17 @@
 package tw.edu.nkfust.eHat;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Window;
 import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class BeginActivity extends Activity {
+public class BeginActivity extends AppCompatActivity {
 	private final int STATE_START = 0;
 	private TextView textOfTime;
 	private Handler handler = new Handler() {

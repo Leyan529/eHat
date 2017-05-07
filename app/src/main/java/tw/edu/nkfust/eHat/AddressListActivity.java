@@ -1,10 +1,10 @@
 package tw.edu.nkfust.eHat;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
@@ -15,7 +15,7 @@ import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.Toast;
 
-public class AddressListActivity extends Activity {
+public class AddressListActivity extends AppCompatActivity {
 	private AddressDatabaseHelper mAddressDatabaseHelper;
 	private Cursor cursor;
 	private SimpleCursorAdapter mSimpleCursorAdapter;

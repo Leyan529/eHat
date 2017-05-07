@@ -1,6 +1,5 @@
 package tw.edu.nkfust.eHat;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -16,6 +15,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -32,7 +32,7 @@ import java.util.Locale;
 
 import static tw.edu.nkfust.eHat.MainActivity.mMap;
 
-public class MapHelper extends Activity implements LocationListener{
+public class MapHelper extends AppCompatActivity implements LocationListener{
 	private Context context;
 	private static LocationManager mLocationManager;
 	private static ConnectivityManager mConnectivityManager;

@@ -152,7 +152,7 @@
         android:id="@+id/layoutOfDevice"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone">
+        android:visibility="visible">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -341,7 +341,7 @@
         android:paddingLeft="16dip"
         android:paddingRight="16dip"
         android:paddingTop="16dip"
-        android:visibility="visible">
+        android:visibility="gone">
 
         <ListView
             android:id="@+id/listViewOfCall"
@@ -350,34 +350,37 @@
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/importCallManger"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="bottom|start"
             android:layout_margin="16dp"
             android:clickable="true"
             app:backgroundTint="@android:color/holo_red_light"
+            app:fabSize="normal"
             app:rippleColor="@android:color/holo_red_dark"
-            app:srcCompat="@drawable/ic_person_add_black_36dp" />
+            app:srcCompat="@drawable/ic_grade_black_36dp" />
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/localPhoneViewButton"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="bottom|center"
             android:layout_margin="16dp"
             android:clickable="true"
             app:backgroundTint="@android:color/holo_orange_light"
+            app:fabSize="normal"
             app:rippleColor="@android:color/holo_orange_dark"
-            app:srcCompat="@drawable/ic_person_add_black_36dp" />
+            app:srcCompat="@drawable/ic_import_contacts_black_36dp" />
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/buttonOfNewPerson"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="bottom|right"
             android:layout_margin="16dp"
             android:clickable="true"
             app:backgroundTint="@android:color/holo_green_light"
+            app:fabSize="normal"
             app:rippleColor="@android:color/holo_green_dark"
             app:srcCompat="@drawable/ic_person_add_black_36dp" />
 

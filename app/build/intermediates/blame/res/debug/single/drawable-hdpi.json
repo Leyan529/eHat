@@ -28,6 +28,10 @@
         "source": "E:\\Program\\Eclipse\\Android\\AndroidWorkSpace\\eHat\\app\\src\\main\\res\\drawable-hdpi\\ic_highlight_remove_black_36dp.png"
     },
     {
+        "merged": "E:\\Program\\Eclipse\\Android\\AndroidWorkSpace\\eHat\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_import_contacts_black_36dp.png",
+        "source": "E:\\Program\\Eclipse\\Android\\AndroidWorkSpace\\eHat\\app\\src\\main\\res\\drawable-hdpi\\ic_import_contacts_black_36dp.png"
+    },
+    {
         "merged": "E:\\Program\\Eclipse\\Android\\AndroidWorkSpace\\eHat\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_favorite_black_36dp.png",
         "source": "E:\\Program\\Eclipse\\Android\\AndroidWorkSpace\\eHat\\app\\src\\main\\res\\drawable-hdpi\\ic_favorite_black_36dp.png"
     },
@@ -82,6 +86,10 @@
     {
         "merged": "E:\\Program\\Eclipse\\Android\\AndroidWorkSpace\\eHat\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_launcher.png",
         "source": "E:\\Program\\Eclipse\\Android\\AndroidWorkSpace\\eHat\\app\\src\\main\\res\\drawable-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\Program\\Eclipse\\Android\\AndroidWorkSpace\\eHat\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_grade_black_36dp.png",
+        "source": "E:\\Program\\Eclipse\\Android\\AndroidWorkSpace\\eHat\\app\\src\\main\\res\\drawable-hdpi\\ic_grade_black_36dp.png"
     },
     {
         "merged": "E:\\Program\\Eclipse\\Android\\AndroidWorkSpace\\eHat\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\expandable_category_empty.png",

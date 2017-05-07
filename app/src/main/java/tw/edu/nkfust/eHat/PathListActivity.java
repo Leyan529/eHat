@@ -1,7 +1,7 @@
 package tw.edu.nkfust.eHat;
 
-import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
@@ -13,7 +13,7 @@ import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.Toast;
 
-public class PathListActivity extends Activity {
+public class PathListActivity extends AppCompatActivity {
 	private ListView listViewOfPath;
 	private RadioButton buttonOfDrive, buttonOfWalk;
 	private RadioGroup groupOfPathMode;
