@@ -16,8 +16,11 @@ import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.Toast;
 
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
@@ -32,247 +35,273 @@ import java.util.Locale;
 
 import static tw.edu.nkfust.eHat.MainActivity.mMap;
 
-public class MapHelper extends AppCompatActivity implements LocationListener{
-	private Context context;
-	private static LocationManager mLocationManager;
-	private static ConnectivityManager mConnectivityManager;
-	private NetworkInfo networkInfo;
+public class MapHelper extends AppCompatActivity implements LocationListener {
+    private Context context;
+    private static LocationManager mLocationManager;
+    private static ConnectivityManager mConnectivityManager;
+    private NetworkInfo networkInfo;
 
-	private Criteria criteria;
-	private Geocoder geocoder;
-	private String theBestProvider;
-	private int scanTime = 10000;
-	private int scanDistance = 10;
+    private Criteria criteria;
+    private Geocoder geocoder;
+    private String theBestProvider;
+    private int scanTime = 10000;
+    private int scanDistance = 10;
 
-	private int ratio = 15;
-	private float bearing = 0;
-	private int tilt = 30;
+    private int ratio = 15;
+    private float bearing = 0;
+    private int tilt = 30;
 
-	private ArrayList<LatLng> points;
-	private PolylineOptions lineOptions;
-	private LatLng oldLatLng;
-	private float goalOfPath;
-	private float lengthOfPath;
-	private Location localLocation;
+    private ArrayList<LatLng> points;
+    private PolylineOptions lineOptions;
+    private LatLng oldLatLng;
+    private float goalOfPath;
+    private float lengthOfPath;
+    private Location localLocation;
+    private LocationRequest mLocationRequest;
+    GoogleApiClient mGoogleApiClient;
 
-	public MapHelper(final Context context) {
-		this.context = context;
-		mLocationManager = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
-		mConnectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-		networkInfo = mConnectivityManager.getActiveNetworkInfo();// 若未連線, mNetworkInfo = null
-	}// End of structure
+    public MapHelper(final Context context) {
+        this.context = context;
+        mLocationManager = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
+        mConnectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        networkInfo = mConnectivityManager.getActiveNetworkInfo();// 若未連線, mNetworkInfo = null
+    }// End of structure
 
-	public void initialize() {
-		if (criteria == null) {
-			criteria = new Criteria();
-			criteria.setAccuracy(Criteria.ACCURACY_FINE);
-			criteria.setAltitudeRequired(false);// 不要求海拔
-			criteria.setBearingRequired(false);// 不要求方位
-			criteria.setPowerRequirement(Criteria.POWER_HIGH);// 高功耗
-			geocoder = new Geocoder(context, Locale.TRADITIONAL_CHINESE); // 台灣
-			theBestProvider = mLocationManager.getBestProvider(criteria, true);
-			mLocationManager.requestLocationUpdates(theBestProvider, 0, 0, this);// 週期性監聽位置的狀態
-			LatLng localLatLng = presentLatLng();
-			updateMap(localLatLng.latitude, localLatLng.longitude);// 使用者位址
-            //else updateMap(22.754519, 120.333249);// 高雄第一科技大學
-		}// End of if-condition
-	}// End of initialize
+    public void initialize() {
+        if (criteria == null) {
+            criteria = new Criteria();
+            //criteria.setAccuracy(Criteria.ACCURACY_FINE);
+            criteria.setAltitudeRequired(false);// 不要求海拔
+            criteria.setBearingRequired(false);// 不要求方位
+            criteria.setPowerRequirement(Criteria.POWER_HIGH);// 高功耗
+            geocoder = new Geocoder(context, Locale.TRADITIONAL_CHINESE); // 台灣
+            theBestProvider = mLocationManager.getBestProvider(criteria, true);
+            mLocationManager.requestLocationUpdates(theBestProvider, 0, 0, this);// 週期性監聽位置的狀態
 
-	public boolean checkService() {
-		if (mLocationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) && (isConnected() == true)) {
-			initialize();
-			return true;
-		} else if (mLocationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) == false) {
-			new AlertDialog.Builder(context)
-					.setMessage(R.string.message_ActionLocationSettings)
-					.setPositiveButton(R.string.textOfButton_DialogYes, new DialogInterface.OnClickListener() {
-						@Override
-						public void onClick(DialogInterface dialog, int which) {
-							context.startActivity(new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS));
-						}// End of onClick
-					})
-					.setNegativeButton(R.string.textOfButton_DialogNo, new DialogInterface.OnClickListener() {
-						@Override
-						public void onClick(DialogInterface dialog, int which) {
-							Toast.makeText(context, R.string.toast_DisConnectGPS, Toast.LENGTH_SHORT).show();
-						}// End of onClick
-					})
-					.show();
-		} else if (isConnected() == false) {
-			Toast.makeText(context, R.string.toast_DisConnectNetWork, Toast.LENGTH_SHORT).show();
-		}// End of if-condition
+            mLocationRequest = new LocationRequest();
+            mLocationRequest.setInterval(5000).setFastestInterval(2000).setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
+            createLocationRequest();
 
-		return false;
-	}// End of checkService
 
-	public boolean isConnected() {
-		networkInfo = mConnectivityManager.getActiveNetworkInfo();
+            LatLng localLatLng = presentLatLng();
+            if (localLatLng != null) updateMap(localLatLng.latitude, localLatLng.longitude);// 使用者位址
+            else updateMap(22.754519, 120.333249);// 高雄第一科技大學
+        }// End of if-condition
+    }// End of initialize
 
-		if (networkInfo != null && networkInfo.isConnected()) {
-			return true;
-		}// End of if-condition
+    private void createLocationRequest() {
+        mLocationRequest = new LocationRequest();
+        mLocationRequest.setInterval(5000);
+        mLocationRequest.setFastestInterval(2000);
+        mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
+    }
 
-		return false;
-	}// End of isConnected
+    public boolean checkService() {
+        if (mLocationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) && (isConnected() == true)) {
+            initialize();
+            return true;
+        } else if (mLocationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) == false) {
+            new AlertDialog.Builder(context)
+                    .setMessage(R.string.message_ActionLocationSettings)
+                    .setPositiveButton(R.string.textOfButton_DialogYes, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            context.startActivity(new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS));
+                        }// End of onClick
+                    })
+                    .setNegativeButton(R.string.textOfButton_DialogNo, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Toast.makeText(context, R.string.toast_DisConnectGPS, Toast.LENGTH_SHORT).show();
+                        }// End of onClick
+                    })
+                    .show();
+        } else if (isConnected() == false) {
+            Toast.makeText(context, R.string.toast_DisConnectNetWork, Toast.LENGTH_SHORT).show();
+        }// End of if-condition
 
-	@Override
-	public void onLocationChanged(Location location) {
-		// TODO Auto-generated method stub
+        return false;
+    }// End of checkService
 
-	}// End of onLocationChanged
+    public boolean isConnected() {
+        networkInfo = mConnectivityManager.getActiveNetworkInfo();
 
-	@Override
-	public void onStatusChanged(String provider, int status, Bundle extras) {
-		// TODO Auto-generated method stub
+        if (networkInfo != null && networkInfo.isConnected()) {
+            return true;
+        }// End of if-condition
 
-	}// End of onStatusChanged
+        return false;
+    }// End of isConnected
 
-	@Override
-	public void onProviderEnabled(String provider) {
-		// TODO Auto-generated method stub
+    @Override
+    public void onLocationChanged(Location location) {
+        // TODO Auto-generated method stub
 
-	}// End of onProviderEnabled
+    }// End of onLocationChanged
 
-	@Override
-	public void onProviderDisabled(String provider) {
-		// TODO Auto-generated method stub
+    @Override
+    public void onStatusChanged(String provider, int status, Bundle extras) {
+        // TODO Auto-generated method stub
 
-	}// End of onProviderDisabled
+    }// End of onStatusChanged
 
-	public void setRatio(int ratio) {
-		this.ratio = ratio;
-	}// End of setRatio
+    @Override
+    public void onProviderEnabled(String provider) {
+        Toast.makeText(this, "Enabled new provider " + provider,
+                Toast.LENGTH_SHORT).show();
+    }// End of onProviderEnabled
 
-	public void setBearing(float bearing) {
-		this.bearing = bearing;
-	}// End of setBearing
+    @Override
+    public void onProviderDisabled(String provider) {
+        // TODO Auto-generated method stub
 
-	public void setTilt(int tilt) {
-		this.tilt = tilt;
-	}// End of setTilt
+    }// End of onProviderDisabled
 
-	public void updateMap(double lat, double lng) {
-		CameraPosition cameraPosition = new CameraPosition
-				.Builder()
-				.target(new LatLng(lat, lng))// Sets the center of the map to Mountain View
-				.zoom(ratio)// Sets the zoom 比例尺 (4-20)
-				.bearing(bearing)// Sets the orientation of the camera to east
-				.tilt(tilt)// Sets the tilt of the camera to 30 degrees
-				.build();// Creates a CameraPosition from the builder
-		mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
-	}// End of updateMap
+    public void setRatio(int ratio) {
+        this.ratio = ratio;
+    }// End of setRatio
 
-	public LatLng presentLatLng() {
-		while (localLocation == null){
-			localLocation = mLocationManager.getLastKnownLocation(theBestProvider);
-		}
-		LatLng localLatLng = new LatLng(localLocation.getLatitude(), localLocation.getLongitude());
-		return localLatLng;
+    public void setBearing(float bearing) {
+        this.bearing = bearing;
+    }// End of setBearing
 
-	}// End of presentLatLng
+    public void setTilt(int tilt) {
+        this.tilt = tilt;
+    }// End of setTilt
 
-	public LatLng addressToLatLng(String address) {
-		LatLng latLng = null;
+    public void updateMap(double lat, double lng) {
+        CameraPosition cameraPosition = new CameraPosition
+                .Builder()
+                .target(new LatLng(lat, lng))// Sets the center of the map to Mountain View
+                .zoom(ratio)// Sets the zoom 比例尺 (4-20)
+                .bearing(bearing)// Sets the orientation of the camera to east
+                .tilt(tilt)// Sets the tilt of the camera to 30 degrees
+                .build();// Creates a CameraPosition from the builder
+        mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+    }// End of updateMap
 
-		try {
-			List<Address> listAddress = geocoder.getFromLocationName(address, 1);
+    public LatLng presentLatLng() {
+        localLocation = mLocationManager.getLastKnownLocation(theBestProvider);
+        if (localLocation == null) {
+            List<String> providers = mLocationManager.getProviders(true);
+            for (String provider : providers) {
+                Log.d("sameProvider", provider);
+                localLocation = mLocationManager.getLastKnownLocation(provider);
+                if (localLocation != null) break;
+            }
+        }
+        LatLng localLatLng = new LatLng(localLocation.getLatitude(), localLocation.getLongitude());
+        return localLatLng;
 
-			if (listAddress.size() > 0) {
-				latLng = new LatLng(listAddress.get(0).getLatitude(), listAddress.get(0).getLongitude());
-				return latLng;
-			} else {
-				Toast.makeText(context, R.string.toast_ErOfToAddress, Toast.LENGTH_SHORT).show();
-			}// End of if-condition
-		} catch (IOException e) {
-			e.printStackTrace();
-		}// End of try-catch
+    }// End of presentLatLng
 
-		return null;
-	}// End of addressToLatLng
+    public LatLng addressToLatLng(String address) {
+        LatLng latLng = null;
 
-	public String latLngToAddress(double lat, double lng) {
-		String address = "";
+        try {
+            List<Address> listAddress = geocoder.getFromLocationName(address, 1);
 
-		try {
-			List<Address> listAddress = geocoder.getFromLocation(lat, lng, 1);
+            if (listAddress.size() > 0) {
+                latLng = new LatLng(listAddress.get(0).getLatitude(), listAddress.get(0).getLongitude());
+                return latLng;
+            } else {
+                Toast.makeText(context, R.string.toast_ErOfToAddress, Toast.LENGTH_SHORT).show();
+            }// End of if-condition
+        } catch (IOException e) {
+            e.printStackTrace();
+        }// End of try-catch
 
-			if (listAddress.size() > 0) {
-				for (int i = 0; listAddress.get(0).getAddressLine(i) != null; i++) {
-					address = address + listAddress.get(0).getAddressLine(i);
-				}// End of for-loop
+        return null;
+    }// End of addressToLatLng
 
-				return address;
-			}// End of if-condition
-		} catch (IOException e) {
-			e.printStackTrace();
-		}// End of try-catch
+    public String latLngToAddress(double lat, double lng) {
+        String address = "";
 
-		return null;
-	}// End of latLngToAddress
+        try {
+            List<Address> listAddress = geocoder.getFromLocation(lat, lng, 1);
 
-	public MarkerOptions setMarker(double lat, double lng) {
-		MarkerOptions markerOpt = new MarkerOptions();
-		markerOpt.position(new LatLng(lat, lng))
-				 .draggable(false)
-				 .flat(false)
-				 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
-		return markerOpt;
-	}// End of setMarker
+            if (listAddress.size() > 0) {
+                for (int i = 0; listAddress.get(0).getAddressLine(i) != null; i++) {
+                    address = address + listAddress.get(0).getAddressLine(i);
+                }// End of for-loop
 
-	public void startSport(double lat, double lng, int len) {
-		points = new ArrayList<LatLng>();
-		lineOptions = new PolylineOptions();
-		goalOfPath = len;
-		lengthOfPath = 0;
-		oldLatLng = new LatLng(lat, lng);
-		points.add(oldLatLng);
-		Toast.makeText(context, R.string.toast_SportModeOpen, Toast.LENGTH_SHORT).show();
-	}// End of startSport
+                return address;
+            }// End of if-condition
+        } catch (IOException e) {
+            e.printStackTrace();
+        }// End of try-catch
 
-	public boolean recordPath(double lat, double lng) {
-		if (lat != oldLatLng.latitude || lng != oldLatLng.longitude) {
-			Location oldLocation = new Location("");
-			oldLocation.setLatitude(oldLatLng.latitude);
-			oldLocation.setLongitude(oldLatLng.longitude);
-			Location newLocation = new Location("");
-			newLocation.setLatitude(lat);
-			newLocation.setLongitude(lng);
+        return null;
+    }// End of latLngToAddress
 
-			if (oldLocation.distanceTo(newLocation) < 60) {
-				lengthOfPath += oldLocation.distanceTo(newLocation);
+    public MarkerOptions setMarker(double lat, double lng) {
+        MarkerOptions markerOpt = new MarkerOptions();
+        markerOpt.position(new LatLng(lat, lng))
+                .draggable(false)
+                .flat(false)
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
+        return markerOpt;
+    }// End of setMarker
 
-				int ratio = (int) (lengthOfPath / goalOfPath * 100);
+    public void startSport(double lat, double lng, int len) {
+        points = new ArrayList<LatLng>();
+        lineOptions = new PolylineOptions();
+        goalOfPath = len;
+        lengthOfPath = 0;
+        oldLatLng = new LatLng(lat, lng);
+        points.add(oldLatLng);
+        Toast.makeText(context, R.string.toast_SportModeOpen, Toast.LENGTH_SHORT).show();
+    }// End of startSport
 
-				if (ratio > 100) {
-					if (!MainActivity.mRFduinoManager.isOutOfRange()) MainActivity.mRFduinoManager.onStateChanged(34);
-					goalOfPath += goalOfPath;
-				} else if (ratio > 80) {
-					if (!MainActivity.mRFduinoManager.isOutOfRange()) MainActivity.mRFduinoManager.onStateChanged(33);
-				} else if (ratio > 60) {
-					if (!MainActivity.mRFduinoManager.isOutOfRange()) MainActivity.mRFduinoManager.onStateChanged(32);
-				} else if (ratio > 40) {
-					if (!MainActivity.mRFduinoManager.isOutOfRange()) MainActivity.mRFduinoManager.onStateChanged(31);
-				} else if (ratio > 20) {
-					if (!MainActivity.mRFduinoManager.isOutOfRange()) MainActivity.mRFduinoManager.onStateChanged(30);
-				}// End of if-condition
+    public boolean recordPath(double lat, double lng) {
+        if (lat != oldLatLng.latitude || lng != oldLatLng.longitude) {
+            Location oldLocation = new Location("");
+            oldLocation.setLatitude(oldLatLng.latitude);
+            oldLocation.setLongitude(oldLatLng.longitude);
+            Location newLocation = new Location("");
+            newLocation.setLatitude(lat);
+            newLocation.setLongitude(lng);
 
-				mMap.clear();
-				oldLatLng = new LatLng(lat, lng);
-				points.add(oldLatLng);
-				lineOptions.add(oldLatLng);
-				MainActivity.textOfMapDescription.setText("里程數(公尺): " + String.format("%.3f", lengthOfPath));
-				Toast.makeText(context, R.string.toast_NavigationModeOpen, Toast.LENGTH_SHORT).show();
+            if (oldLocation.distanceTo(newLocation) < 60) {
+                lengthOfPath += oldLocation.distanceTo(newLocation);
 
-				lineOptions.width(20);
-				lineOptions.color(Color.DKGRAY);
-				mMap.addPolyline(lineOptions);
-			}// End of if-condition
+                int ratio = (int) (lengthOfPath / goalOfPath * 100);
 
-			return true;
-		}// End of if-condition
+                if (ratio > 100) {
+                    if (!MainActivity.mRFduinoManager.isOutOfRange())
+                        MainActivity.mRFduinoManager.onStateChanged(34);
+                    goalOfPath += goalOfPath;
+                } else if (ratio > 80) {
+                    if (!MainActivity.mRFduinoManager.isOutOfRange())
+                        MainActivity.mRFduinoManager.onStateChanged(33);
+                } else if (ratio > 60) {
+                    if (!MainActivity.mRFduinoManager.isOutOfRange())
+                        MainActivity.mRFduinoManager.onStateChanged(32);
+                } else if (ratio > 40) {
+                    if (!MainActivity.mRFduinoManager.isOutOfRange())
+                        MainActivity.mRFduinoManager.onStateChanged(31);
+                } else if (ratio > 20) {
+                    if (!MainActivity.mRFduinoManager.isOutOfRange())
+                        MainActivity.mRFduinoManager.onStateChanged(30);
+                }// End of if-condition
 
-		return false;
-	}// End of recordPath
+                mMap.clear();
+                oldLatLng = new LatLng(lat, lng);
+                points.add(oldLatLng);
+                lineOptions.add(oldLatLng);
+                MainActivity.textOfMapDescription.setText("里程數(公尺): " + String.format("%.3f", lengthOfPath));
+                Toast.makeText(context, R.string.toast_NavigationModeOpen, Toast.LENGTH_SHORT).show();
+
+                lineOptions.width(20);
+                lineOptions.color(Color.DKGRAY);
+                mMap.addPolyline(lineOptions);
+            }// End of if-condition
+
+            return true;
+        }// End of if-condition
+
+        return false;
+    }// End of recordPath
 
 
 }// End of MapHelper

@@ -61,7 +61,7 @@ public class PathHelper {
 			URL url = new URL(strUrl);
 
 			// Create an http connection to communicate with url
-			urlConnection = (HttpURLConnection) url.openConnection();
+			urlConnection = (HttpURLConnection) url.openConnection();	/**建立url雲端連線物件*/
 
 			// Connect to url
 			urlConnection.connect();
@@ -108,7 +108,7 @@ public class PathHelper {
 		// Execute in UI thread, after the execution of doInBackground
 		@Override
 		protected void onPostExecute(String result) {
-			super.onPostExecute(result);
+			super.onPostExecute(result);			/**將欲上傳請求的資料post到雲端*/
 			ParserTask parserTask = new ParserTask();
 
 			// Invoke the thread for parsing the JSON data

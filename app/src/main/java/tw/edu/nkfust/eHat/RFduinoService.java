@@ -30,7 +30,7 @@ public class RFduinoService extends Service {
 	private BluetoothManager mBluetoothManager;
 	private BluetoothAdapter mBluetoothAdapter;
 	private String mBluetoothDeviceAddress;
-	private BluetoothGatt mBluetoothGatt;
+	private BluetoothGatt mBluetoothGatt;			/**藍芽連接連接物件*/
 	private BluetoothGattService mBluetoothGattService;
 
 	public final static String ACTION_CONNECTED = "com.rfduino.ACTION_CONNECTED";

@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:2:1-97:12
+ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:2:1-98:12
 	package
 		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:3:5-33
 		INJECTED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml
@@ -149,8 +149,12 @@ uses-permission#android.permission.ACCESS_FINE_LOCATION
 ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:37:5-79
 	android:name
 		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:37:22-76
+uses-permission#android.permission.ACCESS_COARSE_LOCATION
+ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:38:5-81
+	android:name
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:38:22-78
 uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:38:5-79
+ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:39:5-79
 MERGED from [com.google.android.gms:play-services-ads-lite:10.2.4] C:\Users\Leyan\.android\build-cache\c6048a47a319ff31b96a9e590e62a0cbc7932853\output\AndroidManifest.xml:20:5-78
 MERGED from [com.google.android.gms:play-services-analytics:10.2.4] C:\Users\Leyan\.android\build-cache\edd5fc55852234ae0415468af71651eb24e75f9d\output\AndroidManifest.xml:21:5-78
 MERGED from [com.google.android.gms:play-services-nearby:10.2.4] C:\Users\Leyan\.android\build-cache\e500c2177eee9ece794027950538b91d7becb384\output\AndroidManifest.xml:4:5-78
@@ -161,21 +165,21 @@ MERGED from [com.google.firebase:firebase-iid:10.2.4] C:\Users\Leyan\.android\bu
 MERGED from [com.google.android.gms:play-services-analytics-impl:10.2.4] C:\Users\Leyan\.android\build-cache\614c7c5d91c3d0f11baeb6f7b73fcaf52c8224e3\output\AndroidManifest.xml:21:5-78
 MERGED from [com.google.android.gms:play-services-maps:10.2.4] C:\Users\Leyan\.android\build-cache\4d8699718d5ed4ed82149e37605c5115d5303b69\output\AndroidManifest.xml:19:5-78
 	android:name
-		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:38:22-76
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:39:22-76
 uses-permission#android.permission.BLUETOOTH
-ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:39:5-68
+ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:40:5-68
 	android:name
-		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:39:22-65
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:40:22-65
 uses-permission#android.permission.BLUETOOTH_ADMIN
-ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:40:5-74
+ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:41:5-74
 	android:name
-		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:40:22-71
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:41:22-71
 uses-permission#android.permission.CALL_PHONE
-ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:41:5-69
+ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:42:5-69
 	android:name
-		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:41:22-66
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:42:22-66
 uses-permission#android.permission.INTERNET
-ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:42:5-67
+ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:43:5-67
 MERGED from [com.google.android.gms:play-services-ads-lite:10.2.4] C:\Users\Leyan\.android\build-cache\c6048a47a319ff31b96a9e590e62a0cbc7932853\output\AndroidManifest.xml:19:5-66
 MERGED from [com.google.android.gms:play-services-analytics:10.2.4] C:\Users\Leyan\.android\build-cache\edd5fc55852234ae0415468af71651eb24e75f9d\output\AndroidManifest.xml:20:5-66
 MERGED from [com.google.android.gms:play-services-appinvite:10.2.4] C:\Users\Leyan\.android\build-cache\0d69742d32bfcb7651155156247cd9a194f5373a\output\AndroidManifest.xml:18:5-66
@@ -189,38 +193,38 @@ MERGED from [com.google.firebase:firebase-iid:10.2.4] C:\Users\Leyan\.android\bu
 MERGED from [com.google.android.gms:play-services-analytics-impl:10.2.4] C:\Users\Leyan\.android\build-cache\614c7c5d91c3d0f11baeb6f7b73fcaf52c8224e3\output\AndroidManifest.xml:20:5-66
 MERGED from [com.google.android.gms:play-services-maps:10.2.4] C:\Users\Leyan\.android\build-cache\4d8699718d5ed4ed82149e37605c5115d5303b69\output\AndroidManifest.xml:20:5-66
 	android:name
-		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:42:22-64
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:43:22-64
 uses-permission#android.permission.READ_PHONE_STATE
-ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:43:5-75
+ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:44:5-75
 	android:name
-		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:43:22-72
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:44:22-72
 uses-permission#android.permission.STORAGE
-ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:44:5-66
+ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:45:5-66
 	android:name
-		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:44:22-63
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:45:22-63
 uses-permission#android.permission.WAKE_LOCK
-ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:45:5-68
+ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:46:5-68
 MERGED from [com.google.android.gms:play-services-analytics:10.2.4] C:\Users\Leyan\.android\build-cache\edd5fc55852234ae0415468af71651eb24e75f9d\output\AndroidManifest.xml:24:5-67
 MERGED from [com.google.firebase:firebase-analytics:10.2.4] C:\Users\Leyan\.android\build-cache\83fd2b8933584012088e1cf7e58bb9232a0e76cc\output\AndroidManifest.xml:22:5-67
 MERGED from [com.google.firebase:firebase-analytics-impl:10.2.4] C:\Users\Leyan\.android\build-cache\b0c2108874e2962d862c2adb2f282f50944f2644\output\AndroidManifest.xml:22:5-67
 MERGED from [com.google.firebase:firebase-iid:10.2.4] C:\Users\Leyan\.android\build-cache\1862d71695026156bd47c189b315db734645d323\output\AndroidManifest.xml:21:5-67
 MERGED from [com.google.android.gms:play-services-analytics-impl:10.2.4] C:\Users\Leyan\.android\build-cache\614c7c5d91c3d0f11baeb6f7b73fcaf52c8224e3\output\AndroidManifest.xml:24:5-67
 	android:name
-		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:45:22-65
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:46:22-65
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:46:5-81
+ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:47:5-81
 	android:name
-		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:46:22-78
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:47:22-78
 uses-permission#com.google.android.providers.gsf.permission.READ_GSERVICES
-ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:47:5-98
+ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:48:5-98
 	android:name
-		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:47:22-95
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:48:22-95
 uses-permission#android.permission.READ_EXTERNAL_STORAGE
-ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:48:5-80
+ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:49:5-80
 	android:name
-		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:48:22-77
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:49:22-77
 application
-ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:50:5-95:19
+ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:51:5-96:19
 MERGED from [com.google.android.gms:play-services:10.2.4] C:\Users\Leyan\.android\build-cache\ecb73aa72e5f2970b406e5b5132b28289d27a247\output\AndroidManifest.xml:5:5-20
 MERGED from [com.google.android.gms:play-services-ads-lite:10.2.4] C:\Users\Leyan\.android\build-cache\c6048a47a319ff31b96a9e590e62a0cbc7932853\output\AndroidManifest.xml:23:5-27:19
 MERGED from [com.google.android.gms:play-services-analytics:10.2.4] C:\Users\Leyan\.android\build-cache\edd5fc55852234ae0415468af71651eb24e75f9d\output\AndroidManifest.xml:26:5-19
@@ -276,88 +280,88 @@ MERGED from [com.android.support:palette-v7:25.3.1] C:\Users\Leyan\.android\buil
 MERGED from [com.android.support:support-core-utils:25.3.1] C:\Users\Leyan\.android\build-cache\0405d0fdce0217f7bed0f26687aaf5769bc269a6\output\AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:support-compat:25.3.1] C:\Users\Leyan\.android\build-cache\b86da92f8d9426cf5f143c1b294a710e00f4acaa\output\AndroidManifest.xml:29:5-20
 	android:label
-		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:54:9-41
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:55:9-41
 	android:allowBackup
-		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:52:9-35
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:53:9-35
 	android:icon
-		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:53:9-45
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:54:9-45
 	android:theme
-		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:55:9-40
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:56:9-40
 	android:name
-		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:51:9-68
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:52:9-68
 meta-data#com.google.android.gms.version
-ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:56:9-58:69
+ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:57:9-59:69
 MERGED from [com.google.android.gms:play-services-basement:10.2.4] C:\Users\Leyan\.android\build-cache\769f7f2766a9bcbfc869da0fc1e6a0967e91f815\output\AndroidManifest.xml:20:9-121
 	android:value
-		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:58:13-66
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:59:13-66
 	android:name
-		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:57:13-58
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:58:13-58
 meta-data#com.google.android.geo.API_KEY
-ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:59:9-61:71
+ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:60:9-62:71
 	android:value
-		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:61:13-68
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:62:13-68
 	android:name
-		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:60:13-58
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:61:13-58
 activity#tw.edu.nkfust.eHat.BeginActivity
-ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:63:9-72:20
+ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:64:9-73:20
 	android:screenOrientation
-		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:66:13-49
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:67:13-49
 	android:label
-		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:65:13-45
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:66:13-45
 	android:name
-		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:64:13-42
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:65:13-42
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:67:13-71:29
+ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:68:13-72:29
 action#android.intent.action.MAIN
-ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:68:17-69
+ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:69:17-69
 	android:name
-		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:68:25-66
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:69:25-66
 category#android.intent.category.LAUNCHER
-ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:70:17-77
+ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:71:17-77
 	android:name
-		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:70:27-74
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:71:27-74
 activity#tw.edu.nkfust.eHat.MainActivity
-ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:73:9-80:20
+ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:74:9-81:20
 	android:screenOrientation
-		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:76:13-49
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:77:13-49
 	android:label
-		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:75:13-56
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:76:13-56
 	android:name
-		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:74:13-41
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:75:13-41
 intent-filter#android.intent.action.CALL
-ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:77:13-79:29
+ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:78:13-80:29
 action#android.intent.action.CALL
-ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:78:17-69
+ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:79:17-69
 	android:name
-		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:78:25-66
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:79:25-66
 activity#tw.edu.nkfust.eHat.TimePickerRing
-ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:81:9-52
+ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:82:9-52
 	android:name
-		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:81:19-49
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:82:19-49
 receiver#tw.edu.nkfust.eHat.TimePickerReceiver
-ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:83:9-56
+ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:84:9-56
 	android:name
-		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:83:19-53
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:84:19-53
 service#tw.edu.nkfust.eHat.RFduinoService
-ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:85:9-51
+ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:86:9-51
 	android:name
-		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:85:18-48
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:86:18-48
 activity#tw.edu.nkfust.eHat.AddressListActivity
-ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:87:9-90:52
+ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:88:9-91:52
 	android:screenOrientation
-		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:90:13-49
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:91:13-49
 	android:label
-		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:89:13-64
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:90:13-64
 	android:name
-		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:88:13-48
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:89:13-48
 activity#tw.edu.nkfust.eHat.PathListActivity
-ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:91:9-94:52
+ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:92:9-95:52
 	android:screenOrientation
-		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:94:13-49
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:95:13-49
 	android:label
-		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:93:13-61
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:94:13-61
 	android:name
-		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:92:13-45
+		ADDED from E:\Program\Eclipse\Android\AndroidWorkSpace\eHat\app\src\main\AndroidManifest.xml:93:13-45
 activity#com.google.android.gms.ads.AdActivity
 ADDED from [com.google.android.gms:play-services-ads-lite:10.2.4] C:\Users\Leyan\.android\build-cache\c6048a47a319ff31b96a9e590e62a0cbc7932853\output\AndroidManifest.xml:25:9-232
 	android:configChanges

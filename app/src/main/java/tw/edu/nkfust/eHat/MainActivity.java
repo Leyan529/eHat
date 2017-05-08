@@ -230,6 +230,9 @@ public class MainActivity extends AppCompatActivity implements BluetoothAdapter.
     private EditText editTextOfPersonName, editTextOfPersonPhone;
     private Button buttonOfNewPerson;
     private ListView listViewOfCall;
+    private FloatingActionButton importCallManger;
+    private FloatingActionButton localPhoneViewButton;
+    private FloatingActionButton buttonOfNewPerson1;
     private static final int REQUEST_CONTACTS = 1;
 
 
@@ -260,6 +263,7 @@ public class MainActivity extends AppCompatActivity implements BluetoothAdapter.
     protected static Timer timerOfGuide, timerOfSport;
     protected static ProgressDialog progress;
 
+
     @Override //1.分配資源給這個 Activity(onCreate)
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -279,7 +283,6 @@ public class MainActivity extends AppCompatActivity implements BluetoothAdapter.
         BlueToothFunc();
         TimeAlarmFunc();
         callDbFunc();
-        checkDangerPermission();
 
 
         mapFragment = (MapFragment) getFragmentManager().findFragmentById(R.id.map);
@@ -429,11 +432,15 @@ public class MainActivity extends AppCompatActivity implements BluetoothAdapter.
                 return false;
             }// End of onItemLongClick
         });
-        FloatingActionButton importCallManger = (FloatingActionButton) findViewById(R.id.importCallManger);
+        importCallManger = (FloatingActionButton) findViewById(R.id.importCallManger);
+        localPhoneViewButton = (FloatingActionButton) findViewById(R.id.localPhoneViewButton);
+        buttonOfNewPerson1 = (FloatingActionButton) findViewById(R.id.buttonOfNewPerson);
+
         importCallManger.setOnClickListener(new View.OnClickListener() {
             /**查看聯絡人按鈕*/
             @Override
             public void onClick(View view) {
+                buttonOfNewPerson1.setVisibility(View.VISIBLE);
                 cursor = mCallDatabaseHelper.get();
                 mSimpleCursorAdapter = new SimpleCursorAdapter(MainActivity.this,
                         R.layout.call_adapter, cursor,
@@ -442,11 +449,12 @@ public class MainActivity extends AppCompatActivity implements BluetoothAdapter.
                 listViewOfCall.setAdapter(mSimpleCursorAdapter);
             }
         });
-        FloatingActionButton localPhoneViewButton = (FloatingActionButton) findViewById(R.id.localPhoneViewButton);
         localPhoneViewButton.setOnClickListener(new View.OnClickListener() {
             /**查看本機聯絡人按鈕*/
             @Override
             public void onClick(View view) {
+                checkDangerPermission();
+                buttonOfNewPerson1.setVisibility(View.GONE);
                 ContentResolver reslover = getContentResolver();    //取得ContentReslover內容查找器物件
                 String projection[] = {Contacts._ID, Contacts.DISPLAY_NAME, Phone.NUMBER};
                 Cursor resCursor = reslover.query(Phone.CONTENT_URI, projection, null, null, null, null); /**取得所有聯絡人的結果資料指標*/
@@ -457,8 +465,7 @@ public class MainActivity extends AppCompatActivity implements BluetoothAdapter.
                 listViewOfCall.setAdapter(mSimpleCursorAdapter);
             }
         });
-        FloatingActionButton buttonOfNewPerson = (FloatingActionButton) findViewById(R.id.buttonOfNewPerson);
-        buttonOfNewPerson.setOnClickListener(new View.OnClickListener() {
+        buttonOfNewPerson1.setOnClickListener(new View.OnClickListener() {
             /**新增聯絡人按鈕*/
             @Override
             public void onClick(View view) {
