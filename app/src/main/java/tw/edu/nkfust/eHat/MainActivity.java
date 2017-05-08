@@ -42,6 +42,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
@@ -225,14 +226,11 @@ public class MainActivity extends AppCompatActivity implements BluetoothAdapter.
     private CallManager mCallManager;
     protected static CallDatabaseHelper mCallDatabaseHelper;
     private Cursor cursor;
-    private SimpleCursorAdapter mSimpleCursorAdapter;
+    private SimpleCursorAdapter mSimpleCursorAdapter, mlocalPhoneCursorAdapter;
 
     private EditText editTextOfPersonName, editTextOfPersonPhone;
-    private Button buttonOfNewPerson;
-    private ListView listViewOfCall;
-    private FloatingActionButton importCallManger;
-    private FloatingActionButton localPhoneViewButton;
-    private FloatingActionButton buttonOfNewPerson1;
+    private ListView listViewOfCall, listViewOfLocalPhone;
+    private FloatingActionButton importCallManger, localPhoneViewButton, buttonOfNewPerson;
     private static final int REQUEST_CONTACTS = 1;
 
 
@@ -296,16 +294,17 @@ public class MainActivity extends AppCompatActivity implements BluetoothAdapter.
         progress.setCancelable(false);
     }// End of onCreate
 
-    public void checkDangerPermission() {
+    public Boolean checkDangerContactPermission() {
         /**Android 6.0以上需檢查危險權限    (READ_CONTACTS : 讀取聯絡人   WRITE_CONTACTS : 寫入聯絡人)*/
         int permission = ActivityCompat.checkSelfPermission(this, android.Manifest.permission.READ_CONTACTS);
         if (permission != PackageManager.PERMISSION_GRANTED) {  //未取得權限，向使用者要求權限
             /**requestPermissions  參數1 :Context     參數2 :要求權限的字串列    參數3 : 權限請求辨識編號  (不重複的值)  */
             ActivityCompat.requestPermissions(this, new String[]{READ_CONTACTS, WRITE_CONTACTS}, REQUEST_CONTACTS);
-
+            return false;
         } else {    //已有權限，可進行檔案存取
-            Toast.makeText(this, "已取得權限，可進行檔案存取", Toast.LENGTH_SHORT).show();
-            readContacts();
+            //Toast.makeText(this, "已取得權限，可進行檔案存取", Toast.LENGTH_SHORT).show();
+            return true;
+            //readContacts();
         }
     }
 
@@ -328,7 +327,8 @@ public class MainActivity extends AppCompatActivity implements BluetoothAdapter.
         }
     }
 
-    private void readContacts() {
+    private TreeMap<Integer, HashMap<String, String>> readContacts() {
+        /**取得所有聯絡人姓名號碼放入TreeMap*/
         TreeMap<Integer, HashMap<String, String>> ContactMap = new TreeMap<>();
         ContentResolver reslover = getContentResolver();    /**取得ContentReslover內容查找器物件**/
         String projection[] = {Contacts._ID, Contacts.DISPLAY_NAME, Phone.NUMBER};
@@ -342,6 +342,7 @@ public class MainActivity extends AppCompatActivity implements BluetoothAdapter.
             tempMap.put(contactName, phoneNumber);
             ContactMap.put(contactId, tempMap);
         }
+        return ContactMap;
     }
 
 
@@ -432,15 +433,20 @@ public class MainActivity extends AppCompatActivity implements BluetoothAdapter.
                 return false;
             }// End of onItemLongClick
         });
+        listViewOfLocalPhone = (ListView) findViewById(R.id.listViewOfLocalPhone);
+
+
         importCallManger = (FloatingActionButton) findViewById(R.id.importCallManger);
         localPhoneViewButton = (FloatingActionButton) findViewById(R.id.localPhoneViewButton);
-        buttonOfNewPerson1 = (FloatingActionButton) findViewById(R.id.buttonOfNewPerson);
+        buttonOfNewPerson = (FloatingActionButton) findViewById(R.id.buttonOfNewPerson);
 
         importCallManger.setOnClickListener(new View.OnClickListener() {
             /**查看聯絡人按鈕*/
             @Override
             public void onClick(View view) {
-                buttonOfNewPerson1.setVisibility(View.VISIBLE);
+                buttonOfNewPerson.setVisibility(View.VISIBLE);
+                listViewOfCall.setVisibility(View.VISIBLE);
+                listViewOfLocalPhone.setVisibility(View.GONE);
                 cursor = mCallDatabaseHelper.get();
                 mSimpleCursorAdapter = new SimpleCursorAdapter(MainActivity.this,
                         R.layout.call_adapter, cursor,
@@ -453,19 +459,54 @@ public class MainActivity extends AppCompatActivity implements BluetoothAdapter.
             /**查看本機聯絡人按鈕*/
             @Override
             public void onClick(View view) {
-                checkDangerPermission();
-                buttonOfNewPerson1.setVisibility(View.GONE);
-                ContentResolver reslover = getContentResolver();    //取得ContentReslover內容查找器物件
-                String projection[] = {Contacts._ID, Contacts.DISPLAY_NAME, Phone.NUMBER};
-                Cursor resCursor = reslover.query(Phone.CONTENT_URI, projection, null, null, null, null); /**取得所有聯絡人的結果資料指標*/
-                mSimpleCursorAdapter = new SimpleCursorAdapter(MainActivity.this,
-                        R.layout.call_adapter, resCursor,
-                        new String[]{Contacts.DISPLAY_NAME, Phone.NUMBER},
-                        new int[]{R.id.textOfTitle, R.id.textOfSubtitle});
-                listViewOfCall.setAdapter(mSimpleCursorAdapter);
+                buttonOfNewPerson.setVisibility(View.GONE);
+                listViewOfCall.setVisibility(View.GONE);
+                listViewOfLocalPhone.setVisibility(View.VISIBLE);
+                if (checkDangerContactPermission() && mlocalPhoneCursorAdapter == null) {
+                    ContentResolver reslover = getContentResolver();    //取得ContentReslover內容查找器物件
+                    //String projection[] = {Contacts._ID, Contacts.DISPLAY_NAME, Phone.NUMBER}; //限定欄位顯示條件
+                    final Cursor resCursor = reslover.query(Contacts.CONTENT_URI, null, null, null, null, null); /**取得所有聯絡人的結果資料指標*/
+                    mlocalPhoneCursorAdapter = new SimpleCursorAdapter(MainActivity.this,
+                            R.layout.call_adapter, resCursor,
+                            new String[]{Contacts.DISPLAY_NAME, Contacts.HAS_PHONE_NUMBER},
+                            new int[]{R.id.textOfTitle, R.id.textOfSubtitle, 1}) {
+                        @Override
+                        public void bindView(View view, Context context, Cursor cursor) {
+                            /**覆寫客製化方法bindView -> View元件取得單列內容時被呼叫*/
+                            /**參數1 : 傳入單列的view元件   參數2 : 傳入context   參數3 : 傳入最初呼叫覆寫方法的cursor*/
+                            super.bindView(view, context, cursor);
+                            TextView textOfPhone = (TextView) view.findViewById(R.id.textOfSubtitle);
+                            if (cursor.getInt(cursor.getColumnIndex(Contacts.HAS_PHONE_NUMBER)) == 0) {
+                                //假設電話號碼數=0 電話欄為空值
+                                textOfPhone.setText("");
+                            } else {
+                                int id = cursor.getInt(cursor.getColumnIndex(Contacts._ID));
+                                Cursor phoneCursor = getContentResolver().query(    /**取得聯絡人Phone查找Cursor*/
+                                        Phone.CONTENT_URI,  /**聯絡人Phone資訊URI*/
+                                        null,
+                                        Phone.CONTACT_ID + "=?",  /**Phone ID 條件語法 = (?,?,...)*/
+                                        new String[]{String.valueOf(id)}, /**Phone ID 條件事後補參數*/
+                                        null);
+                                if (phoneCursor.moveToFirst()) {
+                                    String phoneNumber = phoneCursor.getString(phoneCursor.getColumnIndex(Phone.DATA));
+                                    textOfPhone.setText(phoneNumber);
+                                    /**getColumnIndex("欄位名稱")   取得欄位值*/
+                                }
+                            }
+                        }
+
+                        @Override
+                        public View newView(Context context, Cursor cursor, ViewGroup parent) {
+                            /**每列顯示資料時呼叫*/
+                            return super.newView(context, cursor, parent);
+                        }
+                    };
+
+                    listViewOfLocalPhone.setAdapter(mlocalPhoneCursorAdapter);
+                }
             }
         });
-        buttonOfNewPerson1.setOnClickListener(new View.OnClickListener() {
+        buttonOfNewPerson.setOnClickListener(new View.OnClickListener() {
             /**新增聯絡人按鈕*/
             @Override
             public void onClick(View view) {
@@ -496,6 +537,8 @@ public class MainActivity extends AppCompatActivity implements BluetoothAdapter.
             }
         });
     }
+
+
 
     public void TimeAlarmFunc() {
         mAlarmHelper = new AlarmHelper(MainActivity.this);

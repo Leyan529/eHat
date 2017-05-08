@@ -348,6 +348,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"></ListView>
 
+        <ListView
+            android:id="@+id/listViewOfLocalPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"></ListView>
+
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/importCallManger"
             android:layout_width="wrap_content"
