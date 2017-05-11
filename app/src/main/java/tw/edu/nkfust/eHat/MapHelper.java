@@ -19,8 +19,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
@@ -56,9 +54,7 @@ public class MapHelper extends AppCompatActivity implements LocationListener {
     private LatLng oldLatLng;
     private float goalOfPath;
     private float lengthOfPath;
-    private Location localLocation;
-    private LocationRequest mLocationRequest;
-    GoogleApiClient mGoogleApiClient;
+    private LatLng localLatLng = null;
 
     public MapHelper(final Context context) {
         this.context = context;
@@ -68,33 +64,22 @@ public class MapHelper extends AppCompatActivity implements LocationListener {
     }// End of structure
 
     public void initialize() {
-        if (criteria == null) {
+        if (criteria == null || localLatLng == null) {
             criteria = new Criteria();
-            //criteria.setAccuracy(Criteria.ACCURACY_FINE);
+            criteria.setAccuracy(Criteria.ACCURACY_FINE);
             criteria.setAltitudeRequired(false);// 不要求海拔
             criteria.setBearingRequired(false);// 不要求方位
             criteria.setPowerRequirement(Criteria.POWER_HIGH);// 高功耗
             geocoder = new Geocoder(context, Locale.TRADITIONAL_CHINESE); // 台灣
             theBestProvider = mLocationManager.getBestProvider(criteria, true);
             mLocationManager.requestLocationUpdates(theBestProvider, 0, 0, this);// 週期性監聽位置的狀態
-
-            mLocationRequest = new LocationRequest();
-            mLocationRequest.setInterval(5000).setFastestInterval(2000).setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
-            createLocationRequest();
-
-
-            LatLng localLatLng = presentLatLng();
-            if (localLatLng != null) updateMap(localLatLng.latitude, localLatLng.longitude);// 使用者位址
-            else updateMap(22.754519, 120.333249);// 高雄第一科技大學
+            localLatLng = presentLatLng();
+            updateMap(localLatLng.latitude, localLatLng.longitude);// 使用者位址
+            /*if (localLatLng != null) updateMap(localLatLng.latitude, localLatLng.longitude);// 使用者位址
+            else updateMap(22.754519, 120.333249);// 高雄第一科技大學*/
         }// End of if-condition
     }// End of initialize
 
-    private void createLocationRequest() {
-        mLocationRequest = new LocationRequest();
-        mLocationRequest.setInterval(5000);
-        mLocationRequest.setFastestInterval(2000);
-        mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
-    }
 
     public boolean checkService() {
         if (mLocationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) && (isConnected() == true)) {
@@ -136,7 +121,6 @@ public class MapHelper extends AppCompatActivity implements LocationListener {
     @Override
     public void onLocationChanged(Location location) {
         // TODO Auto-generated method stub
-
     }// End of onLocationChanged
 
     @Override
@@ -147,8 +131,8 @@ public class MapHelper extends AppCompatActivity implements LocationListener {
 
     @Override
     public void onProviderEnabled(String provider) {
-        Toast.makeText(this, "Enabled new provider " + provider,
-                Toast.LENGTH_SHORT).show();
+       /* Toast.makeText(this, "Enabled new provider " + provider,
+                Toast.LENGTH_SHORT).show();*/
     }// End of onProviderEnabled
 
     @Override
@@ -181,18 +165,16 @@ public class MapHelper extends AppCompatActivity implements LocationListener {
     }// End of updateMap
 
     public LatLng presentLatLng() {
-        localLocation = mLocationManager.getLastKnownLocation(theBestProvider);
-        if (localLocation == null) {
+        Location presentLocation = mLocationManager.getLastKnownLocation(theBestProvider);
+        while (presentLocation == null) {
             List<String> providers = mLocationManager.getProviders(true);
             for (String provider : providers) {
-                Log.d("sameProvider", provider);
-                localLocation = mLocationManager.getLastKnownLocation(provider);
-                if (localLocation != null) break;
-            }
-        }
-        LatLng localLatLng = new LatLng(localLocation.getLatitude(), localLocation.getLongitude());
-        return localLatLng;
-
+                presentLocation = mLocationManager.getLastKnownLocation(provider);
+                if (presentLocation != null) break;
+            }//End of for-each
+        } //End of While
+        Log.d("gpsPresent", "" + presentLocation.getLatitude() + "provider:" + presentLocation.getProvider());
+        return new LatLng(presentLocation.getLatitude(), presentLocation.getLongitude());
     }// End of presentLatLng
 
     public LatLng addressToLatLng(String address) {

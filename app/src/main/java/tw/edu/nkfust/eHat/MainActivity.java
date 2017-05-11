@@ -131,8 +131,6 @@ public class MainActivity extends AppCompatActivity implements BluetoothAdapter.
 
     private Button buttonOfEnableBluetooth, buttonOfScan, buttonOfConnect;
     private TextView textOfScanStatus, textOfDeviceInfo, textOfConnectionStatus;
-
-    private SignalHandler mSignalHandler;
     private int rssi;
 
     private final BroadcastReceiver bluetoothStateReceiver = new BroadcastReceiver() {
@@ -231,12 +229,12 @@ public class MainActivity extends AppCompatActivity implements BluetoothAdapter.
     private EditText editTextOfPersonName, editTextOfPersonPhone;
     private ListView listViewOfCall, listViewOfLocalPhone;
     private FloatingActionButton importCallManger, localPhoneViewButton, buttonOfNewPerson;
-    private static final int REQUEST_CONTACTS = 1;
-
+    private static final int REQUEST_CONTACTS = 1;  /**使用者要求讀取聯絡人的辨識值*/
+    private SignalHandler mSignalHandler;
 
     private SensorManager mSensorManager;
     private List<Sensor> listSensor;
-    private Sensor sensor;
+    private Sensor sensor,orientation,accelerometer;
     private float bearing;
 
     protected static MapFragment mapFragment;
@@ -254,6 +252,9 @@ public class MainActivity extends AppCompatActivity implements BluetoothAdapter.
     private Button buttonOfSearch;
     private EditText editTextOfSrearch;
     protected static TextView textOfMapDescription;
+    private int length;
+    private List<Sensor> listAccSensor;
+    private List<Sensor> listOriSensor;
 
     protected static boolean guiding;
     protected static String pathMode = "walking";
@@ -674,7 +675,7 @@ public class MainActivity extends AppCompatActivity implements BluetoothAdapter.
     }
 
     public void BlueToothFunc() {
-        mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+        mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();   /** no support in the emulator for bluetooth */
 
         // Enable bluetooth
         buttonOfEnableBluetooth = (Button) findViewById(R.id.buttonOfEnableBluetooth);
@@ -1193,7 +1194,18 @@ public class MainActivity extends AppCompatActivity implements BluetoothAdapter.
             sensor = listSensor.get(0);
             Boolean mRegisteredSensor = mSensorManager.registerListener(this, sensor, SensorManager.SENSOR_DELAY_FASTEST);
         }// End of if-condition
-
+        this.listOriSensor = this.mSensorManager.getSensorList(3);
+        this.listAccSensor = this.mSensorManager.getSensorList(1);
+        if (this.listOriSensor.size() > 0)
+        {
+            this.orientation = ((Sensor)this.listOriSensor.get(0));
+            this.mSensorManager.registerListener(this, this.orientation, 0);
+        }
+        if (this.listAccSensor.size() > 0)
+        {
+            this.accelerometer = ((Sensor)this.listAccSensor.get(0));
+            this.mSensorManager.registerListener(this, this.accelerometer, 0);
+        }
         buttonOfPath = (Button) findViewById(R.id.buttonOfPath);
         buttonOfPath.setOnClickListener(new OnClickListener() {
             @Override
