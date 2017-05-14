@@ -40,6 +40,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
@@ -1068,13 +1069,24 @@ public class MainActivity extends AppCompatActivity implements BluetoothAdapter.
         }// End of run
     }// End of SignalHandler
 
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        final InputMethodManager keyboard = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+        if(event.getAction() == MotionEvent.ACTION_DOWN){
+            if(getCurrentFocus()!=null && getCurrentFocus().getWindowToken()!=null){
+                keyboard.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);
+            }
+        }
+        return super.onTouchEvent(event);
+    }
+
     public void setMapUi() {
+        final InputMethodManager keyboard = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
         mMap.setOnMapClickListener(new OnMapClickListener() {
             @Override
             public void onMapClick(LatLng arg0) {
                 if (layoutOfSearchBar.getVisibility() == View.VISIBLE)
                     layoutOfSearchBar.setVisibility(View.GONE);
-
                 if (toMarker != null) toMarker.remove();
             }// End of onMapClick
         });
@@ -1142,8 +1154,6 @@ public class MainActivity extends AppCompatActivity implements BluetoothAdapter.
         });
 
         layoutOfSearchBar = (LinearLayout) findViewById(R.id.layoutOfSearchBar);
-
-        final InputMethodManager keyboard = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
 
         editTextOfSrearch = (EditText) findViewById(R.id.editTextOfSearch);
         buttonOfSearch = (Button) findViewById(R.id.buttonOfSearch);
