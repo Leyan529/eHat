@@ -58,7 +58,7 @@ public class PathHelper {
 
 		// 取得位址資料網址
 		try {
-			URL url = new URL(strUrl);
+			URL url = new URL(strUrl); /**建立url物件*/
 
 			// Create an http connection to communicate with url
 			urlConnection = (HttpURLConnection) url.openConnection();	/**建立url雲端連線物件*/
@@ -67,9 +67,9 @@ public class PathHelper {
 			urlConnection.connect();
 
 			// Read data from url
-			input = urlConnection.getInputStream();
+			input = urlConnection.getInputStream(); /**以byte輸入資料流物件讀取雲端資源*/
 
-			BufferedReader reader = new BufferedReader(new InputStreamReader(input));
+			BufferedReader reader = new BufferedReader(new InputStreamReader(input,"UTF-8"));	/**再轉為以char為單位的輸入串流物件*/
 			StringBuffer buffer = new StringBuffer();
 			String line = "";
 
@@ -163,7 +163,6 @@ public class PathHelper {
 				lineOptions.width(20);// 路徑寬度
 				lineOptions.color(Color.BLUE);// 路徑顏色
 			}// End of for-loop
-
 			MainActivity.mMap.addPolyline(lineOptions);
 			MainActivity.progress.dismiss();
 		}// End of onPostExecute

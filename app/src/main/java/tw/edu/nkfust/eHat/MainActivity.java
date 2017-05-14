@@ -229,12 +229,15 @@ public class MainActivity extends AppCompatActivity implements BluetoothAdapter.
     private EditText editTextOfPersonName, editTextOfPersonPhone;
     private ListView listViewOfCall, listViewOfLocalPhone;
     private FloatingActionButton importCallManger, localPhoneViewButton, buttonOfNewPerson;
-    private static final int REQUEST_CONTACTS = 1;  /**使用者要求讀取聯絡人的辨識值*/
+    private static final int REQUEST_CONTACTS = 1;
+    /**
+     * 使用者要求讀取聯絡人的辨識值
+     */
     private SignalHandler mSignalHandler;
 
     private SensorManager mSensorManager;
     private List<Sensor> listSensor;
-    private Sensor sensor,orientation,accelerometer;
+    private Sensor sensor, orientation, accelerometer;
     private float bearing;
 
     protected static MapFragment mapFragment;
@@ -538,7 +541,6 @@ public class MainActivity extends AppCompatActivity implements BluetoothAdapter.
             }
         });
     }
-
 
 
     public void TimeAlarmFunc() {
@@ -1099,12 +1101,16 @@ public class MainActivity extends AppCompatActivity implements BluetoothAdapter.
                             public void onClick(DialogInterface dialog, int which) {
                                 switch (which) {
                                     case 0:
+                                        mMap.clear();
                                         nowLatLng = mMapHelper.presentLatLng();
+                                        toMarkerOpt.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
+                                        mMap.addMarker(toMarkerOpt);
                                         mPathHelper.getPath(nowLatLng, toLatLng);
                                         break;
                                     case 1:
                                         LayoutInflater inflater = getLayoutInflater();
                                         View viewOfNewAddress = inflater.inflate(R.layout.address_dialog, null);
+
                                         final EditText editTextOfAddressName = (EditText) viewOfNewAddress.findViewById(R.id.editTextOfAddressName);
 
                                         new AlertDialog.Builder(MainActivity.this)
@@ -1116,7 +1122,7 @@ public class MainActivity extends AppCompatActivity implements BluetoothAdapter.
                                                         if ((editTextOfAddressName.getText().toString().equals(""))) {
                                                             Toast.makeText(MainActivity.this, R.string.toast_ErOfWriteAddressName, Toast.LENGTH_SHORT).show();
                                                         } else {
-                                                            mAddressDatabaseHelper.insert(editTextOfAddressName.getText().toString(), mMapHelper.latLngToAddress(marker.getPosition().latitude, marker.getPosition().longitude));
+                                                            mAddressDatabaseHelper.insert(editTextOfAddressName.getText().toString(), mMapHelper.latLngToAddress(marker.getPosition().latitude, marker.getPosition().longitude), marker.getPosition().latitude, marker.getPosition().longitude);
                                                             Toast.makeText(MainActivity.this, R.string.toast_AddTheNewAddress, Toast.LENGTH_SHORT).show();
                                                         }// End of if-condition
                                                     }// End of onClick
@@ -1196,14 +1202,12 @@ public class MainActivity extends AppCompatActivity implements BluetoothAdapter.
         }// End of if-condition
         this.listOriSensor = this.mSensorManager.getSensorList(3);
         this.listAccSensor = this.mSensorManager.getSensorList(1);
-        if (this.listOriSensor.size() > 0)
-        {
-            this.orientation = ((Sensor)this.listOriSensor.get(0));
+        if (this.listOriSensor.size() > 0) {
+            this.orientation = ((Sensor) this.listOriSensor.get(0));
             this.mSensorManager.registerListener(this, this.orientation, 0);
         }
-        if (this.listAccSensor.size() > 0)
-        {
-            this.accelerometer = ((Sensor)this.listAccSensor.get(0));
+        if (this.listAccSensor.size() > 0) {
+            this.accelerometer = ((Sensor) this.listAccSensor.get(0));
             this.mSensorManager.registerListener(this, this.accelerometer, 0);
         }
         buttonOfPath = (Button) findViewById(R.id.buttonOfPath);

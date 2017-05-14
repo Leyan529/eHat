@@ -44,12 +44,12 @@
         "source": "E:\\Program\\Eclipse\\Android\\AndroidWorkSpace\\eHat\\app\\src\\main\\res\\drawable-hdpi\\ic_settings_black_24dp.png"
     },
     {
-        "merged": "E:\\Program\\Eclipse\\Android\\AndroidWorkSpace\\eHat\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_call_black_36dp.png",
-        "source": "E:\\Program\\Eclipse\\Android\\AndroidWorkSpace\\eHat\\app\\src\\main\\res\\drawable-hdpi\\ic_call_black_36dp.png"
-    },
-    {
         "merged": "E:\\Program\\Eclipse\\Android\\AndroidWorkSpace\\eHat\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_search_black_36dp.png",
         "source": "E:\\Program\\Eclipse\\Android\\AndroidWorkSpace\\eHat\\app\\src\\main\\res\\drawable-hdpi\\ic_search_black_36dp.png"
+    },
+    {
+        "merged": "E:\\Program\\Eclipse\\Android\\AndroidWorkSpace\\eHat\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_call_black_36dp.png",
+        "source": "E:\\Program\\Eclipse\\Android\\AndroidWorkSpace\\eHat\\app\\src\\main\\res\\drawable-hdpi\\ic_call_black_36dp.png"
     },
     {
         "merged": "E:\\Program\\Eclipse\\Android\\AndroidWorkSpace\\eHat\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_directions_walk_black_36dp.png",

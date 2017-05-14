@@ -86,5 +86,6 @@
     <string name="toast_NavigationModeClose">導航模式關閉</string>
     <string name="toast_NavigationModeOpen">導航模式開啟</string>
     <string name="PageLoding">頁面加載中...</string>
+    <string name="textOfMenuItem_Show">查看</string>
 
 </resources>

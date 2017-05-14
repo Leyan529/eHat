@@ -50,6 +50,7 @@
     <string name="textOfMenuItem_Draw">規劃路線</string>
     <string name="textOfMenuItem_Edit">編輯</string>
     <string name="textOfMenuItem_NewFavorite">新增最愛</string>
+    <string name="textOfMenuItem_Show">查看</string>
     <string name="textOfScanInfo_Scanning">搜尋中...</string>
     <string name="title_Bluetooth">藍芽狀態</string>
     <string name="title_Connect_Device">連線狀態</string>

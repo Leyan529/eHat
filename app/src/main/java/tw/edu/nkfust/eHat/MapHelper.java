@@ -66,7 +66,7 @@ public class MapHelper extends AppCompatActivity implements LocationListener {
     public void initialize() {
         if (criteria == null || localLatLng == null) {
             criteria = new Criteria();
-            criteria.setAccuracy(Criteria.ACCURACY_FINE);
+            //criteria.setAccuracy(Criteria.ACCURACY_FINE);
             criteria.setAltitudeRequired(false);// 不要求海拔
             criteria.setBearingRequired(false);// 不要求方位
             criteria.setPowerRequirement(Criteria.POWER_HIGH);// 高功耗
@@ -170,10 +170,13 @@ public class MapHelper extends AppCompatActivity implements LocationListener {
             List<String> providers = mLocationManager.getProviders(true);
             for (String provider : providers) {
                 presentLocation = mLocationManager.getLastKnownLocation(provider);
-                if (presentLocation != null) break;
+                if (presentLocation != null) {
+                    Log.d("presentLocation", "" + presentLocation.getLatitude() + " , provider:" + presentLocation.getProvider());
+                    break;
+                }
             }//End of for-each
         } //End of While
-        Log.d("gpsPresent", "" + presentLocation.getLatitude() + "provider:" + presentLocation.getProvider());
+        Log.d("presentLocation", "" + presentLocation.getLatitude() + " , provider:" + presentLocation.getProvider());
         return new LatLng(presentLocation.getLatitude(), presentLocation.getLongitude());
     }// End of presentLatLng
 
