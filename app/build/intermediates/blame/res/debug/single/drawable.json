@@ -236,6 +236,10 @@
         "source": "C:\\Users\\Leyan\\.android\\build-cache\\50cdd795df67f450913ff5b059485a0a33dba30b\\output\\res\\drawable\\cast_expanded_controller_actionbar_bg_gradient_light.xml"
     },
     {
+        "merged": "E:\\Program\\Eclipse\\Android\\AndroidWorkSpace\\eHat\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\ic_import_contacts_black_36dp.png",
+        "source": "E:\\Program\\Eclipse\\Android\\AndroidWorkSpace\\eHat\\app\\src\\main\\res\\drawable\\ic_import_contacts_black_36dp.png"
+    },
+    {
         "merged": "E:\\Program\\Eclipse\\Android\\AndroidWorkSpace\\eHat\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\cast_ic_notification_small_icon.xml",
         "source": "C:\\Users\\Leyan\\.android\\build-cache\\50cdd795df67f450913ff5b059485a0a33dba30b\\output\\res\\drawable\\cast_ic_notification_small_icon.xml"
     },
@@ -426,6 +430,10 @@
     {
         "merged": "E:\\Program\\Eclipse\\Android\\AndroidWorkSpace\\eHat\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\cast_expanded_controller_bg_gradient_light.xml",
         "source": "C:\\Users\\Leyan\\.android\\build-cache\\50cdd795df67f450913ff5b059485a0a33dba30b\\output\\res\\drawable\\cast_expanded_controller_bg_gradient_light.xml"
+    },
+    {
+        "merged": "E:\\Program\\Eclipse\\Android\\AndroidWorkSpace\\eHat\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\ic_grade_black_36dp.png",
+        "source": "E:\\Program\\Eclipse\\Android\\AndroidWorkSpace\\eHat\\app\\src\\main\\res\\drawable\\ic_grade_black_36dp.png"
     },
     {
         "merged": "E:\\Program\\Eclipse\\Android\\AndroidWorkSpace\\eHat\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\mr_group_expand.xml",

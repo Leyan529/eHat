@@ -1,6 +1,7 @@
 package tw.edu.nkfust.eHat;
 
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -13,10 +14,10 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -73,8 +74,9 @@ public class MapHelper extends AppCompatActivity implements LocationListener {
             geocoder = new Geocoder(context, Locale.TRADITIONAL_CHINESE); // 台灣
             theBestProvider = mLocationManager.getBestProvider(criteria, true);
             mLocationManager.requestLocationUpdates(theBestProvider, 0, 0, this);// 週期性監聽位置的狀態
-            localLatLng = presentLatLng();
-            updateMap(localLatLng.latitude, localLatLng.longitude);// 使用者位址
+            DownloadTask locatTask = new DownloadTask();
+            locatTask.execute();
+
             /*if (localLatLng != null) updateMap(localLatLng.latitude, localLatLng.longitude);// 使用者位址
             else updateMap(22.754519, 120.333249);// 高雄第一科技大學*/
         }// End of if-condition
@@ -166,18 +168,8 @@ public class MapHelper extends AppCompatActivity implements LocationListener {
 
     public LatLng presentLatLng() {
         Location presentLocation = mLocationManager.getLastKnownLocation(theBestProvider);
-        while (presentLocation == null) {
-            List<String> providers = mLocationManager.getProviders(true);
-            for (String provider : providers) {
-                presentLocation = mLocationManager.getLastKnownLocation(provider);
-                if (presentLocation != null) {
-                    Log.d("presentLocation", "" + presentLocation.getLatitude() + " , provider:" + presentLocation.getProvider());
-                    break;
-                }
-            }//End of for-each
-        } //End of While
-        Log.d("presentLocation", "" + presentLocation.getLatitude() + " , provider:" + presentLocation.getProvider());
-        return new LatLng(presentLocation.getLatitude(), presentLocation.getLongitude());
+        localLatLng = new LatLng(presentLocation.getLatitude(), presentLocation.getLongitude());
+        return localLatLng;
     }// End of presentLatLng
 
     public LatLng addressToLatLng(String address) {
@@ -288,5 +280,54 @@ public class MapHelper extends AppCompatActivity implements LocationListener {
         return false;
     }// End of recordPath
 
+    private class DownloadTask extends AsyncTask<String, Integer, String> {
+        private ProgressDialog progressBar;
+        Location presentLocation;
+
+        @Override
+        protected void onPreExecute() {  /**執行前，一些基本設定可以在這邊做*/
+            super.onPreExecute();
+            progressBar = new ProgressDialog(context);
+            progressBar.setMessage("讀取最初位置...");
+            progressBar.setCancelable(false);
+            progressBar.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+            progressBar.show();
+        }
+
+        @Override
+        protected String doInBackground(String... params) { /**執行中，在背景做任務。*/
+            int progress = 0;
+            presentLocation = mLocationManager.getLastKnownLocation(theBestProvider);
+            if (presentLocation == null) {
+                List<String> providers = mLocationManager.getProviders(true);
+                for (String provider : providers) {
+                    publishProgress(progress += 20);
+                    presentLocation = mLocationManager.getLastKnownLocation(provider);
+                    if (presentLocation != null) {
+                        theBestProvider = provider;
+                        publishProgress(100);
+                        localLatLng = new LatLng(presentLocation.getLatitude(), presentLocation.getLongitude());
+                        return null;
+                    }
+                }//End of for-each
+            } //End of While
+
+            publishProgress(100);
+            return null;
+        }
+
+        @Override
+        protected void onProgressUpdate(Integer... values) { /**執行中，當你呼叫publishProgress的時候會到這邊，可以告知使用者進度*/
+            super.onProgressUpdate(values);
+            progressBar.setProgress(values[0]);
+        }
+
+        @Override
+        protected void onPostExecute(String s) { /** 執行後，最後的結果會在這邊*/
+            super.onPostExecute(s);
+            if (localLatLng != null) updateMap(localLatLng.latitude, localLatLng.longitude);// 使用者位址
+            progressBar.dismiss();
+        }
+    }
 
 }// End of MapHelper
