@@ -39,6 +39,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.GestureDetector;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -94,7 +95,7 @@ import static android.Manifest.permission.WRITE_CONTACTS;
  */
 
 
-public class MainActivity extends AppCompatActivity implements BluetoothAdapter.LeScanCallback, SensorEventListener, OnMapReadyCallback {
+public class MainActivity extends AppCompatActivity implements BluetoothAdapter.LeScanCallback, SensorEventListener, OnMapReadyCallback,GestureDetector.OnGestureListener {
     private LinearLayout tabViewOfDevice, tabViewOfAlarm, tabViewOfCall, tabViewOfMap;// 頁卡標頭
     private ImageView tabImageOfDevice, tabImageOfAlarm, tabImageOfCall, tabImageOfMap;
     private ImageView cursorImage;// 動畫圖片
@@ -265,6 +266,7 @@ public class MainActivity extends AppCompatActivity implements BluetoothAdapter.
     protected static String mapMode = "normal";// normal: 導航, sport: 運動
     protected static Timer timerOfGuide, timerOfSport;
     protected static ProgressDialog progress;
+    private GestureDetector dector;
 
 
     @Override //1.分配資源給這個 Activity(onCreate)
@@ -272,6 +274,7 @@ public class MainActivity extends AppCompatActivity implements BluetoothAdapter.
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
+        dector = new GestureDetector(this,this);
         initTabView();
         initCursor();
         initLayout();
@@ -812,6 +815,36 @@ public class MainActivity extends AppCompatActivity implements BluetoothAdapter.
         }
     }
 
+    @Override
+    public boolean onDown(MotionEvent e) {
+        return false;
+    }
+
+    @Override
+    public void onShowPress(MotionEvent e) {
+
+    }
+
+    @Override
+    public boolean onSingleTapUp(MotionEvent e) {
+        return false;
+    }
+
+    @Override
+    public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
+        return false;
+    }
+
+    @Override
+    public void onLongPress(MotionEvent e) {
+
+    }
+
+    @Override
+    public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+        return false;
+    }
+
     /**
      * 監聽頁卡標頭點擊
      */
@@ -1077,7 +1110,7 @@ public class MainActivity extends AppCompatActivity implements BluetoothAdapter.
                 keyboard.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);
             }
         }
-        return super.onTouchEvent(event);
+        return dector.onTouchEvent(event);
     }
 
     public void setMapUi() {
