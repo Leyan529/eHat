@@ -75,7 +75,8 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_main"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:launchMode="singleTop"> <!--launchMode = singleTop(單一執行而不重新啟動)!-->
             <intent-filter>
                 <action android:name="android.intent.action.CALL" />
             </intent-filter>

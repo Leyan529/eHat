@@ -87,7 +87,8 @@
         <activity
             android:name="tw.edu.nkfust.eHat.MainActivity"
             android:label="@string/title_activity_main"
-            android:screenOrientation="portrait" >
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" > <!-- launchMode = singleTop(單一執行而不重新啟動)! -->
             <intent-filter>
                 <action android:name="android.intent.action.CALL" />
             </intent-filter>
