@@ -1,6 +1,7 @@
 package tw.edu.nkfust.eHat;
 
 import android.app.AlertDialog;
+import android.app.NotificationManager;
 import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
 import android.bluetooth.BluetoothA2dp;
@@ -18,6 +19,7 @@ import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.hardware.Sensor;
@@ -133,6 +135,7 @@ public class MainActivity extends AppCompatActivity implements BluetoothAdapter.
     private Button buttonOfEnableBluetooth, buttonOfScan, buttonOfConnect;
     private TextView textOfScanStatus, textOfDeviceInfo, textOfConnectionStatus;
     private int rssi;
+
 
     private final BroadcastReceiver bluetoothStateReceiver = new BroadcastReceiver() { /**手動註冊bluetoothStateReceiver廣播啟用廣播傾聽功能*/
         @Override
@@ -275,6 +278,11 @@ public class MainActivity extends AppCompatActivity implements BluetoothAdapter.
         initTabView();
         initCursor();
         initLayout();
+
+        NotificationManager manger = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
+        NotificationHelper notificationHelper = new NotificationHelper(this);
+        Bitmap mainBmp = BitmapFactory.decodeResource(getResources(), R.drawable.notifyp32);
+        manger.notify(NotificationHelper.NOTIFY_MAIN,notificationHelper.mainNotify(mainBmp));
 
         registerReceiver(bluetoothStateReceiver, new IntentFilter(BluetoothAdapter.ACTION_STATE_CHANGED));  /**啟用bluetoothStateReceiver廣播傾聽功能，及其相對的IntentFilter比對內容*/
         registerReceiver(headsetStateReceiver, new IntentFilter(BluetoothA2dp.ACTION_CONNECTION_STATE_CHANGED));  /**啟用headsetStateReceiver廣播傾聽功能，及其相對的IntentFilter比對內容*/

@@ -26,6 +26,7 @@ public class BeginActivity extends AppCompatActivity {
 			}// End of switch-condition
 		}// End of handleMessage
 	};
+	String time = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss").format(new Date());
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -33,9 +34,9 @@ public class BeginActivity extends AppCompatActivity {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_begin);
 		textOfTime = (TextView) findViewById(R.id.textOfTime);
-		SimpleDateFormat sdFormat = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss");
-		Date date = new Date();
-		textOfTime.setText(sdFormat.format(date));
+		/*SimpleDateFormat sdFormat = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss");
+		Date date = new Date();*/
+		textOfTime.setText(time);
 		handler.sendEmptyMessageDelayed(STATE_START, 1000); // Delay 2s
 	}// End of onCreate
 }// End of BeginActivity

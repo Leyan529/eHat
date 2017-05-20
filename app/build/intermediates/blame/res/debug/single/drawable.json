@@ -236,6 +236,10 @@
         "source": "C:\\Users\\Leyan\\.android\\build-cache\\50cdd795df67f450913ff5b059485a0a33dba30b\\output\\res\\drawable\\cast_expanded_controller_actionbar_bg_gradient_light.xml"
     },
     {
+        "merged": "E:\\Program\\Eclipse\\Android\\AndroidWorkSpace\\eHat\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\notifyp32.png",
+        "source": "E:\\Program\\Eclipse\\Android\\AndroidWorkSpace\\eHat\\app\\src\\main\\res\\drawable\\notifyp32.png"
+    },
+    {
         "merged": "E:\\Program\\Eclipse\\Android\\AndroidWorkSpace\\eHat\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\ic_import_contacts_black_36dp.png",
         "source": "E:\\Program\\Eclipse\\Android\\AndroidWorkSpace\\eHat\\app\\src\\main\\res\\drawable\\ic_import_contacts_black_36dp.png"
     },
@@ -282,6 +286,10 @@
     {
         "merged": "E:\\Program\\Eclipse\\Android\\AndroidWorkSpace\\eHat\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\mr_media_stop_light.xml",
         "source": "C:\\Users\\Leyan\\.android\\build-cache\\5006b941e93459475e96c8e39a67fa1a4ddeab64\\output\\res\\drawable\\mr_media_stop_light.xml"
+    },
+    {
+        "merged": "E:\\Program\\Eclipse\\Android\\AndroidWorkSpace\\eHat\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\ic_access_time_black_36dp.png",
+        "source": "E:\\Program\\Eclipse\\Android\\AndroidWorkSpace\\eHat\\app\\src\\main\\res\\drawable\\ic_access_time_black_36dp.png"
     },
     {
         "merged": "E:\\Program\\Eclipse\\Android\\AndroidWorkSpace\\eHat\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\cast_ic_notification_forward.xml",
