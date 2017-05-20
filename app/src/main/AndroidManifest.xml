@@ -71,6 +71,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_main"
@@ -79,11 +80,11 @@
                 <action android:name="android.intent.action.CALL" />
             </intent-filter>
         </activity>
+
         <activity android:name=".TimePickerRing" />
 
-        <receiver android:name=".TimePickerReceiver" />
-
-        <service android:name=".RFduinoService" />
+        <receiver android:name=".TimePickerReceiver" />  <!--  直接註冊在application底下，由application負責進行，且系統會自動收到並執行系統自己產生的onReceive方法 !-->
+        <service android:name=".RFduinoService" />       <!--  直接註冊在application底下，由application負責進行 !-->
 
         <activity
             android:name=".AddressListActivity"

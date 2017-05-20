@@ -39,7 +39,6 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
 import android.util.Log;
-import android.view.GestureDetector;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -95,7 +94,7 @@ import static android.Manifest.permission.WRITE_CONTACTS;
  */
 
 
-public class MainActivity extends AppCompatActivity implements BluetoothAdapter.LeScanCallback, SensorEventListener, OnMapReadyCallback,GestureDetector.OnGestureListener {
+public class MainActivity extends AppCompatActivity implements BluetoothAdapter.LeScanCallback, SensorEventListener, OnMapReadyCallback{
     private LinearLayout tabViewOfDevice, tabViewOfAlarm, tabViewOfCall, tabViewOfMap;// 頁卡標頭
     private ImageView tabImageOfDevice, tabImageOfAlarm, tabImageOfCall, tabImageOfMap;
     private ImageView cursorImage;// 動畫圖片
@@ -135,9 +134,9 @@ public class MainActivity extends AppCompatActivity implements BluetoothAdapter.
     private TextView textOfScanStatus, textOfDeviceInfo, textOfConnectionStatus;
     private int rssi;
 
-    private final BroadcastReceiver bluetoothStateReceiver = new BroadcastReceiver() {
+    private final BroadcastReceiver bluetoothStateReceiver = new BroadcastReceiver() { /**手動註冊bluetoothStateReceiver廣播啟用廣播傾聽功能*/
         @Override
-        public void onReceive(Context context, Intent intent) {
+        public void onReceive(Context context, Intent intent) { /**當BroadcastReceiver接收到廣播時，自動執行此方法*/
             int state = intent.getIntExtra(BluetoothAdapter.EXTRA_STATE, 0);
 
             if (state == BluetoothAdapter.STATE_ON) {
@@ -150,7 +149,7 @@ public class MainActivity extends AppCompatActivity implements BluetoothAdapter.
 
     private final BroadcastReceiver headsetStateReceiver = new BroadcastReceiver() {
         @Override
-        public void onReceive(Context context, Intent intent) {
+        public void onReceive(Context context, Intent intent) {  /**手動註冊headsetStateReceiver廣播啟用廣播傾聽功能*/
             int state = intent.getIntExtra(BluetoothA2dp.EXTRA_STATE, 0);
 
             if (state == BluetoothA2dp.STATE_CONNECTED) {
@@ -201,7 +200,7 @@ public class MainActivity extends AppCompatActivity implements BluetoothAdapter.
 
     private final BroadcastReceiver rfduinoReceiver = new BroadcastReceiver() {
         @Override
-        public void onReceive(Context context, Intent intent) {
+        public void onReceive(Context context, Intent intent) {  /**手動註冊rfduinoReceiver廣播啟用廣播傾聽功能*/
             final String action = intent.getAction();
 
             if (RFduinoService.ACTION_CONNECTED.equals(action)) {
@@ -266,7 +265,6 @@ public class MainActivity extends AppCompatActivity implements BluetoothAdapter.
     protected static String mapMode = "normal";// normal: 導航, sport: 運動
     protected static Timer timerOfGuide, timerOfSport;
     protected static ProgressDialog progress;
-    private GestureDetector dector;
 
 
     @Override //1.分配資源給這個 Activity(onCreate)
@@ -274,14 +272,13 @@ public class MainActivity extends AppCompatActivity implements BluetoothAdapter.
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
-        dector = new GestureDetector(this,this);
         initTabView();
         initCursor();
         initLayout();
 
-        registerReceiver(bluetoothStateReceiver, new IntentFilter(BluetoothAdapter.ACTION_STATE_CHANGED));
-        registerReceiver(headsetStateReceiver, new IntentFilter(BluetoothA2dp.ACTION_CONNECTION_STATE_CHANGED));
-        registerReceiver(rfduinoReceiver, RFduinoService.getIntentFilter());
+        registerReceiver(bluetoothStateReceiver, new IntentFilter(BluetoothAdapter.ACTION_STATE_CHANGED));  /**啟用bluetoothStateReceiver廣播傾聽功能，及其相對的IntentFilter比對內容*/
+        registerReceiver(headsetStateReceiver, new IntentFilter(BluetoothA2dp.ACTION_CONNECTION_STATE_CHANGED));  /**啟用headsetStateReceiver廣播傾聽功能，及其相對的IntentFilter比對內容*/
+        registerReceiver(rfduinoReceiver, RFduinoService.getIntentFilter());  /**啟用rfduinoReceiver廣播傾聽功能，及其相對的IntentFilter比對內容*/
 
         pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
         wakeLock = pm.newWakeLock(PowerManager.SCREEN_DIM_WAKE_LOCK, this.getClass().getCanonicalName());
@@ -301,59 +298,195 @@ public class MainActivity extends AppCompatActivity implements BluetoothAdapter.
         progress.setMessage(getString(R.string.PageLoding));
         progress.setCancelable(false);
     }// End of onCreate
+    public void BlueToothFunc() {
+        mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();   /** no support in the emulator for bluetooth */
 
-    public Boolean checkDangerContactPermission() {
-        /**Android 6.0以上需檢查危險權限    (READ_CONTACTS : 讀取聯絡人   WRITE_CONTACTS : 寫入聯絡人)*/
-        int permission = ActivityCompat.checkSelfPermission(this, android.Manifest.permission.READ_CONTACTS);
-        if (permission != PackageManager.PERMISSION_GRANTED) {  //未取得權限，向使用者要求權限
-            /**requestPermissions  參數1 :Context     參數2 :要求權限的字串列    參數3 : 權限請求辨識編號  (不重複的值)  */
-            ActivityCompat.requestPermissions(this, new String[]{READ_CONTACTS, WRITE_CONTACTS}, REQUEST_CONTACTS);
-            return false;
-        } else {    //已有權限，可進行檔案存取
-            //Toast.makeText(this, "已取得權限，可進行檔案存取", Toast.LENGTH_SHORT).show();
-            return true;
-            //readContacts();
-        }
-    }
+        // Enable bluetooth
+        buttonOfEnableBluetooth = (Button) findViewById(R.id.buttonOfEnableBluetooth);
+        buttonOfEnableBluetooth.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                buttonOfEnableBluetooth.setEnabled(false);
+                buttonOfEnableBluetooth.setText(mBluetoothAdapter.enable() ? getString(R.string.textOfButton_Enabling_Bluetooth) : getString(R.string.textOfButton_Enable_Failed));
+            }// End of onClick
+        });
 
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        /**參數1 :已取得權限的名稱     參數2 :要求權限的字串列    參數3 : 使用者的回覆結果  */
-        switch (requestCode) {
-            case REQUEST_CONTACTS:
-                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    Toast.makeText(this, "已取得權限，可進行檔案存取", Toast.LENGTH_SHORT).show();
-                    readContacts();
+        // Find device
+        textOfScanStatus = (TextView) findViewById(R.id.textOfScanStatus);
+        buttonOfScan = (Button) findViewById(R.id.buttonOfScan);
+        buttonOfScan.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                scanStarted = !scanStarted;
+
+                if (scanStarted) {
+                    mBluetoothAdapter.startLeScan(new UUID[]{RFduinoService.UUID_SERVICE}, MainActivity.this);
+                    updateUi();
                 } else {
-                    //使用者拒絕權限，顯示對話框告知
-                    new android.support.v7.app.AlertDialog.Builder(this)
-                            .setMessage("必須允許聯絡人權限才能顯示資料")
-                            .setPositiveButton("OK", null)
-                            .show();
-                }
-                return;
-        }
+                    mBluetoothAdapter.stopLeScan(MainActivity.this);
+                    updateUi();
+                }// End of if-condition
+            }// End of onClick
+        });
+
+        // Device info
+        textOfDeviceInfo = (TextView) findViewById(R.id.textOfDeviceInfo);
+
+        mRFduinoManager = new RFduinoManager();
+
+        // Connect device
+        textOfConnectionStatus = (TextView) findViewById(R.id.textOfConnectionStatus);
+        buttonOfConnect = (Button) findViewById(R.id.buttonOfConnect);
+        buttonOfConnect.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                connecting = !connecting;
+
+                if (connecting) {
+                    Intent rfduinoIntent = new Intent(MainActivity.this, RFduinoService.class);
+                    bindService(rfduinoIntent, rfduinoServiceConnection, BIND_AUTO_CREATE);
+                    mSignalHandler = new SignalHandler();
+                    upgradeState(STATE_CONNECTING);
+                } else {
+                    mRFduinoService.disconnect();
+                    unbindService(rfduinoServiceConnection);
+                    downgradeState(STATE_DISCONNECTED);
+                }// End of if-condition
+            }// End of onClick
+        });
     }
+    public void TimeAlarmFunc() {
+        mAlarmHelper = new AlarmHelper(MainActivity.this);
 
-    private TreeMap<Integer, HashMap<String, String>> readContacts() {
-        /**取得所有聯絡人姓名號碼放入TreeMap*/
-        TreeMap<Integer, HashMap<String, String>> ContactMap = new TreeMap<>();
-        ContentResolver reslover = getContentResolver();    /**取得ContentReslover內容查找器物件**/
-        String projection[] = {Contacts._ID, Contacts.DISPLAY_NAME, Phone.NUMBER};
-        Cursor cursor = reslover.query(Phone.CONTENT_URI, projection, null, null, null, null);/**取得所有聯絡人的結果資料指標*/
-        while (cursor.moveToNext()) { /**依序拜訪所有聯絡人資料*/
-            int contactId = cursor.getInt(cursor.getColumnIndex(Contacts._ID));
-            String contactName = cursor.getString(cursor.getColumnIndex(Contacts.DISPLAY_NAME));
-            String phoneNumber = cursor.getString(cursor.getColumnIndex(Phone.NUMBER));
-            Log.d("Record", contactId + "/" + contactName + "/" + phoneNumber);
-            HashMap<String, String> tempMap = new HashMap<>();
-            tempMap.put(contactName, phoneNumber);
-            ContactMap.put(contactId, tempMap);
-        }
-        return ContactMap;
+        nameOfTheTimerOne = (TextView) findViewById(R.id.textOfTheTimerOne);
+        nameOfTheTimerOne.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (!isTimerOneCounting) {
+                    LayoutInflater inflater = getLayoutInflater();
+                    View viewOfEditAlarm = inflater.inflate(R.layout.alarm_dialog, null);
+                    mAlarmHelper.setAlarm(viewOfEditAlarm, nameOfTheTimerOne, buttonOfTheTimerOneStatus);
+                }// End of if-condition
+            }// End of onClick
+        });
+
+        buttonOfTheTimerOneStatus = (Button) findViewById(R.id.buttonOfTheTimerOneStatus);
+        buttonOfTheTimerOneStatus.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (!isTimerOneCounting) {
+                    theTimerOne = mAlarmHelper.getTimer(buttonOfTheTimerOneStatus);
+                    theTimerOne.start();
+                } else {
+                    theTimerOne.cancel();
+                    isTimerOneCounting = false;
+                    buttonOfTheTimerOneStatus.setText(R.string.textOfInitTimer);
+                    buttonOfTheTimerOneStatus.setEnabled(false);
+                }// End of if-condition
+            }// End of onClick
+        });
+
+        nameOfTheTimerTwo = (TextView) findViewById(R.id.textOfTheTimerTwo);
+        nameOfTheTimerTwo.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (!isTimerTwoCounting) {
+                    LayoutInflater inflater = getLayoutInflater();
+                    View viewOfEditAlarm = inflater.inflate(R.layout.alarm_dialog, null);
+                    mAlarmHelper.setAlarm(viewOfEditAlarm, nameOfTheTimerTwo, buttonOfTheTimerTwoStatus);
+                }// End of if-condition
+            }// End of onClick
+        });
+
+        buttonOfTheTimerTwoStatus = (Button) findViewById(R.id.buttonOfTheTimerTwoStatus);
+        buttonOfTheTimerTwoStatus.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (!isTimerTwoCounting) {
+                    theTimerTwo = mAlarmHelper.getTimer(buttonOfTheTimerTwoStatus);
+                    theTimerTwo.start();
+                } else {
+                    theTimerTwo.cancel();
+                    isTimerTwoCounting = false;
+                    buttonOfTheTimerTwoStatus.setText(R.string.textOfInitTimer);
+                    buttonOfTheTimerTwoStatus.setEnabled(false);
+                }// End of if-condition
+            }// End of onClick
+        });
+
+        nameOfTheTimerThree = (TextView) findViewById(R.id.textOfTheTimerThree);
+        nameOfTheTimerThree.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (!isTimerThreeCounting) {
+                    LayoutInflater inflater = getLayoutInflater();
+                    View viewOfEditAlarm = inflater.inflate(R.layout.alarm_dialog, null);
+                    mAlarmHelper.setAlarm(viewOfEditAlarm, nameOfTheTimerThree, buttonOfTheTimerThreeStatus);
+                }// End of if-condition
+            }// End of onClick
+        });
+
+        buttonOfTheTimerThreeStatus = (Button) findViewById(R.id.buttonOfTheTimerThreeStatus);
+        buttonOfTheTimerThreeStatus.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (!isTimerThreeCounting) {
+                    theTimerThree = mAlarmHelper.getTimer(buttonOfTheTimerThreeStatus);
+                    theTimerThree.start();
+                } else {
+                    theTimerThree.cancel();
+                    isTimerThreeCounting = false;
+                    buttonOfTheTimerThreeStatus.setText(R.string.textOfInitTimer);
+                    buttonOfTheTimerThreeStatus.setEnabled(false);
+                }// End of if-condition
+            }// End of onClick
+        });
+
+        calendar = Calendar.getInstance();
+        hourOfTimePicker = calendar.get(Calendar.HOUR_OF_DAY);
+        minuteOfTimePicker = calendar.get(Calendar.MINUTE);
+
+        nameOfTimePicker = (TextView) findViewById(R.id.textOfTimePicker);
+        nameOfTimePicker.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new TimePickerDialog(MainActivity.this, new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                        if (hourOfDay >= 12) {
+                            textOfTimePickerStatus.setText(String.format("下午	%02d : %02d", hourOfDay - 12, minute));
+                        } else {
+                            textOfTimePickerStatus.setText(String.format("上午	%02d : %02d", hourOfDay, minute));
+                        }// End of if-condition
+
+                        mAlarmHelper.setTimePicker(hourOfDay, minute);
+                        buttonOfTimePickerStart.setEnabled(true);
+                    }// End of onTimeSet
+                }, hourOfTimePicker, minuteOfTimePicker, true).show();
+            }// End of onClick
+        });
+        textOfTimePickerStatus = (TextView) findViewById(R.id.textOfTimePickerStatus);
+
+        buttonOfTimePickerStart = (Button) findViewById(R.id.buttonOfTimePickerStart);
+        buttonOfTimePickerStart.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mAlarmHelper.startTimePicker();
+                buttonOfTimePickerStart.setEnabled(false);
+                buttonOfTimePickerStop.setEnabled(true);
+            }// End of onClick
+        });
+
+        buttonOfTimePickerStop = (Button) findViewById(R.id.buttonOfTimePickerStop);
+        buttonOfTimePickerStop.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mAlarmHelper.stopTimePicker();
+                buttonOfTimePickerStart.setEnabled(true);
+                buttonOfTimePickerStop.setEnabled(false);
+            }// End of onClick
+        });
     }
-
-
     public void callDbFunc() {
         mCallManager = new CallManager(MainActivity.this);
         mCallManager.register();
@@ -545,198 +678,67 @@ public class MainActivity extends AppCompatActivity implements BluetoothAdapter.
             }
         });
     }
-
-
-    public void TimeAlarmFunc() {
-        mAlarmHelper = new AlarmHelper(MainActivity.this);
-
-        nameOfTheTimerOne = (TextView) findViewById(R.id.textOfTheTimerOne);
-        nameOfTheTimerOne.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (!isTimerOneCounting) {
-                    LayoutInflater inflater = getLayoutInflater();
-                    View viewOfEditAlarm = inflater.inflate(R.layout.alarm_dialog, null);
-                    mAlarmHelper.setAlarm(viewOfEditAlarm, nameOfTheTimerOne, buttonOfTheTimerOneStatus);
-                }// End of if-condition
-            }// End of onClick
-        });
-
-        buttonOfTheTimerOneStatus = (Button) findViewById(R.id.buttonOfTheTimerOneStatus);
-        buttonOfTheTimerOneStatus.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (!isTimerOneCounting) {
-                    theTimerOne = mAlarmHelper.getTimer(buttonOfTheTimerOneStatus);
-                    theTimerOne.start();
-                } else {
-                    theTimerOne.cancel();
-                    isTimerOneCounting = false;
-                    buttonOfTheTimerOneStatus.setText(R.string.textOfInitTimer);
-                    buttonOfTheTimerOneStatus.setEnabled(false);
-                }// End of if-condition
-            }// End of onClick
-        });
-
-        nameOfTheTimerTwo = (TextView) findViewById(R.id.textOfTheTimerTwo);
-        nameOfTheTimerTwo.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (!isTimerTwoCounting) {
-                    LayoutInflater inflater = getLayoutInflater();
-                    View viewOfEditAlarm = inflater.inflate(R.layout.alarm_dialog, null);
-                    mAlarmHelper.setAlarm(viewOfEditAlarm, nameOfTheTimerTwo, buttonOfTheTimerTwoStatus);
-                }// End of if-condition
-            }// End of onClick
-        });
-
-        buttonOfTheTimerTwoStatus = (Button) findViewById(R.id.buttonOfTheTimerTwoStatus);
-        buttonOfTheTimerTwoStatus.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (!isTimerTwoCounting) {
-                    theTimerTwo = mAlarmHelper.getTimer(buttonOfTheTimerTwoStatus);
-                    theTimerTwo.start();
-                } else {
-                    theTimerTwo.cancel();
-                    isTimerTwoCounting = false;
-                    buttonOfTheTimerTwoStatus.setText(R.string.textOfInitTimer);
-                    buttonOfTheTimerTwoStatus.setEnabled(false);
-                }// End of if-condition
-            }// End of onClick
-        });
-
-        nameOfTheTimerThree = (TextView) findViewById(R.id.textOfTheTimerThree);
-        nameOfTheTimerThree.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (!isTimerThreeCounting) {
-                    LayoutInflater inflater = getLayoutInflater();
-                    View viewOfEditAlarm = inflater.inflate(R.layout.alarm_dialog, null);
-                    mAlarmHelper.setAlarm(viewOfEditAlarm, nameOfTheTimerThree, buttonOfTheTimerThreeStatus);
-                }// End of if-condition
-            }// End of onClick
-        });
-
-        buttonOfTheTimerThreeStatus = (Button) findViewById(R.id.buttonOfTheTimerThreeStatus);
-        buttonOfTheTimerThreeStatus.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (!isTimerThreeCounting) {
-                    theTimerThree = mAlarmHelper.getTimer(buttonOfTheTimerThreeStatus);
-                    theTimerThree.start();
-                } else {
-                    theTimerThree.cancel();
-                    isTimerThreeCounting = false;
-                    buttonOfTheTimerThreeStatus.setText(R.string.textOfInitTimer);
-                    buttonOfTheTimerThreeStatus.setEnabled(false);
-                }// End of if-condition
-            }// End of onClick
-        });
-
-        calendar = Calendar.getInstance();
-        hourOfTimePicker = calendar.get(Calendar.HOUR_OF_DAY);
-        minuteOfTimePicker = calendar.get(Calendar.MINUTE);
-
-        nameOfTimePicker = (TextView) findViewById(R.id.textOfTimePicker);
-        nameOfTimePicker.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                new TimePickerDialog(MainActivity.this, new TimePickerDialog.OnTimeSetListener() {
-                    @Override
-                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                        if (hourOfDay >= 12) {
-                            textOfTimePickerStatus.setText(String.format("下午	%02d : %02d", hourOfDay - 12, minute));
-                        } else {
-                            textOfTimePickerStatus.setText(String.format("上午	%02d : %02d", hourOfDay, minute));
-                        }// End of if-condition
-
-                        mAlarmHelper.setTimePicker(hourOfDay, minute);
-                        buttonOfTimePickerStart.setEnabled(true);
-                    }// End of onTimeSet
-                }, hourOfTimePicker, minuteOfTimePicker, true).show();
-            }// End of onClick
-        });
-        textOfTimePickerStatus = (TextView) findViewById(R.id.textOfTimePickerStatus);
-
-        buttonOfTimePickerStart = (Button) findViewById(R.id.buttonOfTimePickerStart);
-        buttonOfTimePickerStart.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mAlarmHelper.startTimePicker();
-                buttonOfTimePickerStart.setEnabled(false);
-                buttonOfTimePickerStop.setEnabled(true);
-            }// End of onClick
-        });
-
-        buttonOfTimePickerStop = (Button) findViewById(R.id.buttonOfTimePickerStop);
-        buttonOfTimePickerStop.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mAlarmHelper.stopTimePicker();
-                buttonOfTimePickerStart.setEnabled(true);
-                buttonOfTimePickerStop.setEnabled(false);
-            }// End of onClick
-        });
+    private TreeMap<Integer, HashMap<String, String>> readContacts() {
+        /**取得所有聯絡人姓名號碼放入TreeMap*/
+        TreeMap<Integer, HashMap<String, String>> ContactMap = new TreeMap<>();
+        ContentResolver reslover = getContentResolver();    /**取得ContentReslover內容查找器物件**/
+        String projection[] = {Contacts._ID, Contacts.DISPLAY_NAME, Phone.NUMBER};
+        Cursor cursor = reslover.query(Phone.CONTENT_URI, projection, null, null, null, null);/**取得所有聯絡人的結果資料指標*/
+        while (cursor.moveToNext()) { /**依序拜訪所有聯絡人資料*/
+            int contactId = cursor.getInt(cursor.getColumnIndex(Contacts._ID));
+            String contactName = cursor.getString(cursor.getColumnIndex(Contacts.DISPLAY_NAME));
+            String phoneNumber = cursor.getString(cursor.getColumnIndex(Phone.NUMBER));
+            Log.d("Record", contactId + "/" + contactName + "/" + phoneNumber);
+            HashMap<String, String> tempMap = new HashMap<>();
+            tempMap.put(contactName, phoneNumber);
+            ContactMap.put(contactId, tempMap);
+        }
+        return ContactMap;
     }
 
-    public void BlueToothFunc() {
-        mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();   /** no support in the emulator for bluetooth */
 
-        // Enable bluetooth
-        buttonOfEnableBluetooth = (Button) findViewById(R.id.buttonOfEnableBluetooth);
-        buttonOfEnableBluetooth.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                buttonOfEnableBluetooth.setEnabled(false);
-                buttonOfEnableBluetooth.setText(mBluetoothAdapter.enable() ? getString(R.string.textOfButton_Enabling_Bluetooth) : getString(R.string.textOfButton_Enable_Failed));
-            }// End of onClick
-        });
-
-        // Find device
-        textOfScanStatus = (TextView) findViewById(R.id.textOfScanStatus);
-        buttonOfScan = (Button) findViewById(R.id.buttonOfScan);
-        buttonOfScan.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                scanStarted = !scanStarted;
-
-                if (scanStarted) {
-                    mBluetoothAdapter.startLeScan(new UUID[]{RFduinoService.UUID_SERVICE}, MainActivity.this);
-                    updateUi();
-                } else {
-                    mBluetoothAdapter.stopLeScan(MainActivity.this);
-                    updateUi();
-                }// End of if-condition
-            }// End of onClick
-        });
-
-        // Device info
-        textOfDeviceInfo = (TextView) findViewById(R.id.textOfDeviceInfo);
-
-        mRFduinoManager = new RFduinoManager();
-
-        // Connect device
-        textOfConnectionStatus = (TextView) findViewById(R.id.textOfConnectionStatus);
-        buttonOfConnect = (Button) findViewById(R.id.buttonOfConnect);
-        buttonOfConnect.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                connecting = !connecting;
-
-                if (connecting) {
-                    Intent rfduinoIntent = new Intent(MainActivity.this, RFduinoService.class);
-                    bindService(rfduinoIntent, rfduinoServiceConnection, BIND_AUTO_CREATE);
-                    mSignalHandler = new SignalHandler();
-                    upgradeState(STATE_CONNECTING);
-                } else {
-                    mRFduinoService.disconnect();
-                    unbindService(rfduinoServiceConnection);
-                    downgradeState(STATE_DISCONNECTED);
-                }// End of if-condition
-            }// End of onClick
-        });
+    public Boolean checkDangerContactPermission() {
+        /**Android 6.0以上需檢查危險權限    (READ_CONTACTS : 讀取聯絡人   WRITE_CONTACTS : 寫入聯絡人)*/
+        int permission = ActivityCompat.checkSelfPermission(this, android.Manifest.permission.READ_CONTACTS);
+        if (permission != PackageManager.PERMISSION_GRANTED) {  //未取得權限，向使用者要求權限
+            /**requestPermissions  參數1 :Context     參數2 :要求權限的字串列    參數3 : 權限請求辨識編號  (不重複的值)  */
+            ActivityCompat.requestPermissions(this, new String[]{READ_CONTACTS, WRITE_CONTACTS}, REQUEST_CONTACTS);
+            return false;
+        } else {    //已有權限，可進行檔案存取
+            //Toast.makeText(this, "已取得權限，可進行檔案存取", Toast.LENGTH_SHORT).show();
+            return true;
+            //readContacts();
+        }
     }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        /**參數1 :已取得權限的名稱     參數2 :要求權限的字串列    參數3 : 使用者的回覆結果  */
+        switch (requestCode) {
+            case REQUEST_CONTACTS:
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    Toast.makeText(this, "已取得權限，可進行檔案存取", Toast.LENGTH_SHORT).show();
+                    readContacts();
+                } else {
+                    //使用者拒絕權限，顯示對話框告知
+                    new android.support.v7.app.AlertDialog.Builder(this)
+                            .setMessage("必須允許聯絡人權限才能顯示資料")
+                            .setPositiveButton("OK", null)
+                            .show();
+                }
+                return;
+        }
+    }
+
+
+
+
+
+
+
+
+
+
 
     @Override //2.將 Activity 內容顯示到螢幕上(onStart)
     protected void onStart() {
@@ -815,35 +817,7 @@ public class MainActivity extends AppCompatActivity implements BluetoothAdapter.
         }
     }
 
-    @Override
-    public boolean onDown(MotionEvent e) {
-        return false;
-    }
 
-    @Override
-    public void onShowPress(MotionEvent e) {
-
-    }
-
-    @Override
-    public boolean onSingleTapUp(MotionEvent e) {
-        return false;
-    }
-
-    @Override
-    public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
-        return false;
-    }
-
-    @Override
-    public void onLongPress(MotionEvent e) {
-
-    }
-
-    @Override
-    public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
-        return false;
-    }
 
     /**
      * 監聽頁卡標頭點擊
@@ -1110,7 +1084,7 @@ public class MainActivity extends AppCompatActivity implements BluetoothAdapter.
                 keyboard.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);
             }
         }
-        return dector.onTouchEvent(event);
+        return false;
     }
 
     public void setMapUi() {

@@ -36,4 +36,5 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:design:25.3.1'
     compile 'com.android.support:mediarouter-v7:25.3.1'
+    compile 'com.squareup.okhttp3:parent:3.8.0'
 }

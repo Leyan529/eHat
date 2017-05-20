@@ -108,7 +108,7 @@ public class PathHelper {
 		// Execute in UI thread, after the execution of doInBackground
 		@Override
 		protected void onPostExecute(String result) {
-			super.onPostExecute(result);			/**將欲上傳請求的資料post到雲端*/
+			super.onPostExecute(result);
 			ParserTask parserTask = new ParserTask();
 
 			// Invoke the thread for parsing the JSON data

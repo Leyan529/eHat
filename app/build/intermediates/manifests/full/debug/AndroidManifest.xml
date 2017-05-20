@@ -94,9 +94,8 @@
         </activity>
         <activity android:name="tw.edu.nkfust.eHat.TimePickerRing" />
 
-        <receiver android:name="tw.edu.nkfust.eHat.TimePickerReceiver" />
-
-        <service android:name="tw.edu.nkfust.eHat.RFduinoService" />
+        <receiver android:name="tw.edu.nkfust.eHat.TimePickerReceiver" /> <!-- 直接註冊在application底下，由application負責進行，且系統會自動收到並執行系統自己產生的onReceive方法 ! -->
+        <service android:name="tw.edu.nkfust.eHat.RFduinoService" /> <!-- 直接註冊在application底下，由application負責進行 ! -->
 
         <activity
             android:name="tw.edu.nkfust.eHat.AddressListActivity"
