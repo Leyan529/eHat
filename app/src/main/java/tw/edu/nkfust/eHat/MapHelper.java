@@ -122,13 +122,10 @@ public class MapHelper extends AppCompatActivity implements LocationListener {
 
     @Override
     public void onLocationChanged(Location location) {
-        // TODO Auto-generated method stub
     }// End of onLocationChanged
 
     @Override
     public void onStatusChanged(String provider, int status, Bundle extras) {
-        // TODO Auto-generated method stub
-
     }// End of onStatusChanged
 
     @Override
@@ -139,8 +136,6 @@ public class MapHelper extends AppCompatActivity implements LocationListener {
 
     @Override
     public void onProviderDisabled(String provider) {
-        // TODO Auto-generated method stub
-
     }// End of onProviderDisabled
 
     public void setRatio(int ratio) {

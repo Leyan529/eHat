@@ -288,12 +288,12 @@
         "source": "C:\\Users\\Leyan\\.android\\build-cache\\5006b941e93459475e96c8e39a67fa1a4ddeab64\\output\\res\\drawable-hdpi-v4\\ic_mr_button_disabled_dark.png"
     },
     {
-        "merged": "E:\\Program\\Eclipse\\Android\\AndroidWorkSpace\\eHat\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_textfield_default_mtrl_alpha.9.png",
-        "source": "C:\\Users\\Leyan\\.android\\build-cache\\2135ea806b8b24aa0660213fbc65b58fa37a8ca2\\output\\res\\drawable-hdpi-v4\\abc_textfield_default_mtrl_alpha.9.png"
-    },
-    {
         "merged": "E:\\Program\\Eclipse\\Android\\AndroidWorkSpace\\eHat\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\quantum_ic_stop_grey600_48.png",
         "source": "C:\\Users\\Leyan\\.android\\build-cache\\50cdd795df67f450913ff5b059485a0a33dba30b\\output\\res\\drawable-hdpi-v4\\quantum_ic_stop_grey600_48.png"
+    },
+    {
+        "merged": "E:\\Program\\Eclipse\\Android\\AndroidWorkSpace\\eHat\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_textfield_default_mtrl_alpha.9.png",
+        "source": "C:\\Users\\Leyan\\.android\\build-cache\\2135ea806b8b24aa0660213fbc65b58fa37a8ca2\\output\\res\\drawable-hdpi-v4\\abc_textfield_default_mtrl_alpha.9.png"
     },
     {
         "merged": "E:\\Program\\Eclipse\\Android\\AndroidWorkSpace\\eHat\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\places_ic_search.png",

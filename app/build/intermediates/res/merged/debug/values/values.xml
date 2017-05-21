@@ -952,6 +952,7 @@
     <integer name="mr_controller_volume_group_list_fade_out_duration_ms">200</integer>
     <integer name="show_password_duration">200</integer>
     <integer name="status_bar_notification_info_maxnum">999</integer>
+    <string name="Activing">eHat啟動中...</string>
     <string name="PageLoding">page loading...</string>
     <string name="abc_action_bar_home_description">Navigate home</string>
     <string name="abc_action_bar_home_description_format">%1$s, %2$s</string>
@@ -989,6 +990,7 @@
     <string name="app_name">eHat</string>
     <string name="app_version">1.0</string>
     <string name="appbar_scrolling_view_behavior" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
+    <string name="backToMainPage">回到主頁面</string>
     <string name="bottom_sheet_behavior" translatable="false">android.support.design.widget.BottomSheetBehavior</string>
     <string name="cast_ad_label">Ad</string>
     <string name="cast_casting_to_device">Casting to %1$s</string>

@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="Activing">eHat啟動中...</string>
     <string name="PageLoding">頁面加載中...</string>
     <string name="app_name">eHat</string>
     <string name="app_version">1.0</string>
+    <string name="backToMainPage">回到主頁面</string>
     <string name="hello_world">Hello world!</string>
     <string name="labelOfBlock_AddressName">名稱:</string>
     <string name="labelOfBlock_GoalLength">目標里程:</string>

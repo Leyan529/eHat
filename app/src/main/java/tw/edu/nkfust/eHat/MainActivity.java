@@ -182,20 +182,20 @@ public class MainActivity extends AppCompatActivity implements BluetoothAdapter.
         }// End of onReceive
     };
 
-    private final ServiceConnection rfduinoServiceConnection = new ServiceConnection() {
+    private final ServiceConnection rfduinoServiceConnection = new ServiceConnection() {  /**綁定特定服務的連線介面*/  //採非同步回報機制
         @Override
-        public void onServiceConnected(ComponentName name, IBinder service) {
-            mRFduinoService = ((RFduinoService.LocalBinder) service).getService();
+        public void onServiceConnected(ComponentName name, IBinder service) {  //當綁定成功時執行onServiceConnected方法
+            mRFduinoService = ((RFduinoService.LocalBinder) service).getService(); /**取得已綁定的服務RFduinoService*/
 
-            if (mRFduinoService.initialize()) {
-                if (mRFduinoService.connect(mBluetoothDevice.getAddress())) {
+            if (mRFduinoService.initialize()) { //判斷藍芽服務初始化與否
+                if (mRFduinoService.connect(mBluetoothDevice.getAddress())) { //判斷藍芽服務是否已連上藍芽裝置
                     upgradeState(STATE_CONNECTING);
                 }// End of if-condition
             }// End of if-condition
         }// End of onServiceConnected
 
         @Override
-        public void onServiceDisconnected(ComponentName name) {
+        public void onServiceDisconnected(ComponentName name) { //當綁定失敗時執行onServiceDisconnected方法
             mRFduinoService = null;
             downgradeState(STATE_DISCONNECTED);
         }// End of onServiceDisconnected
@@ -352,12 +352,12 @@ public class MainActivity extends AppCompatActivity implements BluetoothAdapter.
 
                 if (connecting) {
                     Intent rfduinoIntent = new Intent(MainActivity.this, RFduinoService.class);
-                    bindService(rfduinoIntent, rfduinoServiceConnection, BIND_AUTO_CREATE);
+                    bindService(rfduinoIntent, rfduinoServiceConnection, BIND_AUTO_CREATE); /**綁定並產生藍芽服務*/
                     mSignalHandler = new SignalHandler();
                     upgradeState(STATE_CONNECTING);
                 } else {
                     mRFduinoService.disconnect();
-                    unbindService(rfduinoServiceConnection);
+                    unbindService(rfduinoServiceConnection);   /**脫離已綁定的RFduinoService，此時自動呼叫RFduinoService的onUnbind方法*/
                     downgradeState(STATE_DISCONNECTED);
                 }// End of if-condition
             }// End of onClick
@@ -1058,8 +1058,6 @@ public class MainActivity extends AppCompatActivity implements BluetoothAdapter.
 
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
-        // TODO Auto-generated method stub
-
     }// End of onAccuracyChanged
 
     class SignalHandler extends Thread {

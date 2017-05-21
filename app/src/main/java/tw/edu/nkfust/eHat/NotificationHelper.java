@@ -29,15 +29,27 @@ public class NotificationHelper {
         PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         notify = new Notification.Builder(context)
-                .setTicker("eHat啟動中...")
+                .setTicker(context.getString(R.string.Activing))
                 .setSmallIcon(R.drawable.notifyp32, 0)
-                .setContentTitle("eHat")
-                .setContentText("回到主頁面")
+                .setContentTitle(context.getString(R.string.app_name))
+                .setContentText(context.getString(R.string.backToMainPage))
                 .setLargeIcon(bmp)
                 .setWhen(System.currentTimeMillis())
                 .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION))
                 .setContentIntent(pendingIntent)
                 .build();
         return notify;
+    }
+    public Notification alarmNotify(Bitmap bmp) {
+        //TODO Auto-generated method stub
+        return null;
+    }
+    public Notification phoneNotify(Bitmap bmp) {
+        //TODO Auto-generated method stub
+        return null;
+    }
+    public Notification navNotify(Bitmap bmp) {
+        //TODO Auto-generated method stub
+        return null;
     }
 }

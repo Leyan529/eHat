@@ -24,7 +24,7 @@ import java.util.UUID;
  * Adapted from:
  * http://developer.android.com/samples/BluetoothLeGatt/src/com.example.android.bluetoothlegatt/BluetoothLeService.html
  */
-public class RFduinoService extends Service {
+public class RFduinoService extends Service { /**綁定型RFduinoService，與Activity建立聯繫*/
 	private final static String TAG = RFduinoService.class.getSimpleName();
 
 	private BluetoothManager mBluetoothManager;
@@ -125,35 +125,35 @@ public class RFduinoService extends Service {
 		}// End of if-condition
 	}// End of broadcastUpdate
 
-	public class LocalBinder extends Binder {
-		RFduinoService getService() {
-			return RFduinoService.this;
+	private final IBinder mBinder = new LocalBinder();
+	public class LocalBinder extends Binder { /**本地綁定者類別*/
+		RFduinoService getService() {  /**getService 回傳本地綁定的服務*/
+			return RFduinoService.this;  /**該Service為Class自己本身*/
 		}// End of getService
 	}// End of LocalBinder
 
 	@Override
-	public IBinder onBind(Intent intent) {
+	public IBinder onBind(Intent intent) { /**回傳綁定者*/
 		return mBinder;
 	}// End of onBind
 
 	@Override
-	public boolean onUnbind(Intent intent) {
+	public boolean onUnbind(Intent intent) { /**取消綁定*/
 		// After using a given device, you should make sure that BluetoothGatt.close() is called such that resources are cleaned up properly.
 		// In this particular example, close() is invoked when the UI is disconnected from the Service.
 		close();
 		return super.onUnbind(intent);
 	}// End of onUnbind
 
-	private final IBinder mBinder = new LocalBinder();
 
 	/**
 	 * Initializes a reference to the local Bluetooth adapter.
 	 * 
 	 * @return Return true if the initialization is successful.
 	 **/
-	public boolean initialize() {
+	public boolean initialize() {   /**藍芽服務初始化 */   //需同時取得藍芽系統管理員及檢查開啟藍芽功能，其中一項不符則初始化失敗
 		// For API level 18 and above, get a reference to BluetoothAdapter through BluetoothManager.
-		if (mBluetoothManager == null) {
+		if (mBluetoothManager == null) {   /**判斷受否取得藍芽系統管理員*/
 			mBluetoothManager = (BluetoothManager) getSystemService(Context.BLUETOOTH_SERVICE);
 
 			if (mBluetoothManager == null) {
@@ -162,7 +162,7 @@ public class RFduinoService extends Service {
 			}// End of if-condition
 		}// End of if-condition
 
-		mBluetoothAdapter = mBluetoothManager.getAdapter();
+		mBluetoothAdapter = mBluetoothManager.getAdapter();  /**檢查手機是否開啟藍芽裝置*/
 
 		if (mBluetoothAdapter == null) {
 			Log.e(TAG, "Unable to obtain a BluetoothAdapter.");
@@ -183,7 +183,7 @@ public class RFduinoService extends Service {
 	 *         {@code BluetoothGattCallback#onConnectionStateChange(android.bluetooth.BluetoothGatt, int, int)}
 	 *         callback.
 	 **/
-	public boolean connect(final String address) {
+	public boolean connect(final String address) { /**藍芽服務連接測試 */
 		if (mBluetoothAdapter == null || address == null) {
 			Log.w(TAG, "BluetoothAdapter not initialized or unspecified address.");
 			return false;
@@ -195,11 +195,11 @@ public class RFduinoService extends Service {
 			return mBluetoothGatt.connect();
 		}// End of if-condition
 
-		final BluetoothDevice device = mBluetoothAdapter.getRemoteDevice(address);
+		final BluetoothDevice device = mBluetoothAdapter.getRemoteDevice(address); /** 1.取得藍芽裝置的資訊*/
 		// We want to directly connect to the device, so we are setting the autoConnect parameter to false.
-		mBluetoothGatt = device.connectGatt(this, false, mGattCallback);
+		mBluetoothGatt = device.connectGatt(this, false, mGattCallback); /**   2.連接成功取得藍芽連接協定gatt*/
 		Log.d(TAG, "Trying to create a new connection.");
-		mBluetoothDeviceAddress = address;
+		mBluetoothDeviceAddress = address; /**   3.藍芽裝置位址資訊對稱更新*/
 		return true;
 	}// End of connect
 

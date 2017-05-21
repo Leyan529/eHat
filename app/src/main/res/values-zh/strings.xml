@@ -87,5 +87,7 @@
     <string name="toast_NavigationModeOpen">導航模式開啟</string>
     <string name="PageLoding">頁面加載中...</string>
     <string name="textOfMenuItem_Show">查看</string>
+    <string name="Activing">eHat啟動中...</string>
+    <string name="backToMainPage">回到主頁面</string>
 
 </resources>
