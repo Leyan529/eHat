@@ -89,5 +89,7 @@
     <string name="textOfMenuItem_Show">查看</string>
     <string name="Activing">eHat啟動中...</string>
     <string name="backToMainPage">回到主頁面</string>
+    <string name="action_settings">設定</string>
+    <string name="title_activity_test_call">TestCallActivity</string>
 
 </resources>

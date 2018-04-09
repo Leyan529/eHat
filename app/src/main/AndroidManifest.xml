@@ -3,7 +3,7 @@
     package="tw.edu.nkfust.eHat"
     android:installLocation="auto"
     android:versionCode="1"
-    android:versionName="@string/app_version">
+    android:versionName="20170526_V01">
 
     <uses-sdk
         android:minSdkVersion="18"

@@ -928,6 +928,13 @@ public class MainActivity extends AppCompatActivity implements BluetoothAdapter.
                             buttonOfFavorite.setVisibility(View.VISIBLE);
                             buttonOfPath.setVisibility(View.VISIBLE);
                             buttonOfSport.setVisibility(View.VISIBLE);
+                            try {
+                                LatLng latLng = mMapHelper.presentLatLng();
+                                mMapHelper.updateMap(latLng.latitude,latLng.longitude);
+                            } catch (Exception e) {
+                                mMapHelper.updateMap(22.754519, 120.333249);// 高雄第一科技大學
+                                Toast.makeText(MainActivity.this, "地圖目標移動錯誤", Toast.LENGTH_SHORT).show();
+                            }
                         } else {
                             buttonOfSearchBar.setVisibility(View.GONE);
                             buttonOfFavorite.setVisibility(View.GONE);

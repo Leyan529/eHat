@@ -62,6 +62,7 @@ public class MapHelper extends AppCompatActivity implements LocationListener {
         mLocationManager = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
         mConnectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         networkInfo = mConnectivityManager.getActiveNetworkInfo();// 若未連線, mNetworkInfo = null
+        initialize();
     }// End of structure
 
     public void initialize() {
@@ -70,15 +71,21 @@ public class MapHelper extends AppCompatActivity implements LocationListener {
             //criteria.setAccuracy(Criteria.ACCURACY_FINE);
             criteria.setAltitudeRequired(false);// 不要求海拔
             criteria.setBearingRequired(false);// 不要求方位
-            criteria.setPowerRequirement(Criteria.POWER_HIGH);// 高功耗
+            criteria.setPowerRequirement(Criteria.POWER_LOW);// 高功耗
             geocoder = new Geocoder(context, Locale.TRADITIONAL_CHINESE); // 台灣
             theBestProvider = mLocationManager.getBestProvider(criteria, true);
             mLocationManager.requestLocationUpdates(theBestProvider, 0, 0, this);// 週期性監聽位置的狀態
-            DownloadTask locatTask = new DownloadTask();
-            locatTask.execute();
+            //presentLatLng();
+            //DownloadTask locatTask = new DownloadTask();
+            //locatTask.execute();
 
-            /*if (localLatLng != null) updateMap(localLatLng.latitude, localLatLng.longitude);// 使用者位址
-            else updateMap(22.754519, 120.333249);// 高雄第一科技大學*/
+            /*try {
+                if (localLatLng != null) updateMap(localLatLng.latitude, localLatLng.longitude);// 使用者位址
+                else updateMap(22.754519, 120.333249);// 高雄第一科技大學
+            } catch (Exception e) {
+                Toast.makeText(context, "地圖目標移動錯誤", Toast.LENGTH_SHORT).show();
+            }*/
+
         }// End of if-condition
     }// End of initialize
 

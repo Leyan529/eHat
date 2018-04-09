@@ -1,6 +1,20 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        debug {
+            keyAlias 'androiddebugkey'
+            keyPassword 'android'
+            storeFile file('E:/Program/Eclipse/Android/SingingKeys/eHat/debug')
+            storePassword 'android'
+        }
+        config {
+            keyAlias 'release'
+            keyPassword 'android'
+            storePassword 'android'
+            storeFile file('E:/Program/Eclipse/Android/SingingKeys/eHat/release/release.keystore.jks')
+        }
+    }
     compileSdkVersion 25
     buildToolsVersion '25.0.3'
     //compileOptions.encoding = 'windows-1251' // write your encoding here
@@ -19,6 +33,10 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+            signingConfig signingConfigs.config
+        }
+        debug {
+            signingConfig signingConfigs.debug
         }
     }
     productFlavors {
